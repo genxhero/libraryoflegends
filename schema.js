@@ -1,6 +1,5 @@
 const graphql = require('graphql');
-
-const _ = require('lodash');
+const axios = require('axios');
 const {
    GraphQLObjectType,
    GraphQLString,
@@ -8,15 +7,7 @@ const {
    GraphQLSchema
 } = graphql;
 
-const users = [
-  {id: '23', username: "butter", email: "butter@mail.com"},
-  {id: '1', username: "FierySwagger", email: "flaymeout@mail.com" },
-];
 
-const chars = [
-    { id: '5', firstName: "Firion" },
-    { id: '7', firstName: "Richard" },
-];
 
 const UserType = new GraphQLObjectType({
   name: "User",
@@ -31,7 +22,11 @@ const CharType = new GraphQLObjectType({
    name: "Character",
    fields: {
      id: { type: GraphQLString },
+     userId: { type: GraphQLString },
      firstName: { type: GraphQLString },
+     lastName: { type: GraphQLString },
+     class: { type: GraphQLString },
+     level: {type: GraphQLInt}
    }
 });
 
@@ -42,14 +37,16 @@ const RootQuery = new GraphQLObjectType({
             type: UserType,
             args: { id: { type: GraphQLString }},
             resolve(parentValue, args){
-                return _.find(users, { id: args.id } );
+                return axios.get(`http://localhost:3000/users/${args.id}`).then(res => res.data);
+                //result is nested inside of "data". Graphql doesn't know this. That is why we need to grab
+                //res.data
             }
         },
         character: {
             type: CharType,
             args: { id: { type: GraphQLString } },
             resolve(parentValue, args) {
-                return _.find(chars, { id: args.id });
+                return axios.get(`http://localhost:3000/characters/${args.id}`).then(res => res.data);
             }
         }
     }
