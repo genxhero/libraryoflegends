@@ -4,10 +4,51 @@
         {"id": "2", "username": "Butter", "email": "butter@gmail.com"}
     ],
     "characters":[
-        {"id": "1", "userId":"1",  "firstName": "Firion", "lastName": "Windrunner", "class": "Rogue", "level": 20},
-        {"id": "2", "userId":"1",  "firstName": "Jahalthar", "lastName": "Powell", "class": "Cleric", "level": 20},
-        {"id": "3", "userId":"2",  "firstName": "Larold", "lastName": "von Troughton", "class": "Fighter", "level": 20},
-        {"id": "4", "userId": "2", "firstName": "Chuck", "lastName": "Reever", "class": "Ranger", "level": 20},
-        {"id": "5", "userId": "2", "firstName": "Kam", "lastName": "Ieilah", "class": "Monk", "level": 20}
+        {
+            "id": "1", 
+            "userId":"1",  
+            "firstName": "Firion", 
+            "lastName": "Windrunner", 
+            "class": "Rogue", 
+            "level": 20
+        }
+        ,
+        
+        
+        {
+            "id": "2", 
+            "userId":"1",  
+            "firstName": "Jahalthar", 
+            "lastName": "Powell", 
+            "class": "Cleric", 
+            "level": 20
+        },
+        
+        {
+            "id": "3", 
+            "userId":"2",  
+            "firstName": "Larold", 
+            "lastName": "von Troughton", 
+            "class": "Fighter", 
+            "level": 20
+        },
+        
+        {
+            "id": "4", 
+            "userId": "2", 
+            "firstName": "Chuck", 
+            "lastName": "Reever", 
+            "class": "Ranger", 
+            "level": 20
+        },
+        
+        {
+            "id": "5", 
+            "userId": "2", 
+            "firstName": "Kam", 
+            "lastName": "Ieilah", 
+            "class": "Monk", 
+            "level": 20
+        }
     ]
 }
