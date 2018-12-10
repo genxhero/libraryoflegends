@@ -5,7 +5,8 @@ const {
    GraphQLString,
    GraphQLInt,
    GraphQLList,
-   GraphQLSchema
+   GraphQLSchema,
+   GraphQLNonNull
 } = graphql;
 
 
@@ -70,20 +71,74 @@ const mutation = new GraphQLObjectType({
       addCharacter: {
           type: CharType,
           args: {
-              id: { type: GraphQLString },
+              //validations: new GraphQLNonNull(GraphQLString)
               userId: { type: GraphQLString },
               firstName: {type: GraphQLString },
               lastName: { type: GraphQLString },
               class: { type: GraphQLString },
               level: { type: GraphQLInt },
           },
-          resolve(){
+          resolve(parentValue, args){
+               return axios.post(`http://localhost:3000/characters`, args)
+               .then(res => res.data);
+          }
+      },
 
+      addUser: {
+          type: UserType,
+          args: {
+              //validations: new GraphQLNonNull(GraphQLString)
+              username: { type: GraphQLString },
+              email: { type: GraphQLString },
+          },
+          resolve(parentValue, args) {
+              return axios.post(`http://localhost:3000/users`, args)
+                  .then(res => res.data);
+          }
+      },
+
+      updateCharacter:{
+        type: CharType,
+        args: {
+            id: {type: new GraphQLNonNull(GraphQLString)},
+            firstName: { type: GraphQLString },
+            lastName: { type: GraphQLString },
+            class: { type: GraphQLString },
+            level: { type: GraphQLInt },
+        },
+        resolve(parentValue, args){
+            return axios.patch(`http://localhost:3000/characters/${args.id}`, args)
+            .then(res => res.data);
+        }
+      },
+
+      updateUser: {
+          type: UserType,
+          args: {
+              id: { type: new GraphQLNonNull(GraphQLString) },
+              username: { type: GraphQLString },
+              email: { type: GraphQLString },
+          },
+          resolve(parentValue, args) {
+              return axios.patch(`http://localhost:3000/users/${args.id}`, args)
+                  .then(res => res.data);
+          }
+      },
+
+      deleteCharacter: {
+          type: CharType,
+          args: {
+              id: {type: new GraphQLNonNull(GraphQLString) }
+          },
+          resolve(parentValue, {id}){
+              return axios.delete(`http://localhost:3000/characters/${id}`)
+              .then(res => res.data);
           }
       }
   }
 });
 
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
+  mutation: mutation
 });
