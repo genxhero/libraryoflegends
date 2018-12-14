@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const graphql = require('graphql');
 const axios = require('axios');
 const mongoose = require("mongoose");
@@ -9,11 +10,11 @@ const {
    GraphQLSchema,
    GraphQLNonNull
 } = graphql;
-const mutation = require('./mutations');
+const mutations = require('./mutations');
 const RootQuery = require('./root_query_type');
 
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
-  mutation: mutation
+  mutation: mutations
 });
