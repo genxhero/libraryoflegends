@@ -13,7 +13,7 @@ const StatLine = new Schema({
 const CharSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: "user"
+    ref: 'user'
   },
   firstName: { type: String },
   lastName: { type: String },

@@ -1,11 +1,12 @@
 const graphql = require('graphql');
-const axios = require('axios');
 const mongoose = require("mongoose");
 const User = mongoose.model("user");
 const Character = mongoose.model("character");
 const UserType = require("./user_type");
 const CharType = require("./char_type");
 const StatLineType = require("./statline_type");
+const axios = require("axios");
+
 const {
     GraphQLObjectType,
     GraphQLString,

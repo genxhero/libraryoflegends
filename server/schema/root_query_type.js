@@ -1,5 +1,4 @@
 const graphql = require('graphql');
-const axios = require('axios');
 const mongoose = require("mongoose");
 const {
     GraphQLObjectType,
@@ -9,11 +8,11 @@ const {
     GraphQLSchema,
     GraphQLNonNull
 } = graphql;
+const User = mongoose.model("user");
+const Char = mongoose.model("character");
 const UserType = require('./user_type');
 const CharType = require('./char_type');
-const User = mongoose.model('user');
-const Char = mongoose.model('character');
-
+const axios = require("axios");
 
 const RootQuery = new GraphQLObjectType({
     name: "RootQueryType",

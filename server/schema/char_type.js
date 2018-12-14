@@ -11,6 +11,7 @@ const {
 } = graphql;
 
 const Char = mongoose.model('character');
+const User = mongoose.model('user');
 const StatLine = require('./statline_type');
 
 
@@ -24,13 +25,18 @@ const CharType = new GraphQLObjectType({
         level: { type: GraphQLInt },
         statline: { type: StatLine },
         user: {
-            type: UserType,
-            resolve(parentValue, args) {
-                return axios.get(`http://localhost:3000/users/${parentValue.userId}`)
-                    .then(res => res.data);
+            type: require('./user_type'),
+            resolve(parentValue) {
+                // return axios.get(`http://localhost:3000/users/${parentValue.userId}`)
+                //     .then(res => res.data);
+                return Char.findById(parentValue).populate('user')
+                .then(char => {
+                     return char.user;
+                });
             }
         }
     })
 });
+
 
 module.exports = CharType;

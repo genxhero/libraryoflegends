@@ -1,5 +1,4 @@
 const graphql = require('graphql');
-const axios = require('axios');
 const mongoose = require("mongoose");
 const {
     GraphQLObjectType,
@@ -10,6 +9,9 @@ const {
     GraphQLNonNull
 } = graphql;
 const User = mongoose.model("user");
+const Char = mongoose.model("character");
+const axios = require("axios");
+
 
 const UserType = new GraphQLObjectType({
     name: "User",
