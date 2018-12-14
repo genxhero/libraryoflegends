@@ -10,8 +10,8 @@ const {
    GraphQLSchema,
    GraphQLNonNull
 } = graphql;
-const mutations = require('./mutations');
 const RootQuery = require('./root_query_type');
+const mutations = require("./mutations");
 
 
 module.exports = new GraphQLSchema({

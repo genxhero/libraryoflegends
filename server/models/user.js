@@ -31,4 +31,4 @@ UserSchema.statics.findChars = function (id) {
         .then(user => user.characters);
 }
 
-mongoose.model('user', UserSchema);
+mongoose.model("user", UserSchema);

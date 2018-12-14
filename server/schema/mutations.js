@@ -1,20 +1,19 @@
 const graphql = require('graphql');
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLInt,
+  GraphQLList,
+  GraphQLSchema,
+  GraphQLNonNull
+} = graphql;
 const mongoose = require("mongoose");
-const User = mongoose.model("user");
-const Character = mongoose.model("character");
+const User = require('../models/user');
+const Char = require('../models/character');
 const UserType = require("./user_type");
 const CharType = require("./char_type");
 const StatLineType = require("./statline_type");
 const axios = require("axios");
-
-const {
-    GraphQLObjectType,
-    GraphQLString,
-    GraphQLInt,
-    GraphQLList,
-    GraphQLSchema,
-    GraphQLNonNull
-} = graphql;
 
 const mutation = new GraphQLObjectType({
     name: 'Mutation',
