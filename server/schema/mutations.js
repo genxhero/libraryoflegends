@@ -5,15 +5,30 @@ const {
   GraphQLInt,
   GraphQLList,
   GraphQLSchema,
-  GraphQLNonNull
+  GraphQLNonNull,
+  GraphQLInputObjectType,
+  GraphQLID
 } = graphql;
 const mongoose = require("mongoose");
-const User = require('../models/user');
-const Char = require('../models/character');
+// const User = require('../models/user');
+const User = mongoose.model('user');
+const Char = mongoose.model("character");
 const UserType = require("./user_type");
 const CharType = require("./char_type");
 const StatLineType = require("./statline_type");
 const axios = require("axios");
+
+const StatLineInput = new GraphQLInputObjectType({
+  name: "StatLineInput",
+  fields: () => ({
+    strength: { type: GraphQLInt },
+    dexterity: { type: GraphQLInt },
+    constitution: { type: GraphQLInt },
+    intelligence: { type: GraphQLInt },
+    wisdom: { type: GraphQLInt },
+    charisma: { type: GraphQLInt }
+  })
+});
 
 const mutation = new GraphQLObjectType({
     name: 'Mutation',
@@ -22,17 +37,20 @@ const mutation = new GraphQLObjectType({
             type: CharType,
             args: {
                 //validations: new GraphQLNonNull(GraphQLString)
-                userId: { type: GraphQLString },
+                userId: { type: GraphQLID },
                 firstName: { type: GraphQLString },
                 lastName: { type: GraphQLString },
                 class: { type: GraphQLString },
                 level: { type: GraphQLInt },
-                statline: {type: StatLineType}
+                statline: {type: StatLineInput}
+                // user: {type: UserType}
             },
             resolve(parentValue, args) {
                 // return axios.post(`http://localhost:3000/characters`, args)
                 //     .then(res => res.data);
-                return new Character(args).save();
+                const { userId, ...rest } = args
+                console.log("THE REST:", rest);
+                return User.addChar(userId, rest);
             }
         },
 
@@ -44,8 +62,7 @@ const mutation = new GraphQLObjectType({
                 email: { type: GraphQLString },
             },
             resolve(parentValue, args) {
-                return axios.post(`http://localhost:3000/users`, args)
-                    .then(res => res.data);
+                return new User(args).save();
             }
         },
 

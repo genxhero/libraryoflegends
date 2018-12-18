@@ -10,8 +10,8 @@ const {
     GraphQLNonNull
 } = graphql;
 
-const Char = mongoose.model('character');
-const User = mongoose.model('user');
+const User = require('../models/user');
+const Char = require('../models/character');
 const StatLine = require('./statline_type');
 
 
@@ -29,8 +29,10 @@ const CharType = new GraphQLObjectType({
             resolve(parentValue) {
                 // return axios.get(`http://localhost:3000/users/${parentValue.userId}`)
                 //     .then(res => res.data);
+                debugger;
                 return Char.findById(parentValue).populate('user')
                 .then(char => {
+                    console.log(char);
                      return char.user;
                 });
             }

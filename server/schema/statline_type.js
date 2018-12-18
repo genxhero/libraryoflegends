@@ -11,7 +11,7 @@ const {
 } = graphql;
 
 const StatLine = new GraphQLObjectType({
-  name: "AbilityScores",
+  name: 'StatLine',
   fields: {
     strength: { type: GraphQLInt },
     dexterity: { type: GraphQLInt },

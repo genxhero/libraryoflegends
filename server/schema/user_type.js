@@ -9,8 +9,8 @@ const {
 } = graphql;
 const CharType = require('./char_type');
 const mongoose = require("mongoose");
-const User = mongoose.model("user");
-const Char = mongoose.model("character");
+const User = require('../models/user');
+const Char = require('../models/character');
 const axios = require("axios");
 
 

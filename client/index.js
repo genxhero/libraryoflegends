@@ -1,19 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory, IndexRoute } from "react-router";
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+import CharsIndex from './components/chars_index';
 
 
-const client = new ApolloClient({})
+const client = new ApolloClient({});
 //COnfiguration objects
 
 const Root = () => {
     return (
-<ApolloProvider client={client}>
-    <div>Butt</div>
-</ApolloProvider>
+        <ApolloProvider client={client}>
+            <CharsIndex />
+        </ApolloProvider>
     );
-}
+};
 
 ReactDOM.render(
     <Root />,

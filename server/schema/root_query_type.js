@@ -1,3 +1,6 @@
+const mongoose = require("mongoose");
+const User = require('../models/user');
+const Char = require('../models/character');
 const graphql = require('graphql');
 const {
   GraphQLObjectType,
@@ -7,9 +10,7 @@ const {
   GraphQLSchema,
   GraphQLNonNull
 } = graphql;
-const mongoose = require("mongoose");
-const User = require('../models/user');
-const Char =  require('../models/character');
+
 const UserType = require('./user_type');
 const CharType = require('./char_type');
 const axios = require("axios");
@@ -26,10 +27,19 @@ const RootQuery = new GraphQLObjectType({
                 //result is nested inside of "data". Graphql doesn't know this. That is why we need to grab res.data
             }
         },
+
+        users: {
+            type: new GraphQLList(UserType),
+            resolve(){
+                console.log(User);
+                return User.find({});
+            }
+        },
         character: {
             type: CharType,
             args: { id: { type: GraphQLString } },
             resolve(parentValue, args) {
+                console.log(Char);
                 return Char.findById(args.id);
                 // return axios.get(`http://localhost:3000/characters/${args.id}`).then(res => res.data);
             }
