@@ -21,6 +21,7 @@ class PersonalPane extends Component {
 
     passTheProps(){
         //please pass the props please
+        event.preventDefault();
         this.props.nextPane(this.state)
     }
 

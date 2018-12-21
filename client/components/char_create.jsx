@@ -15,7 +15,10 @@ class CharCreate extends Component {
             constitution: 10,
             intelligence: 10,
             wisdom: 10,
-            charisma: 10
+            charisma: 10,
+            personalDone: false,
+            ancestryDone: false,
+            classDone: false,
         }
         this.applyPersonal = this.applyPersonal.bind(this);
         this.applyAncestry = this.applyAncestry.bind(this);
@@ -29,22 +32,43 @@ class CharCreate extends Component {
             firstName: personal.firstName,
             lastName: personal.lastName,
             bio: personal.bio,
-            gender: personal.gender
-
+            personalDone: true
         });
     }
 
     applyAncestry(personal){
         this.setState({
             pane: this.state.pane + 1,
-
+            strength: this.state.strength + personal.strength,
+            dexterity: this.state.dexterity + personal.dexterity,
+            constitution: this.state.constitution + personal.constitution,
+            intelligence: this.state.intelligence + personal.intelligence,
+            wisdom: this.state.wisdom + personal.wisdom,
+            charisma: this.state.charisma + personal.charisma,
+            ancestryDone: true
         });
+    }
+
+    save(){
+
     }
 
   render() {
     return (
       <div className="char-creation-page">
         {this.panes[this.state.pane]}
+        <div className="stats-tally">
+            <div className="stat-single">STR: {this.state.strength}</div>
+            <div className="stat-single">DEX: {this.state.dexterity} </div>
+            <div className="stat-single">CON: {this.state.constitution}</div> 
+            <div className="stat-single">INT: {this.state.wisdom}</div>
+            <div className="stat-single">CHA: {this.state.charisma}</div>
+        </div>
+        <div className="personal-tally">
+              <div>{this.state.firstName}</div>
+              <div>{this.state.lastName}</div>
+              <p>{this.state.bio}</p>
+        </div>
       </div>
     )
   }
