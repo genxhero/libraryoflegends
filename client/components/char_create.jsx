@@ -26,7 +26,7 @@ class CharCreate extends Component {
     }
 
     applyPersonal(personal){
-        debugger;
+    
         this.setState({
             pane: this.state.pane + 1,
             firstName: personal.firstName,

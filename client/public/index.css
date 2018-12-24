@@ -30,6 +30,10 @@
 
 }
 
+.greenie{
+   color: forestgreen;
+}
+
 .stats-tally {
   display: flex;
   flex-direction: column;
