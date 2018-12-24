@@ -1,3 +1,7 @@
+.be-capitalized {
+  text-transform: capitalize;
+}
+
 .chars-spread {
   list-style: none;
   display: flex;
@@ -32,10 +36,17 @@
    padding: 10px;
    justify-content: space-between;
    margin: 5px; 
+   width: 500px;
 }
 
 .greenie{
    color: forestgreen;
+}
+
+.tally-pages {
+  display: flex;
+  flex-direction: row;
+  height: 500px;
 }
 
 .stats-tally {
@@ -62,7 +73,7 @@
   width: 300px;
 }
 
-.background-tally {
+.ancestry-tally {
   display: flex;
   flex-direction: column;
   padding: 10px;

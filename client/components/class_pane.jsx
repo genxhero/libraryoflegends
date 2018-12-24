@@ -8,7 +8,7 @@ class ClassPane extends Component {
     render() {
         return (
             <div className="char-creation-pane">
-
+                <p>Placeholder for background</p>           
             </div>
         )
     }

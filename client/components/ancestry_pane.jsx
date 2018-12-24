@@ -24,22 +24,7 @@ class AncestryPane extends Component {
         this.elfChoices = this.elfChoices.bind(this);
     }
 
-    selectFreeb(){
-        let newArr = this.state.freebs;
-        newArr.push(event.target.value);
-        this.setState({
-            freebs: newArr
-        });
 
-    }
-
-    deselectFreeb(){
-        let newArr = this.state.freebs;
-        newArr.splice(newArr.indexOf(event.target.value), 1);
-        this.setState({
-            freebs: newArr
-        });
-    }
 
     displayChoices(){
         // debugger;
@@ -59,12 +44,22 @@ class AncestryPane extends Component {
         //please pass the props please
         // debugger;
         event.preventDefault();
-        this.props.nextPane(this.state)
+        const  newState = this.state;
+        for (let i = 0; i < newState.freebs.length; i++){
+            newState[newState.freebs[i]] = 2;
+        }
+
+        switch (newState.selected){
+            case "elf":
+            newState["dexterity"] = 2;
+            newState["intelligence"] = 2;
+            newState["constitution"] = -2;
+        }
+        this.props.nextPane(newState);
     }
 
     changeSelection(event){
         let ass = "ass";
-        debugger;
         if (event.target.name === "freebie-selector"){
             let newArr = [event.target.value];
             console.log("new Freebs:", newArr);
@@ -107,6 +102,7 @@ class AncestryPane extends Component {
             <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
            
             <select name="freebie-selector">
+                    <option value="blank"></option>
                     <option value="strength">Strength</option>
                     <option value="wisdom">Wisdom</option>
                     <option value="charisma">Charisma</option>

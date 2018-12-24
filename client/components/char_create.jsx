@@ -19,10 +19,13 @@ class CharCreate extends Component {
             personalDone: false,
             ancestryDone: false,
             classDone: false,
+            ancestry: ""
         }
         this.applyPersonal = this.applyPersonal.bind(this);
         this.applyAncestry = this.applyAncestry.bind(this);
-        this.panes = [<PersonalPane nextPane={this.applyPersonal} />, <AncestryPane nextPane={this.applyAncestry} />, <BackgroundPane nextPane={this.shiftPane} />, <ClassPane nextPane={this.shiftPane}/>];
+        this.applyBackround = this.applyAncestry.bind(this);
+        this.applyClass = this.applyClass.bind(this);
+        this.panes = [<PersonalPane nextPane={this.applyPersonal} />, <AncestryPane nextPane={this.applyAncestry} />, <BackgroundPane nextPane={this.applyBackround} />, <ClassPane nextPane={this.applyClass}/>];
     }
 
     applyPersonal(personal){
@@ -36,17 +39,27 @@ class CharCreate extends Component {
         });
     }
 
-    applyAncestry(personal){
+    applyAncestry(ancestry){
+        debugger;
         this.setState({
             pane: this.state.pane + 1,
-            strength: this.state.strength + personal.strength,
-            dexterity: this.state.dexterity + personal.dexterity,
-            constitution: this.state.constitution + personal.constitution,
-            intelligence: this.state.intelligence + personal.intelligence,
-            wisdom: this.state.wisdom + personal.wisdom,
-            charisma: this.state.charisma + personal.charisma,
+            strength: this.state.strength + ancestry.strength,
+            dexterity: this.state.dexterity + ancestry.dexterity,
+            constitution: this.state.constitution + ancestry.constitution,
+            intelligence: this.state.intelligence + ancestry.intelligence,
+            wisdom: this.state.wisdom + ancestry.wisdom,
+            charisma: this.state.charisma + ancestry.charisma,
+            ancestry: ancestry.selected,
             ancestryDone: true
         });
+    }
+
+    applyBackround(background){
+
+    }
+
+    applyClass(classPojo){
+
     }
 
     save(){
@@ -57,17 +70,30 @@ class CharCreate extends Component {
     return (
       <div className="char-creation-page">
         {this.panes[this.state.pane]}
-        <div className="stats-tally">
-            <div className="stat-single">STR: {this.state.strength}</div>
-            <div className="stat-single">DEX: {this.state.dexterity} </div>
-            <div className="stat-single">CON: {this.state.constitution}</div> 
-            <div className="stat-single">INT: {this.state.wisdom}</div>
-            <div className="stat-single">CHA: {this.state.charisma}</div>
-        </div>
-        <div className="personal-tally">
-              <div>{this.state.firstName}</div>
-              <div>{this.state.lastName}</div>
-              <p>{this.state.bio}</p>
+     
+
+        <div className="tally-pages">
+            <div className="stats-tally">
+                <h3 className="page-header">Ability Scores</h3>
+                <div className="stat-single">STR: {this.state.strength}</div>
+                <div className="stat-single">DEX: {this.state.dexterity} </div>
+                <div className="stat-single">CON: {this.state.constitution}</div> 
+                <div className="stat-single">INT: {this.state.intelligence}</div>
+                <div className="stat-single">WIS: {this.state.wisdom}</div>
+                <div className="stat-single">CHA: {this.state.charisma}</div>
+            </div>
+            <div className="personal-tally">
+                <h3 className="page-header">Biography</h3>
+                <div>First Name: <span className="be-capitalized">{this.state.firstName}</span> </div>
+                <div>Last Name: <span className="be-capitalized">{this.state.lastName}</span> </div>
+                <p>{this.state.bio}</p>
+            </div>
+
+            <div className="ancestry-tally"> 
+                <h3 className="page-header">Ancestry</h3>
+                <div>Ancestry: <span className="be-capitalized"> {this.state.ancestry}</span> </div>
+                <div>Eventually, this area will be filled with a snippet depending on the ancstry chosen, perhaps making a graphql call to my mongo database. who knows. Mongo only pawn in game of life.</div>     
+            </div>
         </div>
       </div>
     )
