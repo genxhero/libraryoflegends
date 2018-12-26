@@ -40,7 +40,6 @@ class CharCreate extends Component {
     }
 
     applyAncestry(ancestry){
-        debugger;
         this.setState({
             pane: this.state.pane + 1,
             strength: this.state.strength + ancestry.strength,

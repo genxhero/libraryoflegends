@@ -24,23 +24,71 @@ class BackgroundPane extends Component {
         super(props);
         this.backgrounds = {
             blacksmith: BLACKSMITH,
-            farmer: FARMHAND
+            farmhand: FARMHAND
         }
         this.passTheProps = this.passTheProps.bind(this);
         this.firstChoice = this.firstChoice.bind(this);
         this.describeMeMaybe = this.describeMeMaybe.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.secondChoice = this.secondChoice.bind(this);
         this.state = {
-            background: {}
+            strength: 0,
+            dexterity: 0,
+            constitution: 0,
+            intelligence: 0,
+            wisdom: 0,
+            charisma: 0
         }
     }
 
     firstChoice(event){
+        debugger;
+       if (this.state.chosen === true) {
 
+        return (
+        <div>
+            <select className="freebie-selector" name="background-freebs-first">
+                     <option value="blank"></option>
+                     <option value={this.state.background.mustHaves[0]}>{this.state.background.mustHaves[0]}</option>
+                     <option value={this.state.background.mustHaves[1]}>{this.state.background.mustHaves[1]}</option>
+                 </select>
+        </div>);
+
+       } else {
+           return <div>
+           </div>
+       }
+    }
+
+    secondChoice(event){
+        debugger;
+        if (this.state.firstPicked === true) {
+            const stats = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+
+            return (
+            <div>
+                <select className="freebie-selector" name="background-freebs-second">
+                         <option value="blank"></option>
+                         {
+                             stats.map( (score) => {
+                                 if (score != this.state.firstFreeb ){
+                                    return (<option key={`${score}69`}value={score}><span className="be-capitalized">{score}</span></option>);
+                                 }
+                             })
+                         }
+
+                     </select>
+            </div>);
+    
+           } else {
+               return <div>
+               </div>
+           }
     }
 
     passTheProps(event){
-
+        const newState = this.state;
+        this.props.nextPane(newState);
     }
 
     handleChange(event){
@@ -48,22 +96,61 @@ class BackgroundPane extends Component {
         switch (event.target.name){
             case "background":
             this.setState({
-                background: this.backgrounds[event.target.value]
-            })
+                background: this.backgrounds[event.target.value],
+                chosen: true,
+                strength: 0,
+                dexterity: 0,
+                constitution: 0,
+                intelligence: 0,
+                wisdom: 0,
+                charisma: 0
+            });
+            break;
+            case "background-freebs-first":
+               this.setState({
+                   firstPicked: true,
+                   secondPicked: false,
+                   secondFreeb: "",
+                   firstFreeb: [event.target.value]
+               });
+            break;
+            case "background-freebs-second":
+            this.setState({
+                secondPicked: true,
+                secondFreeb: [event.target.value]
+            });
+         break;
+
         }
 
     }
 
     describeMeMaybe(){
-         if (this.state.background === {}){
-             return <div></div>;
-         } else {
-              return (
+       debugger;
+       console.log("I know I just coded you, and this is crazy, but here's my debug, so describe me, maybe?");
+        if (this.state.background){
+            return (
             <div className="background-description">
-                  <p>{this.state.background.description}</p>
+                <p>{this.state.background.description}</p>
+                <p> Your days as a {this.state.background.name} have granted you a +2 bonus in two ability scores, one of which must be either {this.state.background.mustHaves[0]} or {this.state.background.mustHaves[1]}  </p>
+             </div>
+            );
+        } else {
+          return (
+            <div className="background-description">
+            Desription of background will appear here upon selection.
             </div>
-              );
-         }
+          );
+        }
+    }
+
+    submitMeMaybe(){
+        if (this.state.secondPicked && this.state.firstPicked){
+            return ( 
+                <input type="submit" value="NEXT">
+                </input>
+            )
+        }
     }
 
     render() {
@@ -76,10 +163,13 @@ class BackgroundPane extends Component {
                      <option value="blacksmith">Blacksmith</option>
                     <option value="farmhand">Farmhand</option>
                   </select>
-
+                    {this.describeMeMaybe()}
+                    {this.firstChoice()}
+                    {this.secondChoice()}
+                    {this.submitMeMaybe()}
                 </form>
               
-                    {this.describeMeMaybe}
+
     
             </div>
         )
