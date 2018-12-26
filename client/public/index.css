@@ -26,7 +26,22 @@
   width: 100%;
 }
 
-.char-creation-page{
+.hidden{
+  visibility: hidden;
+}
+
+.char-creation-pane{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  box-sizing: border-box;
+  border: 1px solid;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    left: 25%;
+    padding: 20px;
 
 }
 
@@ -36,8 +51,47 @@
    padding: 10px;
    justify-content: space-between;
    margin: 5px; 
-   width: 500px;
+   width: 100%;
+   height: auto;
 }
+
+
+textarea {
+  margin: 10px;
+  width: 80%;
+  height: 109px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.char-name {
+  font-size: 24px;
+  line-height: 24px;
+  padding: 5px;
+}
+
+input:focus{
+  outline: none;
+}
+
+textarea:focus{
+  outline:none;
+}
+
+
+
+.personal-input {
+  font-weight: 500;
+  font-size: 24px;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+
 
 .greenie{
    color: forestgreen;
@@ -61,6 +115,26 @@
   width: 300px;
 }
 
+.submit{
+  width: 120px;
+  padding: 20px;
+  color: white;
+  background: blue;
+  font-size: 24px;
+  border-radius: 4px;
+}
+
+.submit:hover{
+  background: #748AED;
+  color: lightcyan;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.submit:focus{
+  background: black;
+}
+
 .personal-tally{
   display: flex;
   flex-direction: column;
@@ -74,6 +148,19 @@
 }
 
 .ancestry-tally {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px;
+  font-weight: 500;
+  box-shadow: 2px 2px black;
+  border-radius: 4px;
+  background-image: url("../../images/paperbg.jpg");
+  width: 300px;
+}
+
+
+.background-tally {
   display: flex;
   flex-direction: column;
   padding: 10px;

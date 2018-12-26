@@ -107,7 +107,7 @@ class AncestryPane extends Component {
                     <option value="wisdom">Wisdom</option>
                     <option value="charisma">Charisma</option>
                 </select>
-                <input type="submit" value="Next"></input>
+                <input type="submit" className="submit" value="Next"></input>
         </div>
        );
     }
@@ -139,7 +139,7 @@ class AncestryPane extends Component {
                  <input type="checkbox" name="freebie-checkbox" value="charisma" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("charisma")}/> Charisma
                 </label>
              
-                <input type="submit" value="Next"></input>
+                <input type="submit" className="submit" value="Next"></input>
             </div>
         );
     }

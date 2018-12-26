@@ -29,8 +29,8 @@ class PersonalPane extends Component {
      return (
          <div className="char-creation-pane">
             <form className="char-form" onSubmit={this.passTheProps}>   
-                 <label>
-                    First Name:
+                 <label className="personal-input">
+                    First Name
                     <input className="char-name"
                         value={this.state.firstName}
                         placeholder=""
@@ -38,8 +38,8 @@ class PersonalPane extends Component {
                         onChange={this.update('firstName')}
                     ></input>
                  </label>
-                 <label>
-                 Last Name: 
+                 <label className="personal-input">
+                 Last Name
                     <input className="char-name"
                         value={this.state.lastName}
                         placeholder=""
@@ -50,14 +50,16 @@ class PersonalPane extends Component {
               
 
 
-                 <label>Please provide a brief biography for your character </label>
+                 <label className="personal-input">Biography</label>
                  <textarea className="char-bio"
                      value={this.state.bio}
                      placeholder=""
                      type="text"
                      onChange={this.update('bio')}
                  ></textarea>
-                 <input type="submit" value="NEXT"></input>
+
+             
+                 <input type="submit" className="submit" value="NEXT"></input>
             </form>
           
         </div>

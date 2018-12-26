@@ -42,7 +42,7 @@ class BackgroundPane extends Component {
     }
 
     firstChoice(event){
-        debugger;
+        // debugger;
        if (this.state.chosen === true) {
 
         return (
@@ -61,7 +61,7 @@ class BackgroundPane extends Component {
     }
 
     secondChoice(event){
-        debugger;
+        // debugger;
         if (this.state.firstPicked === true) {
             const stats = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
 
@@ -88,11 +88,14 @@ class BackgroundPane extends Component {
 
     passTheProps(event){
         const newState = this.state;
+        // debugger;
+        newState[newState.firstFreeb[0]] = 2;
+        newState[newState.secondFreeb[0]] = 2;
         this.props.nextPane(newState);
     }
 
     handleChange(event){
-        debugger;
+        // debugger;
         switch (event.target.name){
             case "background":
             this.setState({
@@ -126,7 +129,7 @@ class BackgroundPane extends Component {
     }
 
     describeMeMaybe(){
-       debugger;
+    //    debugger;
        console.log("I know I just coded you, and this is crazy, but here's my debug, so describe me, maybe?");
         if (this.state.background){
             return (
@@ -147,7 +150,7 @@ class BackgroundPane extends Component {
     submitMeMaybe(){
         if (this.state.secondPicked && this.state.firstPicked){
             return ( 
-                <input type="submit" value="NEXT">
+                <input type="submit" className="submit"  value="NEXT">
                 </input>
             )
         }
