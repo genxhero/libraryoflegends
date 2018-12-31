@@ -30,7 +30,7 @@ class PersonalPane extends Component {
          <div className="char-creation-pane">
             <form className="char-form" onSubmit={this.passTheProps}>   
                  <label className="personal-input">
-                    First Name
+                    <span className="label-content">First Name</span>
                     <input className="char-name"
                         value={this.state.firstName}
                         placeholder=""
@@ -39,7 +39,7 @@ class PersonalPane extends Component {
                     ></input>
                  </label>
                  <label className="personal-input">
-                 Last Name
+                 <span className="label-content">Last Name</span>
                     <input className="char-name"
                         value={this.state.lastName}
                         placeholder=""

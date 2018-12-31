@@ -32,6 +32,7 @@
     "mongoose": "^4.7.8",
     "nodemon": "*",
     "passport": "^0.3.2",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "react": "15.4.2",
     "react-apollo": "^0.9.0",
@@ -39,6 +40,7 @@
     "react-router": "^3.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^1.1.2",
+    "validator": "^10.8.0",
     "webpack": "^2.2.0",
     "webpack-dev-middleware": "^1.9.0"
   }

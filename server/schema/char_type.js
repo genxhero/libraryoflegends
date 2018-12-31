@@ -22,6 +22,8 @@ const CharType = new GraphQLObjectType({
         firstName: { type: GraphQLString },
         lastName: { type: GraphQLString },
         class: { type: GraphQLString },
+        ancestry:{ type: GraphQLString },
+        background: {type: GraphQLString},
         level: { type: GraphQLInt },
         statline: { type: StatLine },
         user: {

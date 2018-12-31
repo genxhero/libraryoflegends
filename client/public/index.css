@@ -1,3 +1,9 @@
+.ancestry-choice{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
 .be-capitalized {
   text-transform: capitalize;
 }
@@ -20,6 +26,45 @@
   
 }
 
+.char-bio{
+  border: none;
+  background:rgb(255, 255, 255, .5)
+}
+
+
+.char-submit {
+  padding: 20px;
+    width: 100px;
+    height: 75px;
+    border-bottom: 5px solid;
+    position: relative;
+    top: 0;
+}
+
+.char-submit:hover {
+  cursor: pointer;
+}
+
+.char-submit:focus{
+  outline: none;
+}
+
+.char-submit:active {
+  top: 5px;
+  border: none;
+}
+
+.freebie-choices {
+  display: flex;
+  flex-direction: column;
+}
+
+.freebie-selector {
+  font-weight: bold;
+  color: black;
+  background: aliceblue;
+}
+
 .header {
   height: 50px;
   position: fixed;
@@ -34,6 +79,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: auto;
   box-sizing: border-box;
   border: 1px solid;
@@ -42,6 +88,10 @@
     position: relative;
     left: 25%;
     padding: 20px;
+    background-image: url("../../images/paperbg.jpg");
+    background-size: cover;
+    box-shadow: 3px 3px 3px;
+
 
 }
 
@@ -50,7 +100,9 @@
    flex-direction: column;
    padding: 10px;
    justify-content: space-between;
-   margin: 5px; 
+   align-items: center;
+   margin: 5px;
+   height: 80%; 
    width: 100%;
    height: auto;
 }
@@ -62,12 +114,18 @@ textarea {
   height: 109px;
   font-size: 16px;
   padding: 5px;
+  font-family: cursive;
 }
 
 .char-name {
   font-size: 24px;
+  font-family: cursive;
   line-height: 24px;
   padding: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background:rgb(255, 255, 255, .5)
 }
 
 input:focus{
@@ -86,12 +144,15 @@ textarea:focus{
   margin: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
+
 }
 
-
+.label-content{
+  margin-right: 10px;
+}
 
 .greenie{
    color: forestgreen;

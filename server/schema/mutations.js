@@ -42,8 +42,9 @@ const mutation = new GraphQLObjectType({
                 lastName: { type: GraphQLString },
                 class: { type: GraphQLString },
                 level: { type: GraphQLInt },
-                statline: {type: StatLineInput}
-                // user: {type: UserType}
+                statline: {type: StatLineInput},
+                background: {type: GraphQLString},
+                ancestry: {type: GraphQLString}
             },
             resolve(parentValue, args) {
                 // return axios.post(`http://localhost:3000/characters`, args)
