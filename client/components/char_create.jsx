@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link, hashHistory} from 'react-router';
 import {graphql} from 'react-apollo';
 import { timesSeries } from 'async';
 import AncestryPane from './ancestry_pane';
@@ -104,7 +105,8 @@ class CharCreate extends Component {
              level: 1
 
          }
-       });
+       }).then( () => hashHistory.push('/'))
+       //put catch down here later
     }
 
     saveMeMaybe(){
