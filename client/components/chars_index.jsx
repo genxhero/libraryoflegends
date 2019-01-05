@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import query from '../queries/fetchchars';
 
 class CharsIndex extends Component {
+
+  constructor(props){
+    super(props);
+  }
 
   thStRd(num){
      switch (num){
@@ -16,6 +21,21 @@ class CharsIndex extends Component {
         return "th";
      }
   }
+
+  componentDidMount() {
+     this.setState({
+       characters: this.props.data.characters
+     })
+  }
+
+
+
+  componentWillUpdate(nextProps, nextStat){
+  
+  }
+
+ 
+
 
    charList(characters){
      const timestamp = Date.now();
@@ -36,6 +56,7 @@ class CharsIndex extends Component {
           <h1>LOADING.......</h1>
       </div>);
     }
+  
     const characters = this.props.data.characters;
     return (    
         <div className="chars-spread">
@@ -44,17 +65,6 @@ class CharsIndex extends Component {
    }
 }
 
-const query = gql`
-  {
-    characters {
-      id
-      firstName
-      lastName
-      class
-      level
-    }
-  }
-`;
 
 
 export default graphql(query)(CharsIndex);

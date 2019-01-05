@@ -7,6 +7,8 @@ import BackgroundPane from './background_pane';
 import ClassPane from './class_pane';
 import PersonalPane from './personal_pane';
 import gql from 'graphql-tag';
+import query from '../queries/fetchchars';
+
 
 
 class CharCreate extends Component {
@@ -103,9 +105,9 @@ class CharCreate extends Component {
                  charisma: this.state.charisma
              },
              level: 1
-
-         }
-       }).then( () => hashHistory.push('/'))
+         },
+         refetchQueries: [{ query }]
+       }).then( hashHistory.push('/'));
        //put catch down here later
     }
 

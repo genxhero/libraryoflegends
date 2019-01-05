@@ -47,8 +47,6 @@ const mutation = new GraphQLObjectType({
                 ancestry: {type: GraphQLString}
             },
             resolve(parentValue, args) {
-                // return axios.post(`http://localhost:3000/characters`, args)
-                //     .then(res => res.data);
                 const { userId, ...rest } = args
                 console.log("THE REST:", rest);
                 return User.addChar(userId, rest);
@@ -61,6 +59,7 @@ const mutation = new GraphQLObjectType({
                 //validations: new GraphQLNonNull(GraphQLString)
                 username: { type: GraphQLString },
                 email: { type: GraphQLString },
+                password: {type: GraphQLString }
             },
             resolve(parentValue, args) {
                 return new User(args).save();
