@@ -1,6 +1,34 @@
 import React, { Component } from 'react'
 import { throws } from 'assert';
 
+
+const ACOLYTE = {
+    name: "Acolyte",
+    mustHaves: [
+        "constitution",
+        "wisdom"
+    ],
+    description: "You spent your early days in a religious monastery or cloister. You may have traveled out into the world to spread the message of your religion or because you cast away the teachings of your faith, but deep inside you’ll always carry the lessons you learned."
+}
+
+const ACROBAT = {
+    name: "Acrobat",
+    mustHaves: [
+        "strength",
+        "dexterity"
+    ],
+    description: "In a circus or on the streets, you earned your pay by performing as an acrobat. You might have turned to adventuring when the money dried up, or when you learned to put skills to better use."
+}
+
+const ANIMALWHISPERER = {
+    name: "Animal Whisperer",
+    mustHaves: [
+        "wisdom", 
+        "charisma"
+    ],
+    description: "You have always felt a connection to animals, and it was only a small leap to learn to train them. As you travel, you continuously encounter different creatures, befriending them along the way."
+}
+
 const BLACKSMITH = {
     name: "Blacksmith",
     mustHaves: [
@@ -19,12 +47,17 @@ const FARMHAND = {
     description: "With a strong back and an understanding of seasonal cycles, you tilled the land and tended crops. Your farm could have been razed by invaders, you could have lost the family tying you to the land, or you might have simply tired of the drudgery, but at some point you became an adventurer."
 }
 
+
 class BackgroundPane extends Component {
     constructor(props) {
         super(props);
         this.backgrounds = {
+            acolyte: ACOLYTE,
+            acrobat: ACROBAT,
+            animalwhisperer: ANIMALWHISPERER,
             blacksmith: BLACKSMITH,
-            farmhand: FARMHAND
+            farmhand: FARMHAND,
+
         }
         this.passTheProps = this.passTheProps.bind(this);
         this.firstChoice = this.firstChoice.bind(this);
