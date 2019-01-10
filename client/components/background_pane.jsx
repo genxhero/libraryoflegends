@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { throws } from 'assert';
+import { timeout } from 'async';
 
 
 const ACOLYTE = {
@@ -29,6 +30,15 @@ const ANIMALWHISPERER = {
     description: "You have always felt a connection to animals, and it was only a small leap to learn to train them. As you travel, you continuously encounter different creatures, befriending them along the way."
 }
 
+const BARKEEP = {
+    name: "Barkeep",
+    mustHaves: [
+        "constitution",
+        "charisma"
+    ],
+    description: "You have five specialties: hefting barrels, polishing steins, drinking, drinking, and drinking. You ran or worked in a bar, where you learned how to hold your liquor and rowdily socialize."
+}
+
 const BLACKSMITH = {
     name: "Blacksmith",
     mustHaves: [
@@ -36,6 +46,15 @@ const BLACKSMITH = {
         "intelligence"
     ],
     description: "You were a blacksmith or a blacksmith’s apprentice, and during countless hours toiling at the forge, you learned how to smith armor and weapons. Perhaps you worked hard each day and dreamed of adventure each night, or perhaps the adventuring life was thrust upon you by a pivotal event."
+}
+
+const CRIMINAL = {
+    name: "Criminal",
+    mustHaves: [
+        "dexterity",
+        "intelligence"
+    ],
+    description: "As an unscrupulous independent or as a member of an underworld organization, you lived a life of crime. You might have become an adventurer to seek redemption, to escape the law, or simply to get access to bigger and better loot."
 }
 
 const FARMHAND = {
@@ -54,9 +73,11 @@ class BackgroundPane extends Component {
         this.backgrounds = {
             acolyte: ACOLYTE,
             acrobat: ACROBAT,
+            barkeep: BARKEEP,
+            criminal: CRIMINAL,
             animalwhisperer: ANIMALWHISPERER,
             blacksmith: BLACKSMITH,
-            farmhand: FARMHAND,
+            farmhand: FARMHAND
 
         }
         this.passTheProps = this.passTheProps.bind(this);
@@ -132,7 +153,7 @@ class BackgroundPane extends Component {
         switch (event.target.name){
             case "background":
             this.setState({
-                background: this.backgrounds[event.target.value],
+                background: this.backgrounds[event.target.value.toLowerCase().replace(/\s/g, '')],
                 chosen: true,
                 strength: 0,
                 dexterity: 0,
@@ -190,14 +211,22 @@ class BackgroundPane extends Component {
     }
 
     render() {
+        // debugger;
         return (
             <div className="char-creation-pane">
                 <p>Please select a background for your character from the dropdown list.</p>
                 <form onSubmit={this.passTheProps} onChange={this.handleChange}> 
                   <select className="bg-selector" name="background">
                      <option value="blank"></option>
-                     <option value="blacksmith">Blacksmith</option>
-                    <option value="farmhand">Farmhand</option>
+                     {
+                       Object.values(this.backgrounds).map( (bg) => 
+                       <option key={`${Date.now}${bg.name}`}
+                               value={`${bg.name}`}
+                       >
+                       {bg.name}
+                       </option>
+                       )
+                       }
                   </select>
                     {this.describeMeMaybe()}
                     {this.firstChoice()}
