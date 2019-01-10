@@ -57,6 +57,15 @@ const CRIMINAL = {
     description: "As an unscrupulous independent or as a member of an underworld organization, you lived a life of crime. You might have become an adventurer to seek redemption, to escape the law, or simply to get access to bigger and better loot."
 }
 
+const ENTERTAINER = {
+    name: "Entertainer",
+    mustHaves: [
+        "dexterity",
+        "charisma"
+    ],
+    description: "Through an education in the arts or sheer, dogged practice, you learned to entertain crowds. You might have been an actor, a dancer, a musician, a magician, or any other sort of performer."
+}
+
 const FARMHAND = {
     name: "Farmhand",
     mustHaves: [
@@ -74,6 +83,7 @@ class BackgroundPane extends Component {
             acolyte: ACOLYTE,
             acrobat: ACROBAT,
             barkeep: BARKEEP,
+            entertainer: ENTERTAINER,
             criminal: CRIMINAL,
             animalwhisperer: ANIMALWHISPERER,
             blacksmith: BLACKSMITH,
