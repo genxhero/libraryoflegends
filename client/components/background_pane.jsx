@@ -75,6 +75,14 @@ const FARMHAND = {
     description: "With a strong back and an understanding of seasonal cycles, you tilled the land and tended crops. Your farm could have been razed by invaders, you could have lost the family tying you to the land, or you might have simply tired of the drudgery, but at some point you became an adventurer."
 }
 
+const GLADIATOR = {
+    name: "Farmhand",
+    mustHaves: [
+        "strength",
+        "charisma"
+    ],
+    description: "The bloody games of the arena taught you the art of combat.  Before you attained true fame, you departed—or escaped—the arena to explore the world. Your skill at drawing both blood and a crowd’s attention pay off in a new adventuring life."
+}
 
 class BackgroundPane extends Component {
     constructor(props) {
@@ -87,8 +95,8 @@ class BackgroundPane extends Component {
             criminal: CRIMINAL,
             animalwhisperer: ANIMALWHISPERER,
             blacksmith: BLACKSMITH,
-            farmhand: FARMHAND
-
+            farmhand: FARMHAND,
+            gladiator: GLADIATOR
         }
         this.passTheProps = this.passTheProps.bind(this);
         this.firstChoice = this.firstChoice.bind(this);
