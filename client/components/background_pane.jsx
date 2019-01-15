@@ -202,6 +202,7 @@ class BackgroundPane extends Component {
     }
 
     passTheProps(event){
+        event.preventDefault();
         const newState = this.state;
         // debugger;
         newState[newState.firstFreeb[0]] = 2;

@@ -57,18 +57,18 @@ class ClassPane extends Component {
     }
 
     render() {
-        return (
-            <div className="char-creation-pane">
-                <p>After becoming an adventurer, which of the following paths did you choose to embark upon? </p>
-                {
-                    this.classes.map( (charClass) => 
-                         <div key={`${Date.now}${charClass.name}469`}>
-                            {charClass.name.toUpperCase}
-                         </div>)
-                }       
-                {this.describeMeMaybe()}    
-            </div>
-        )
+        return <div className="char-creation-pane">
+            <p>
+              After becoming an adventurer, which of the following paths
+              did you choose to embark upon?{" "}
+            </p>
+            {this.classes.map(charClass => (
+              <div key={`${Date.now}${charClass.name}420`}>
+                <span>{charClass.name.toUpperCase}</span>
+                <p> {charClass.description} </p>
+              </div>
+            ))}
+          </div>;
     }
 }
 
