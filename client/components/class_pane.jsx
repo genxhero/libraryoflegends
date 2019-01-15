@@ -48,7 +48,7 @@ class ClassPane extends Component {
     describeMeMaybe(){
         if (this.state.selected === null) {
             return( <div className="class-description">
-                <p>Dolor lorem ipsum sit amet consecutor bingle bangle doodle bungle tipper topper peewee the subatomic structure of boron lends credence to my mustache the ocean in the whale and Robin shall make amends; yes he is very sorry for ruining Teen Titans Go he was contractually obligated to suck.</p>
+                <p>When you have selected your character's class, a description will appear right here</p>
             </div>)
         } else {
             return (

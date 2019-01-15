@@ -187,7 +187,7 @@ class BackgroundPane extends Component {
                          {
                              stats.map( (score) => {
                                  if (score != this.state.firstFreeb ){
-                                    return (<option key={`${score}69`}value={score}><span className="be-capitalized">{score}</span></option>);
+                                    return (<option className="be-capitalized"key={`${score}69`}value={score}>{score}</option>);
                                  }
                              })
                          }
