@@ -83,6 +83,7 @@ class CharCreate extends Component {
     }
 
     applyClass(classPojo){
+                //newState from the class pane
            this.setState({
                class: classPojo.name,
            });
