@@ -54,6 +54,20 @@
   border: none;
 }
 
+.class-selector {
+  margin: 5px;
+  padding: 10px;
+}
+
+.class-selector:hover {
+   cursor: pointer;
+}
+
+.class-list{
+  display: flex;
+  flex-direction: column;
+}
+
 .freebie-choices {
   display: flex;
   flex-direction: column;

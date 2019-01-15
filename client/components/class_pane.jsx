@@ -33,6 +33,7 @@ class ClassPane extends Component {
             selected: null
         }
         this.classes = [Fighter, Rogue, Wizard];
+        this.selectClass = this.selectClass.bind(this);
         this.passTheProps = this.passTheProps.bind(this);
         this.describeMeMaybe = this.describeMeMaybe.bind(this);
     }
@@ -46,7 +47,9 @@ class ClassPane extends Component {
 
     describeMeMaybe(){
         if (this.state.selected === null) {
-            return <div></div>
+            return( <div className="class-description">
+                <p>Dolor lorem ipsum sit amet consecutor bingle bangle doodle bungle tipper topper peewee the subatomic structure of boron lends credence to my mustache the ocean in the whale and Robin shall make amends; yes he is very sorry for ruining Teen Titans Go he was contractually obligated to suck.</p>
+            </div>)
         } else {
             return (
                 <div className="class-description">
@@ -56,19 +59,32 @@ class ClassPane extends Component {
         }
     }
 
+    selectClass(event){
+//        debugger;
+        event.preventDefault();
+        this.setState({ selected: this.classes[parseInt(event.target.id)] })
+    }
+
     render() {
-        return <div className="char-creation-pane">
+        return (
+        <div className="char-creation-pane">
             <p>
               After becoming an adventurer, which of the following paths
               did you choose to embark upon?{" "}
             </p>
-            {this.classes.map(charClass => (
-              <div key={`${Date.now}${charClass.name}420`}>
-                <span>{charClass.name.toUpperCase}</span>
-                <p> {charClass.description} </p>
-              </div>
-            ))}
-          </div>;
+            <div className="class-list"> 
+                {this.classes.map(charClass => (
+                    <div className="class-selector" key={`${Date.now}${charClass.name}420`} onClick={this.selectClass} id={this.classes.indexOf(charClass)}>
+                        {charClass.name.toUpperCase()}
+                    </div>
+                ))}
+
+            </div>
+          
+            <div className="description">
+                {this.describeMeMaybe()}
+            </div>
+          </div>);
     }
 }
 
