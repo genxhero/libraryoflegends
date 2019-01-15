@@ -5,7 +5,7 @@ export default class FreebiePane extends Component {
    constructor(props){
       super(props)
       this.state = {
-        freebs = [],
+        freebs: [],
         strength: 0,
         dexterity: 0,
         constitution: 0,
