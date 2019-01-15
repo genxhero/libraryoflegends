@@ -6,6 +6,7 @@ import AncestryPane from './ancestry_pane';
 import BackgroundPane from './background_pane';
 import ClassPane from './class_pane';
 import PersonalPane from './personal_pane';
+import FreebiePane from './freebie_pane';
 import gql from 'graphql-tag';
 import query from '../queries/fetchchars';
 
@@ -33,10 +34,11 @@ class CharCreate extends Component {
         this.applyAncestry = this.applyAncestry.bind(this);
         this.applyBackground = this.applyBackground.bind(this);
         this.applyClass = this.applyClass.bind(this);
+        this.applyFreebies = this.applyFreebies.bind(this);
         this.backgroundMaybe = this.backgroundMaybe.bind(this);
         this.saveMeMaybe = this.saveMeMaybe.bind(this);
         this.save = this.save.bind(this);
-        this.panes = [<PersonalPane nextPane={this.applyPersonal} />, <AncestryPane nextPane={this.applyAncestry} />, <BackgroundPane nextPane={this.applyBackground} />, <ClassPane nextPane={this.applyClass}/>];
+        this.panes = [<PersonalPane nextPane={this.applyPersonal} />, <AncestryPane nextPane={this.applyAncestry} />, <BackgroundPane nextPane={this.applyBackground} />, <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>];
     }
 
     applyPersonal(personal){
@@ -85,12 +87,24 @@ class CharCreate extends Component {
                class: classPojo.name,
            });
     }
+    applyFreebies(freebies) {
+        console.log(freebies);
+        this.setState({
+          strength: this.state.strength + freebies.strength,
+          dexterity: this.state.dexterity + freebies.dexterity,
+          constitution: this.state.constitution + freebies.constitution,
+          intelligence: this.state.intelligence + freebies.intelligence,
+          wisdom: this.state.wisdom + freebies.wisdom,
+          charisma: this.state.charisma + freebies.charisma,
+          freebiesDone: true
+        });
+    }
 
     save(event){
         event.preventDefault();
        this.props.mutate({
          variables: {
-             userId: "5c15c379796d623e5ae350f8",
+             userId: "5c15c379796d623e5ae350f8", //must replace with current user
              firstName: this.state.firstName,
              lastName: this.state.lastName,
              class: this.state.class,

@@ -17,7 +17,6 @@ const UserType = require("./user_type");
 const CharType = require("./char_type");
 const StatLineType = require("./statline_type");
 const axios = require("axios");
-const bcrypt = require('bcrypt')
 const jsonwebtoken = require('jsonwebtoken');
 
 const StatLineInput = new GraphQLInputObjectType({
