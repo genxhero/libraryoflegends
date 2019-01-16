@@ -38,7 +38,10 @@ class CharCreate extends Component {
         this.backgroundMaybe = this.backgroundMaybe.bind(this);
         this.saveMeMaybe = this.saveMeMaybe.bind(this);
         this.save = this.save.bind(this);
-        this.panes = [<PersonalPane nextPane={this.applyPersonal} />, <AncestryPane nextPane={this.applyAncestry} />, <BackgroundPane nextPane={this.applyBackground} />, <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>];
+        this.panes = [<PersonalPane nextPane={this.applyPersonal} />,
+             <AncestryPane nextPane={this.applyAncestry} />, 
+             <BackgroundPane nextPane={this.applyBackground} />,
+              <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>];
     }
 
     applyPersonal(personal){
@@ -85,11 +88,20 @@ class CharCreate extends Component {
     applyClass(classPojo){
                 //newState from the class pane
            this.setState({
-               class: classPojo.name,
+             class: classPojo.name,
+             pane: this.state.pane + 1,
+               strength: this.state.strength + classPojo.strength,
+               dexterity: this.state.dexterity + classPojo.dexterity,
+               constitution: this.state.constitution + classPojo.constitution,
+               intelligence: this.state.intelligence + classPojo.intelligence,
+               wisdom: this.state.wisdom + classPojo.wisdom,
+               charisma: this.state.charisma + classPojo.charisma,
+               class: classPojo.selected.name
            });
     }
     applyFreebies(freebies) {
         console.log(freebies);
+        debugger;
         this.setState({
           strength: this.state.strength + freebies.strength,
           dexterity: this.state.dexterity + freebies.dexterity,
@@ -127,9 +139,8 @@ class CharCreate extends Component {
     }
 
     saveMeMaybe(){
-        console.log("The maybe is being invoked", this.state.backgroundDone)
         
-        if (this.state.backgroundDone) {
+        if (this.state.freebiesDone) {
             return (
                 <div>
                     <button
