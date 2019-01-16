@@ -57,9 +57,20 @@
 .class-selector {
   margin: 5px;
   padding: 10px;
+  border: 4px solid transparent;
 }
 
 .class-selector:hover {
+   cursor: pointer;
+}
+
+.class-selected {
+  margin: 5px;
+  padding: 10px;
+  border: 4px solid black;
+}
+
+.class-selected:hover {
    cursor: pointer;
 }
 
@@ -172,23 +183,7 @@ textarea:focus{
    color: forestgreen;
 }
 
-.tally-pages {
-  display: flex;
-  flex-direction: row;
-  height: 500px;
-}
 
-.stats-tally {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 5px;
-  font-weight: 500;
-  box-shadow: 2px 2px black;
-  border-radius: 4px;
-  background-image: url("../../images/paperbg.jpg");
-  width: 300px;
-}
 
 .submit{
   width: 120px;
@@ -210,18 +205,12 @@ textarea:focus{
   background: black;
 }
 
-.personal-tally{
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 5px;
-  font-weight: 500;
-  box-shadow: 2px 2px black;
-  border-radius: 4px;
-  background-image: url("../../images/paperbg.jpg");
-  width: 300px;
-}
 
+
+
+
+
+/* Tallies not being used anymore, stored here in case i bring them back */
 .ancestry-tally {
   display: flex;
   flex-direction: column;
@@ -236,6 +225,36 @@ textarea:focus{
 
 
 .background-tally {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px;
+  font-weight: 500;
+  box-shadow: 2px 2px black;
+  border-radius: 4px;
+  background-image: url("../../images/paperbg.jpg");
+  width: 300px;
+}
+
+.personal-tally{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px;
+  font-weight: 500;
+  box-shadow: 2px 2px black;
+  border-radius: 4px;
+  background-image: url("../../images/paperbg.jpg");
+  width: 300px;
+}
+
+.tally-pages {
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+}
+
+.stats-tally {
   display: flex;
   flex-direction: column;
   padding: 10px;
