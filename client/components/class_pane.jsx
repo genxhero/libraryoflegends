@@ -103,6 +103,7 @@ class ClassPane extends Component {
         this.selectClass = this.selectClass.bind(this);
         this.passTheProps = this.passTheProps.bind(this);
         this.describeMeMaybe = this.describeMeMaybe.bind(this);
+        this.choiceMaybe = this.choiceMaybe.bind(this);
     }
 
     passTheProps(){
@@ -110,6 +111,28 @@ class ClassPane extends Component {
         newState[this.state.selected] = 2;
         this.props.nextPane(newState);
         //{strength: 2 } the rest are zeroes
+    }
+
+    choiceMaybe(){
+        if (this.state.selected === null){
+            return <div></div>
+        } else if (this.state.selected.name === "fighter" || this.state.selected === "monk" || this.state.selected === "rogue") {
+            return (
+                <div className="class-freeb"> 
+                    <p>Please choose whether to focus on {this.state.selected.keyAbility[0]} or {this.state.selected.keyAbility[1]}</p>
+                  <select>
+                      <option value={this.state.selected.keyAbility[0]}></option>
+                      <option value={this.state.selected.keyAbility[1]}></option>
+                  </select>
+                </div>
+            );
+        } else {
+           return (
+               <div className="class-freeb">
+                   <p>A {this.state.selected.name} gains a +2 bonus to their {this.state.selected.keyAbility} score.</p>
+               </div>
+           )
+        }
     }
 
     describeMeMaybe(){
