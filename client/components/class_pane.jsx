@@ -144,7 +144,6 @@ class ClassPane extends Component {
     }
 
     chooseFreebie(event){
-        debugger;
         event.preventDefault();
         this.setState({
             freebChosen: true,

@@ -9,9 +9,17 @@ import PersonalPane from './personal_pane';
 import FreebiePane from './freebie_pane';
 import gql from 'graphql-tag';
 import query from '../queries/fetchchars';
+import { throws } from 'assert';
 
-
-
+const SavePane = (props) => {
+    debugger;
+    return (
+        <div className="char-creation-pane">
+            {props.saveMeMaybe()}
+        </div>
+    )
+}
+ 
 class CharCreate extends Component {
     constructor(props){
         super(props);
@@ -41,7 +49,9 @@ class CharCreate extends Component {
         this.panes = [<PersonalPane nextPane={this.applyPersonal} />,
              <AncestryPane nextPane={this.applyAncestry} />, 
              <BackgroundPane nextPane={this.applyBackground} />,
-              <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>];
+              <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>,
+              <SavePane saveMeMaybe={this.saveMeMaybe} data={this.state}/>
+            ];
     }
 
     applyPersonal(personal){
@@ -101,7 +111,6 @@ class CharCreate extends Component {
     }
     applyFreebies(freebies) {
         console.log(freebies);
-        debugger;
         this.setState({
           strength: this.state.strength + freebies.strength,
           dexterity: this.state.dexterity + freebies.dexterity,
@@ -109,6 +118,7 @@ class CharCreate extends Component {
           intelligence: this.state.intelligence + freebies.intelligence,
           wisdom: this.state.wisdom + freebies.wisdom,
           charisma: this.state.charisma + freebies.charisma,
+          pane: this.state.pane + 1,
           freebiesDone: true
         });
     }
@@ -143,18 +153,35 @@ class CharCreate extends Component {
         if (this.state.freebiesDone) {
             return (
                 <div>
+                    <div className="stats-tally">
+                        <h3 className="page-header">Ability Scores</h3>
+                        <div className="stat-single">STR: {this.state.strength}</div>
+                        <div className="stat-single">DEX: {this.state.dexterity} </div>
+                        <div className="stat-single">CON: {this.state.constitution}</div>
+                        <div className="stat-single">INT: {this.state.intelligence}</div>
+                        <div className="stat-single">WIS: {this.state.wisdom}</div>
+                        <div className="stat-single">CHA: {this.state.charisma}</div>
+                    </div>
+                    <div className="personal-tally">
+                       <div className="be-capitalized">Name: {this.state.firstName} {this.state.lastName}</div>
+                        <div className="be-capitalized">Ancestry: {this.state.ancestry}</div>
+                        <div className="be-capitalized">Background: {this.state.background}</div>
+                        <div className="be-capitalized">Class: {this.state.class}</div>
+                        <div className="be-capitalized">Age: Work in Progress</div>
+                        <p>Bio: {this.state.bio}</p>
+                    </div>
+
                     <button
                         className="char-submit" 
                         onClick={this.save}
                         value="Save Character"
-                    ></button>
+                    >Save Character</button>
 
                 </div>
           
             )
         }  else {
             return <div>
-                The function is not working wtf
             </div>
         }
     }
@@ -183,8 +210,6 @@ class CharCreate extends Component {
     return (
       <div className="char-creation-page">
         {this.panes[this.state.pane]}
-        {this.saveMeMaybe()}
-     
     </div>
     )
   }

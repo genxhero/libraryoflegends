@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { throws } from 'assert';
 
 export default class FreebiePane extends Component {
 
@@ -24,12 +25,28 @@ export default class FreebiePane extends Component {
     for (let i = 0; i < newState.freebs.length; i++) {
       newState[newState.freebs[i]] = 2;
     }
+    this.props.nextPane(newState)
+  }
+
+  changeSelection(event) {
+    let newArr = this.state.freebs;
+    if (event.target.checked) {
+      newArr.push(event.target.value)
+      console.log("new Freebs:", newArr);
+    }
+    else {
+      newArr.splice(newArr.indexOf(event.target.value), 1)
+      console.log("new Freebs:", newArr);
+    }
+    this.setState({
+      freebs: newArr
+    })
   }
 
   render() {
-    return (
-
-      <div className="freebie-pane">  
+    return (      
+  <div className="char-creation-pane">
+      <form className="freebie-form" onChange={this.changeSelection} onSubmit={this.passTheProps}>  
          <p>Now, please select four ability scores that will each receive a +2 boost</p>
          <div className="freebie-choices">
           <label className="pure-checkbox" >
@@ -50,9 +67,11 @@ export default class FreebiePane extends Component {
           <label className="pure-checkbox">
             <input type="checkbox" name="freebie-checkbox" value="charisma" disabled={this.state.freebs.length === 4 && !this.state.freebs.includes("charisma")} /> Charisma
                   </label>
-          <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 2}></input>
+          <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 4}></input>
         </div>
-      </div>
+      </form>
+  </div>
+
      
     )
   }
