@@ -229,6 +229,7 @@ class BackgroundPane extends Component {
             if (event.target.value === "blank") {
                 this.setState({
                     chosen: false,
+                    firstPicked: false,
                     background: null,
                     strength: 0,
                     dexterity: 0,

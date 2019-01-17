@@ -12,7 +12,7 @@ import query from '../queries/fetchchars';
 import { throws } from 'assert';
 
 const SavePane = (props) => {
-    debugger;
+    
     return (
         <div className="char-creation-pane">
             {props.saveMeMaybe()}
@@ -149,7 +149,7 @@ class CharCreate extends Component {
     }
 
     saveMeMaybe(){
-        
+        debugger;
         if (this.state.freebiesDone) {
             return (
                 <div>
@@ -165,7 +165,7 @@ class CharCreate extends Component {
                     <div className="personal-tally">
                        <div className="be-capitalized">Name: {this.state.firstName} {this.state.lastName}</div>
                         <div className="be-capitalized">Ancestry: {this.state.ancestry}</div>
-                        <div className="be-capitalized">Background: {this.state.background}</div>
+                        <div className="be-capitalized">Background: {this.state.background.name}</div>
                         <div className="be-capitalized">Class: {this.state.class}</div>
                         <div className="be-capitalized">Age: Work in Progress</div>
                         <p>Bio: {this.state.bio}</p>

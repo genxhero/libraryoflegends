@@ -201,10 +201,7 @@ class ClassPane extends Component {
     render() {
         return (
         <div className="char-creation-pane"> 
-            <p>
-              After becoming an adventurer, which of the following paths
-              did you choose to embark upon?{" "}
-            </p>
+           <h1 className="pane-title">Character Class</h1>
             <div className="class-list"> 
                 {this.classes.map(charClass => (
                     <div className={this.state.selected === charClass ? "class-selected" : "class-selector"} 
