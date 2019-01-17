@@ -95,11 +95,13 @@ class AncestryPane extends Component {
     elfChoices(){
        return (
         <div className="freebie-choices">
-            <p>Fey and timeless, elves are highly intelligent and agile but slight of frame.</p>
-            <p>+2 Dexterity, +2 Intelligence, -2 Constitution,
-                <span className="greenie"> +2 to one ability score of your choice </span>
-            </p>
-            <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
+            <div className="ancestry-info"> 
+                <p>Fey and timeless, elves are highly intelligent and agile but slight of frame.</p>
+                <p>+2 Dexterity, +2 Intelligence, -2 Constitution,
+                    <span className="greenie"> +2 to one ability score of your choice </span>
+                </p>
+                <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
+            </div>
            
             <select name="freebie-selector">
                     <option value="blank"></option>
@@ -107,7 +109,7 @@ class AncestryPane extends Component {
                     <option value="wisdom">Wisdom</option>
                     <option value="charisma">Charisma</option>
                 </select>
-                <input type="submit" className="submit" value="Next"></input>
+               <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 1}></input>
         </div>
        );
     }
@@ -115,19 +117,21 @@ class AncestryPane extends Component {
     dwarfChoices(){
         return (
             <div className="freebie-choices">
-                <p>Fey and timeless, elves are highly intelligent and agile but slight of frame.</p>
-                <p>+2 Dexterity, +2 Intelligence, -2 Constitution,
-                    <span className="greenie"> +2 to one ability score of your choice </span>
-                </p>
-                <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
+                <div className="ancestry-info"> 
+                    <p>Sturdy and hard-headed, the dwarves are...well they're what you expect.</p>
+                    <p>+2 Constitution, +2 Wisdom, -2 Charisma,
+                        <span className="greenie"> +2 to one ability score of your choice </span>
+                    </p>
+                    <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
+                </div>
                
                 <select name="freebie-selector">
                         <option value="blank"></option>
                         <option value="strength">Strength</option>
-                        <option value="wisdom">Wisdom</option>
-                        <option value="charisma">Charisma</option>
+                        <option value="dexterity">Dexterity</option>
+                        <option value="intelligence">Intelligence</option>
                     </select>
-                    <input type="submit" className="submit" value="Next"></input>
+                <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 1}></input>
             </div>
            );
     }
@@ -136,11 +140,14 @@ class AncestryPane extends Component {
         // debugger;
         return (
             <div className="freebie-choices">
-                <p>Extremely diverse and industrious; you know the drill.</p>
+               <div className="ancestry-info"> 
+                                <p>Extremely diverse and industrious; you know the drill.</p>
                 <p>+2 to two unique ability scores of your choice</p>
                 <p>Please check two ability scores from the list below</p>
-
-                <label className="pure-checkbox" >
+               </div>
+   
+                <div className="freebie-checkboxes">
+                       <label className="pure-checkbox" >
                  <input type="checkbox" name="freebie-checkbox" value="strength" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("strength")}/> Strength
                 </label>
                 <label className="pure-checkbox">
@@ -158,6 +165,8 @@ class AncestryPane extends Component {
                 <label className="pure-checkbox">
                  <input type="checkbox" name="freebie-checkbox" value="charisma" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("charisma")}/> Charisma
                 </label>
+                </div>
+             
              
                 <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 2}></input>
             </div>
@@ -167,7 +176,7 @@ class AncestryPane extends Component {
     render() {
         return (
             <div className="char-creation-pane">
-                  <h1>Ancsestry and Heritage</h1>
+                  <h1 className="pane-title">Ancestry and Heritage</h1>
                   <form className="ancestry-choice"
                     onChange={this.changeSelection}
                     onSubmit={this.passTheProps}

@@ -4,6 +4,14 @@
   font-weight: bold;
 }
 
+.ancestry-info {
+    margin: 5px;
+    padding: 5px;
+    background: wheat;
+    box-shadow: 2px 2px 1px;
+    border-radius: 4px;
+}
+
 .be-capitalized {
   text-transform: capitalize;
 }
@@ -28,7 +36,8 @@
 
 .char-bio{
   border: none;
-  background:rgb(255, 255, 255, .5)
+  background:rgb(255, 255, 255, .5);
+  box-shadow: 2px 2px 1px;
 }
 
 
@@ -86,9 +95,14 @@
 }
 
 .freebie-selector {
-  font-weight: bold;
-  color: black;
-  background: aliceblue;
+    background: wheat;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px;
+    padding: 4px;
+    margin: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: fit-content;
 }
 
 .header {
@@ -109,7 +123,6 @@
   height: auto;
   box-sizing: border-box;
   border: 1px solid;
-    height: 500px;
     width: 500px;
     position: relative;
     left: 25%;
@@ -151,7 +164,9 @@ textarea {
   border-top: none;
   border-left: none;
   border-right: none;
-  background:rgb(255, 255, 255, .5)
+  border-bottom: 1px solid black;
+  background:rgb(255, 255, 255, .5);
+  box-shadow: 2px 2px 1px;
 }
 
 input:focus{
@@ -166,14 +181,17 @@ textarea:focus{
 
 .personal-input {
   font-weight: 500;
-  font-size: 24px;
   margin: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   text-align: center;
-
+  color: blue;
+  text-shadow: 2px 2px 0px skyblue;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 22px;
 }
 
 .label-content{
@@ -183,12 +201,32 @@ textarea:focus{
   text-shadow: 2px 2px 0px skyblue;
   font-weight: bolder;
   font-family: fantasy;
+  font-size: 22px;
 }
 
 .greenie{
    color: forestgreen;
 }
 
+.pane-title {
+    color: blue;
+    text-shadow: 1px 1px 1px aliceblue;
+}
+
+label {
+  margin-right: 10px;
+  margin-right: 10px;
+  color: blue;
+  text-shadow: 1px 1px 1px aliceblue;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 22px;
+}
+
+.freebie-checkboxes {
+  display: flex;
+  flex-direction: column;
+}
 
 
 .submit{
