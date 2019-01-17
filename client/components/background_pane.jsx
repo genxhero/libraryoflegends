@@ -144,6 +144,7 @@ class BackgroundPane extends Component {
         this.passTheProps = this.passTheProps.bind(this);
         this.firstChoice = this.firstChoice.bind(this);
         this.describeMeMaybe = this.describeMeMaybe.bind(this);
+        this.titleMaybe = this.titleMaybe.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.secondChoice = this.secondChoice.bind(this);
         this.state = {
@@ -156,12 +157,23 @@ class BackgroundPane extends Component {
         }
     }
 
+    titleMaybe(){
+        if (this.state.background) {
+            return (<h1>{this.state.background.name}</h1>);
+        }  else {
+            return (<p>
+                        Please select a background for your character from the dropdown list.
+                   </p>
+              )
+        }
+    }
+
     firstChoice(event){
         // debugger;
        if (this.state.chosen === true) {
 
         return (
-        <div>
+            <div className="select-wrapper">
             <select className="freebie-selector" name="background-freebs-first">
                      <option value="blank"></option>
                      <option value={this.state.background.mustHaves[0]}>{this.state.background.mustHaves[0]}</option>
@@ -181,7 +193,7 @@ class BackgroundPane extends Component {
             const stats = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
 
             return (
-            <div>
+            <div className="select-wrapper">
                 <select className="freebie-selector" name="background-freebs-second">
                          <option value="blank"></option>
                          {
@@ -214,7 +226,19 @@ class BackgroundPane extends Component {
         // debugger;
         switch (event.target.name){
             case "background":
-            this.setState({
+            if (event.target.value === "blank") {
+                this.setState({
+                    chosen: false,
+                    background: null,
+                    strength: 0,
+                    dexterity: 0,
+                    constitution: 0,
+                    intelligence: 0,
+                    wisdom: 0,
+                    charisma: 0
+                });
+            } else {
+                 this.setState({
                 background: this.backgrounds[event.target.value.toLowerCase().replace(/\s/g, '')],
                 chosen: true,
                 strength: 0,
@@ -224,6 +248,8 @@ class BackgroundPane extends Component {
                 wisdom: 0,
                 charisma: 0
             });
+            }
+           
             break;
             case "background-freebs-first":
                this.setState({
@@ -246,7 +272,6 @@ class BackgroundPane extends Component {
 
     describeMeMaybe(){
     //    debugger;
-       console.log("I know I just coded you, and this is crazy, but here's my debug, so describe me, maybe?");
         if (this.state.background){
             return (
             <div className="background-description">
@@ -276,13 +301,13 @@ class BackgroundPane extends Component {
         // debugger;
         return (
             <div className="char-creation-pane">
-                <p>Please select a background for your character from the dropdown list.</p>
+            {this.titleMaybe()}
                 <form onSubmit={this.passTheProps} onChange={this.handleChange}> 
                   <select className="bg-selector" name="background">
                      <option value="blank"></option>
                      {
                        Object.values(this.backgrounds).map( (bg) => 
-                       <option key={`${Date.now}${bg.name}`}
+                       <option key={`${Date.now}${bg.name}42`}
                                value={`${bg.name}`}
                        >
                        {bg.name}

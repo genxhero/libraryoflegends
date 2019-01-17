@@ -12,8 +12,27 @@
     border-radius: 4px;
 }
 
+.background-description {
+      margin: 5px;
+    padding: 5px;
+    background: wheat;
+    box-shadow: 2px 2px 1px;
+    border-radius: 4px;
+}
+
 .be-capitalized {
   text-transform: capitalize;
+}
+
+.bg-selector {
+    background: wheat;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px;
+    padding: 4px;
+    margin: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: fit-content;
 }
 
 .chars-spread {
@@ -146,6 +165,10 @@
    height: auto;
 }
 
+.select-wrapper {
+  display: flex;
+  justify-content: center;
+}
 
 textarea {
   margin: 10px;
