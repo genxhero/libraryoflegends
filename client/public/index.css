@@ -41,6 +41,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   background: orange;
+  padding: 40px;
+  width: 100%;
 }
 
 .char-snippet {
@@ -50,6 +52,7 @@
   margin: 5px;
   padding: 10px;
   background: ivory;
+  display: grid;
   
 }
 
@@ -180,6 +183,26 @@
     box-shadow: 3px 3px 3px;
 
 
+}
+
+.link-button {
+    border-radius: 3px;
+    padding: 10px;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    background: cornsilk;
+}
+
+.link-button:hover{
+  background: rgb(252, 230, 148);
+  cursor: pointer;
+}
+
+.link-button:active {
+  background: black;
+  color: white;
 }
 
 .char-form {

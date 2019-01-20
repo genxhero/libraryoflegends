@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import query from '../queries/fetchchars';
@@ -36,14 +37,17 @@ class CharsIndex extends Component {
 
  
 
-
    charList(characters){
      const timestamp = Date.now();
      return characters.map(char => {
        return (
-         <div className="char-snippet" key={`${char.firstName}${timestamp}${char.lastName}${char.id}`}>
+         <div className="char-snippet"
+          key={`${char.firstName}${timestamp}${char.lastName}${char.id}`} 
+          value={`${char.id}`}
+          >
           <div>{char.firstName} {char.lastName}</div>
           <div>{char.level}{this.thStRd(char.level)} level {char.class}</div>
+          <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
          </div>
        );
      });
@@ -59,9 +63,18 @@ class CharsIndex extends Component {
   
     const characters = this.props.data.characters;
     return (    
-        <div className="chars-spread">
-          {this.charList(characters)}
-        </div>);
+      <div className="index-page">
+           <div className="intro-content">
+              <h1>Library of Legends</h1>
+              <p>Welcome to the Library of Legends, where tales of great heroes lie.</p>
+           </div>
+          <div className="chars-spread">
+          <h1></h1>
+            {this.charList(characters)}
+          </div>
+        <Link to="/newchar" className="link-button">Create New Character</Link>
+      </div>
+       );
    }
 }
 
