@@ -25,7 +25,8 @@ const CharSchema = new Schema(
     level: { type: Number },
     ancestry: {type: String },
     background: {type: String},
-    statline: { type: StatLine }
+    statline: { type: StatLine },
+    bio: {type: String}
   },
   { usePushEach: true }
 );

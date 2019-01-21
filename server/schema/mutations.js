@@ -45,7 +45,8 @@ const mutation = new GraphQLObjectType({
                 level: { type: GraphQLInt },
                 statline: {type: StatLineInput},
                 background: {type: GraphQLString},
-                ancestry: {type: GraphQLString}
+                ancestry: {type: GraphQLString},
+                bio: {type: GraphQLString}
             },
             resolve(parentValue, args) {
                 const { userId, ...rest } = args

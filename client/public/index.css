@@ -58,9 +58,14 @@
 }
 
 .char-bio{
-  border: none;
-  background:rgb(255, 255, 255, .5);
-  box-shadow: 2px 2px 1px;
+    background: ivory;
+    border-radius: 3px;
+    box-shadow: 2px 2px 1px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
 }
 
 
@@ -179,7 +184,7 @@
     position: relative;
     left: 25%;
     padding: 20px;
-    background: darkorange;
+    background: burlywood;
     background-size: cover;
     box-shadow: 3px 3px 3px;
 
@@ -249,6 +254,10 @@
     box-sizing: border-box;
     margin: 10px;
     padding: 10px;
+    background: ivory;
+    border-radius: 3px;
+    box-shadow: 2px 2px 1px;
+    border: 1px solid black;
 }
 
 .char-image {
@@ -260,6 +269,10 @@
     box-sizing: border-box;
     margin: 10px;
     padding: 10px;
+    background: ivory;
+    border-radius: 3px;
+    box-shadow: 2px 2px 1px;
+    border: 1px solid black;
 }
 
 .select-wrapper {

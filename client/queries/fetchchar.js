@@ -9,6 +9,7 @@ export default gql`
           class
           level
           ancestry
+          bio
           statline {
               strength
               dexterity

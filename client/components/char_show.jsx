@@ -26,6 +26,7 @@ class CharShow extends Component {
 render() {
    
     const char = this.props.data.character;
+
     if (!char){
         return <div>Loading...</div>
     }
@@ -61,7 +62,7 @@ render() {
           </div>
 
         </div>
-        <p>{char.bio}</p>
+        <p className="char-bio">{char.bio}</p>
       </div>;
   }
 }

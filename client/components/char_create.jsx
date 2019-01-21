@@ -55,7 +55,6 @@ class CharCreate extends Component {
     }
 
     applyPersonal(personal){
-    
         this.setState({
             pane: this.state.pane + 1,
             firstName: personal.firstName,
@@ -125,6 +124,7 @@ class CharCreate extends Component {
 
     save(event){
         event.preventDefault();
+       
        this.props.mutate({
          variables: {
              userId: "5c15c379796d623e5ae350f8", //must replace with current user
@@ -133,6 +133,7 @@ class CharCreate extends Component {
              class: this.state.class,
              ancestry: this.state.ancestry,
              background: this.state.background.name,
+             bio: this.state.bio,
              statline: {
                  strength: this.state.strength,
                  dexterity: this.state.dexterity,
@@ -149,7 +150,7 @@ class CharCreate extends Component {
     }
 
     saveMeMaybe(){
-        debugger;
+      
         if (this.state.freebiesDone) {
             return (
                 <div>
@@ -216,8 +217,8 @@ class CharCreate extends Component {
 }
 
 const mutation =  gql`
-mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class: String, $level: Int, $statline: StatLineInput!, $ancestry: String, $background: String){
-    addCharacter(userId: $userId, firstName: $firstName, lastName: $lastName, class: $class, level: $level, statline: $statline, ancestry: $ancestry, background: $background)
+mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class: String, $level: Int, $statline: StatLineInput!, $ancestry: String, $background: String, $bio: String){
+    addCharacter(userId: $userId, firstName: $firstName, lastName: $lastName, class: $class, level: $level, statline: $statline, ancestry: $ancestry, background: $background, bio: $bio)
     {
         id
         firstName
@@ -225,6 +226,7 @@ mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class
         ancestry
         background
         class
+        bio
        statline {
         strength
         dexterity
