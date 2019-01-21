@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from "react-apollo";
 import gql from 'graphql-tag';
 import query from "../queries/fetchchar";
+import index from "../queries/fetchchars";
 import {hashHistory} from 'react-router';
 
 class CharShow extends Component {
@@ -14,7 +15,10 @@ class CharShow extends Component {
     sakujo(event){
         event.preventDefault();
         const id = event.target.value;
-        this.props.mutate({ variables: { id: id } })
+        this.props.mutate({ 
+            variables: { id: id },
+            refetchQueries: [ { query: index } ]
+        })
         .then(hashHistory.push('/'));
     }
 
