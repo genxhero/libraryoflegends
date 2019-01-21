@@ -40,8 +40,8 @@ const RootQuery = new GraphQLObjectType({
             args: { id: { type: GraphQLString } },
             resolve(parentValue, args) {
                 console.log(Char);
+                debugger;
                 return Char.findById(args.id);
-                // return axios.get(`http://localhost:3000/characters/${args.id}`).then(res => res.data);
             }
         },
         characters: {

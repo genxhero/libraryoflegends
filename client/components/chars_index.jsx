@@ -67,9 +67,9 @@ class CharsIndex extends Component {
            <div className="intro-content">
               <h1>Library of Legends</h1>
               <p>Welcome to the Library of Legends, where tales of great heroes lie.</p>
-           </div>
-          <div className="chars-spread">
-          <h1></h1>
+           </div>          
+           <h1>Names of Legend</h1>
+        <div className="chars-spread">
             {this.charList(characters)}
           </div>
         <Link to="/newchar" className="link-button">Create New Character</Link>

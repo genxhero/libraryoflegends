@@ -6,6 +6,7 @@ import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import CharsIndex from './components/chars_index';
 import CharCreate from './components/char_create';
+import CharShow from './components/char_show';
 import App from './components/app';
 
 
@@ -22,6 +23,7 @@ const Root = () => {
             <IndexRoute component={CharsIndex} />
           </Route>
           <Route path="/newchar" component={CharCreate} />
+          <Route path="/characters/:id" component={CharShow}/>
         </Router>
       </ApolloProvider>);
 };

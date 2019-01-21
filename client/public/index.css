@@ -22,6 +22,7 @@
 
 .be-capitalized {
   text-transform: capitalize;
+  margin-left: 3px;
 }
 
 .bg-selector {
@@ -40,7 +41,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background: orange;
+  background: burlywood;
   padding: 40px;
   width: 100%;
 }
@@ -205,6 +206,11 @@
   color: white;
 }
 
+.index-page {
+  display: flex;
+  flex-direction:column;
+  background: burlywood;
+}
 .char-form {
    display: flex;
    flex-direction: column;
@@ -215,6 +221,45 @@
    height: 80%; 
    width: 100%;
    height: auto;
+}
+
+.char-show {
+  display: flex;
+  flex-direction: column;
+  background: burlywood;
+  padding: 20px;
+}
+
+.char-show-top {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.char-vital {
+  display: flex;
+  flex-direction: row;
+  margin:5px;
+}
+
+.char-vitals {
+  display: flex;
+  flex-direction: column;
+      width: auto;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+
+.char-image {
+  width: 500px;
+}
+
+.char-statline {
+    width: auto;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
 }
 
 .select-wrapper {
