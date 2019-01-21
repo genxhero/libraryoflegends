@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
 import { graphql } from "react-apollo";
+import gql from 'graphql-tag';
 import query from "../queries/fetchchar";
+import {hashHistory} from 'react-router';
 
 class CharShow extends Component {
 
     constructor(props){
         super(props);
+        this.sakujo = this.sakujo.bind(this);
+    }
+
+    sakujo(event){
+        event.preventDefault();
+        const id = event.target.value;
+        this.props.mutate({ variables: { id: id } })
+        .then(hashHistory.push('/'));
     }
 
 
@@ -42,6 +52,9 @@ render() {
             <h4>Wisdom: {char.statline.wisdom}</h4>
             <h4>Charisma: {char.statline.charisma}</h4>
           </div>
+          <div className="char-cp"> 
+             <button onClick={this.sakujo} value={char.id}>Delete Character</button>
+          </div>
 
         </div>
         <p>{char.bio}</p>
@@ -49,14 +62,22 @@ render() {
   }
 }
 
+const mutation = gql`
+mutation DeleteChar($id: String!){
+    deleteCharacter(id: $id){
+        id
+    }
+}
+`;
 
-
-export default graphql(query, {
-  options: props => {
-    return {
-      variables: {
-        id: props.params.id
-      }
-    };
-  }
-})(CharShow);
+export default graphql(mutation)(
+    graphql(query, {
+    options: props => {
+        return {
+        variables: {
+            id: props.params.id
+        }
+        };
+    }
+    })(CharShow)
+);
