@@ -36,6 +36,22 @@
     width: fit-content;
 }
 
+.intro-content {
+  color: white;
+  padding: 20px;
+  text-shadow: 1px 2px black;
+}
+
+.intro-content > p {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.intro-content > h1 {
+  text-align: center;
+  font-size: 36px;
+}
+
 .chars-spread {
   list-style: none;
   display: flex;
@@ -44,6 +60,12 @@
   background: burlywood;
   padding: 40px;
   width: 100%;
+}
+
+#index-title  {
+  color: white;
+  text-align: center;
+  text-shadow: 1px 2px black;
 }
 
 .char-snippet {
@@ -215,7 +237,14 @@
   display: flex;
   flex-direction:column;
   background: burlywood;
+  padding: 20px;
 }
+
+.link-container {
+  display: flex;
+  justify-content: center;
+}
+
 .char-form {
    display: flex;
    flex-direction: column;
@@ -245,6 +274,18 @@
   display: flex;
   flex-direction: row;
   margin:5px;
+}
+
+.char-thumb {
+  width: 100px;
+  height: auto;
+  margin: 2px;
+  margin-left: 20px;
+}
+
+.char-thumb-container {
+  display: flex;
+  justify-content: center;
 }
 
 .char-vitals {

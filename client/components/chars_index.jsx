@@ -47,6 +47,8 @@ class CharsIndex extends Component {
           >
           <div>{char.firstName} {char.lastName}</div>
           <div>{char.level}{this.thStRd(char.level)} level {char.class}</div>
+        
+          <img className="char-thumb" src="http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg" />
           <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
          </div>
        );
@@ -68,11 +70,14 @@ class CharsIndex extends Component {
               <h1>Library of Legends</h1>
               <p>Welcome to the Library of Legends, where tales of great heroes lie.</p>
            </div>          
-           <h1>Names of Legend</h1>
+          <h1 id="index-title">Names of Legend</h1>
         <div className="chars-spread">
+            
             {this.charList(characters)}
           </div>
-        <Link to="/newchar" className="link-button">Create New Character</Link>
+          <div className="link-container"> 
+            <Link to="/newchar" className="link-button">Create New Character</Link>
+          </div>
       </div>
        );
    }
