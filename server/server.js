@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const schema = require('./schema/schema');
 const passport = require("passport");
+const session = require("express-session");
 const db = require('../config/keys').mongoURI;
+const MongoStore = require('connect-mongo')(session);
+const passportConfig = require('./services/auth');
 require('../config/passport');
 
 const app = express();
@@ -22,9 +25,21 @@ mongoose.connection
     .once('open', () => console.log('Connected to MongoLab instance.'))
     .on('error', error => console.log('Error connecting to MongoLab:', error));
 
+
+    app.use(session({
+        resave: true,
+        saveUninitialized: true,
+        secret: 'aaabbbccc',
+        store: new MongoStore({
+          url: db,
+          autoReconnect: true
+        })
+      }));
+
 app.use(bodyParser.json());
 
 app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/graphql', expressGraphQL({
     schema,

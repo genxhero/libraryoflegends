@@ -28,6 +28,13 @@ const RootQuery = new GraphQLObjectType({
             }
         },
 
+        currentUser: {
+             type: UserType,
+             resolve(parentValue, args, req) {
+                return req.user;
+             }
+        },
+
         users: {
             type: new GraphQLList(UserType),
             resolve(){
