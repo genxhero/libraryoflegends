@@ -31,7 +31,6 @@ class ClassPane extends Component {
             newState[this.state.selected.keyAbility] = 2;
         }
         this.props.nextPane(newState);
-        //{strength: 2 } the rest are zeroes
     }
 
     choiceMaybe(){
