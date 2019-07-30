@@ -22,7 +22,6 @@ class AncestryPane extends Component {
 
 
     displayChoices(){
-        // debugger;
         switch (this.state.selected){
             default:
                 return <div>Please select an ancestry to continue</div>;
@@ -40,7 +39,6 @@ class AncestryPane extends Component {
 
     passTheProps() {
         //please pass the props please
-        // debugger;
         event.preventDefault();
         const  newState = this.state;
         //use object assign here, brae

@@ -20,7 +20,6 @@ export default class FreebiePane extends Component {
 
   passTheProps(event){
     event.preventDefault();
-    //["strength", "dexterity", "charisma", "intelligence"]
     const newState = this.state;
     for (let i = 0; i < newState.freebs.length; i++) {
       newState[newState.freebs[i]] = 2;
@@ -32,11 +31,9 @@ export default class FreebiePane extends Component {
     let newArr = this.state.freebs;
     if (event.target.checked) {
       newArr.push(event.target.value)
-      console.log("new Freebs:", newArr);
     }
     else {
       newArr.splice(newArr.indexOf(event.target.value), 1)
-      console.log("new Freebs:", newArr);
     }
     this.setState({
       freebs: newArr
@@ -71,8 +68,6 @@ export default class FreebiePane extends Component {
         </div>
       </form>
   </div>
-
-     
     )
   }
 }
