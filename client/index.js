@@ -8,6 +8,7 @@ import CharsIndex from './components/chars_index';
 import CharCreate from './components/char_create';
 import CharShow from './components/char_show';
 import App from './components/app';
+import Register from './components/register';
 
 
 const client = new ApolloClient({
@@ -24,6 +25,7 @@ const Root = () => {
           </Route>
           <Route path="/newchar" component={CharCreate} />
           <Route path="/characters/:id" component={CharShow}/>
+          <Route path="/register" component={Register} />
         </Router>
       </ApolloProvider>);
 };

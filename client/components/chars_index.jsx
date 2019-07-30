@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import query from '../queries/fetchchars';
 
@@ -29,14 +28,6 @@ class CharsIndex extends Component {
      })
   }
 
-
-
-  componentWillUpdate(nextProps, nextStat){
-  
-  }
-
- 
-
    charList(characters){
      const timestamp = Date.now();
      return characters.map(char => {
@@ -56,8 +47,7 @@ class CharsIndex extends Component {
    }
 
   render() {
-    // debugger;
-    if (this.props.data.loading){
+    if (this.props.data.loading || !this.props.data.characters){
       return (<div>
           <h1>LOADING.......</h1>
       </div>);
@@ -72,7 +62,6 @@ class CharsIndex extends Component {
            </div>          
           <h1 id="index-title">Names of Legend</h1>
         <div className="chars-spread">
-            
             {this.charList(characters)}
           </div>
           <div className="link-container"> 

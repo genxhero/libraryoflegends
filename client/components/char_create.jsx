@@ -9,7 +9,6 @@ import PersonalPane from './personal_pane';
 import FreebiePane from './freebie_pane';
 import gql from 'graphql-tag';
 import query from '../queries/fetchchars';
-import { throws } from 'assert';
 
 const SavePane = (props) => {
     
@@ -54,6 +53,9 @@ class CharCreate extends Component {
             ];
     }
 
+    /**
+     * Applies data from the personal pane to the overall cumulative character stats
+     */
     applyPersonal(personal){
         this.setState({
             pane: this.state.pane + 1,
@@ -63,7 +65,9 @@ class CharCreate extends Component {
             personalDone: true
         });
     }
-
+ /**
+     * Applies data from the ancestry pane to the overall cumulative character stats
+     */
     applyAncestry(ancestry){
         this.setState({
             pane: this.state.pane + 1,
@@ -78,6 +82,9 @@ class CharCreate extends Component {
         });
     }
 
+     /**
+     * Applies data from the background pane to the overall cumulative character stats
+     */
     applyBackground(background){
         this.setState({
             pane: this.state.pane + 1,
@@ -94,8 +101,10 @@ class CharCreate extends Component {
         });
     }
 
+     /**
+     * Applies data from the class pane to the overall cumulative character stats
+     */
     applyClass(classPojo){
-                //newState from the class pane
            this.setState({
              class: classPojo.name,
              pane: this.state.pane + 1,
@@ -108,6 +117,9 @@ class CharCreate extends Component {
                class: classPojo.selected.name
            });
     }
+     /**
+     * Adds freebie points to the cumulative ability scores.
+     */
     applyFreebies(freebies) {
         console.log(freebies);
         this.setState({
@@ -122,9 +134,10 @@ class CharCreate extends Component {
         });
     }
 
+
     save(event){
         event.preventDefault();
-       
+        debugger;
        this.props.mutate({
          variables: {
              userId: "5c15c379796d623e5ae350f8", //must replace with current user
