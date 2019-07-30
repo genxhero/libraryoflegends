@@ -1,3 +1,10 @@
+/**
+ * Author: Aaron Goddard <aaronbear@gmail.com
+ * 
+ * This file contains a component where the user can select the ancestry of their character
+ * 
+ */
+
 import React, { Component } from 'react'
 
 class AncestryPane extends Component {
@@ -21,6 +28,10 @@ class AncestryPane extends Component {
 
 
 
+    /**
+     * Displays ability score bonus choices based on which race is selected.
+     * Returns a div advising the user to make a choice if no selection has been made.
+     */
     displayChoices(){
         switch (this.state.selected){
             default:
@@ -37,11 +48,14 @@ class AncestryPane extends Component {
         }
     }
 
+    /**
+     * Kicks the new data back to the parent component.
+     */
     passTheProps() {
         //please pass the props please
         event.preventDefault();
         const  newState = this.state;
-        //use object assign here, brae
+        // TODO: Make all these into object.assign({}) etc
         for (let i = 0; i < newState.freebs.length; i++){
             newState[newState.freebs[i]] = 2;
         }
@@ -55,10 +69,12 @@ class AncestryPane extends Component {
         this.props.nextPane(newState);
     }
 
+    /**
+     * Handles all user input whether it is a checkbox or a select menu
+     */
     changeSelection(event){
         if (event.target.name === "freebie-selector"){
             let newArr = [event.target.value];
-            console.log("new Freebs:", newArr);
                 this.setState({
                     freebs: newArr
             });
@@ -81,13 +97,15 @@ class AncestryPane extends Component {
             this.setState({
                 selected: event.target.value,
                 freebs: []
-                //freebie points are reset in the event that ancestry should get changed
+     //freebie points are reset in the event that ancestry should get changed
             });
         }
     }
 
 
-
+    /**
+     * Displays ancestry description and freebie point choices for elves
+     */
     elfChoices(){
        return (
         <div className="freebie-choices">
@@ -110,6 +128,9 @@ class AncestryPane extends Component {
        );
     }
 
+     /**
+     * Displays ancestry description and freebie point choices for dwarves
+     */
     dwarfChoices(){
         return (
             <div className="freebie-choices">
@@ -132,6 +153,9 @@ class AncestryPane extends Component {
            );
     }
 
+     /**
+     * Displays ancestry description and freebie point choices for humans
+     */
     humanChoices(){
         return (
             <div className="freebie-choices">
@@ -168,6 +192,9 @@ class AncestryPane extends Component {
         );
     }
 
+    /**
+     * It renders. What more do you want?
+     */
     render() {
         return (
             <div className="char-creation-pane">
@@ -196,30 +223,3 @@ class AncestryPane extends Component {
 }
 
 export default AncestryPane;
-
-
-{/* <label>
-<input className="freebie" type="radio" value="strength" checked={this.state.freebs.includes('strength')}/>
-            Strength
-</label>
-<label>
-<input className="freebie" type="radio" value="dexterity" checked={this.state.freebs.includes('dexterity')}/>
-            Dexterity
-</label>
-<label>
-<input className="freebie" type="radio" value="constitution" checked={this.state.freebs.includes('constitution')}/>
-            Constitution
-</label>
-<label>
-<input className="freebie" type="radio" value="intelligence" checked={this.state.freebs.includes('intelligence')}/>
-            Intelligence
-</label>
-
-<label>
-<input className="freebie" type="radio" value="wisdom" checked={this.state.freebs.includes('wisdom')}/>
-            Wisdom
-</label>
-<label>
-<input className="freebie" type="radio" value="charisma" checked={this.state.freebs.includes('charisma')}/>
-            Charisma
-</label> */}
