@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
 
-
-
-
-
-
 class AncestryPane extends Component {
     constructor(props) {
         super(props);
@@ -37,6 +32,9 @@ class AncestryPane extends Component {
             case "human":
                 return this.humanChoices();
                 break;
+            case "dwarf":
+                return this.dwarfChoices();
+                break;
         }
     }
 
@@ -45,6 +43,7 @@ class AncestryPane extends Component {
         // debugger;
         event.preventDefault();
         const  newState = this.state;
+        //use object assign here, brae
         for (let i = 0; i < newState.freebs.length; i++){
             newState[newState.freebs[i]] = 2;
         }
@@ -59,7 +58,6 @@ class AncestryPane extends Component {
     }
 
     changeSelection(event){
-        let ass = "ass";
         if (event.target.name === "freebie-selector"){
             let newArr = [event.target.value];
             console.log("new Freebs:", newArr);
@@ -137,7 +135,6 @@ class AncestryPane extends Component {
     }
 
     humanChoices(){
-        // debugger;
         return (
             <div className="freebie-choices">
                <div className="ancestry-info"> 
@@ -188,6 +185,10 @@ class AncestryPane extends Component {
                     <label>
                         <input type="radio" value="elf" checked={this.state.selected === 'elf'}/>
                         Elf
+                    </label>
+                    <label>
+                        <input type="radio" value="dwarf" checked={this.state.selected === 'dwarf'}/>
+                        Dwarf
                     </label>
                     {this.displayChoices()}
                   </form>

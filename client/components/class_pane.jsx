@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Classes from './classes';
 
 //Future versions of this code will have each class cotained in its own file, perhaps even a database schema? Schema might be overdoing it.
 
@@ -99,7 +100,8 @@ class ClassPane extends Component {
             charisma: 0,
             selected: null
         }
-        this.classes = [Alchemist, Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Wizard];
+        // this.classes = [Alchemist, Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Wizard];
+        this.classes = Classes;
         this.selectClass = this.selectClass.bind(this);
         this.passTheProps = this.passTheProps.bind(this);
         this.describeMeMaybe = this.describeMeMaybe.bind(this);
