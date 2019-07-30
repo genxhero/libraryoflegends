@@ -1,4 +1,3 @@
-//Pain in the fucking ass. Fuck Mongoose. 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
