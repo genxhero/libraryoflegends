@@ -9,8 +9,10 @@ class Register extends Component {
         this.state = {
             username: "",
             password: "",
+            password2: "",
             email: "",
-            invalidPass: null
+            invalidPass: null,
+            passwordsMatch: null
         }
         this.saveUser = this.saveUser.bind(this);
     }
@@ -38,7 +40,8 @@ class Register extends Component {
                <form onSubmit={this.saveUser}>
                    <input type="text" value={this.state.username} onChange={this.handleFormChange('username')}/>
                    <input type="text" value={this.state.email} onChange={this.handleFormChange('email')}/>
-                   <input type="text"value={this.state.password} onChange={this.handleFormChange('password')}/> 
+                   <input type="text"value={this.state.password} onChange={this.handleFormChange('password')}/>
+                   <input type="text"value={this.state.password2} onChange={this.handleFormChange('password2')}/> 
                    <input type="submit"></input>
                </form>
             </div>

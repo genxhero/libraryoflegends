@@ -10,14 +10,13 @@ const {
   GraphQLID
 } = graphql;
 const mongoose = require("mongoose");
-// const User = require('../models/user');
 const User = mongoose.model('user');
 const Char = mongoose.model("character");
 const UserType = require("./user_type");
 const CharType = require("./char_type");
 const StatLineType = require("./statline_type");
 const axios = require("axios");
-const jsonwebtoken = require('jsonwebtoken');
+const AuthService = require('../services/auth');
 
 const StatLineInput = new GraphQLInputObjectType({
   name: "StatLineInput",
@@ -58,13 +57,29 @@ const mutation = new GraphQLObjectType({
         addUser: {
             type: UserType,
             args: {
-                //validations: new GraphQLNonNull(GraphQLString)
                 username: { type: GraphQLString },
                 email: { type: GraphQLString },
                 password: {type: GraphQLString }
             },
-            resolve(parentValue, args) {
-                return new User(args).save();
+            resolve(parentValue, {email, username, password}, req) {
+                return AuthService.signup({email, password, username, req})
+                // return new User(args).save();
+            }
+        },
+
+        logout: {
+                type: UserType,
+                resolve(parentValue, args, req) {
+                    const {user} = req;
+                    req.logout();
+                    return user;                
+            }
+        },
+
+        login: {
+            type: UserType,
+            resolve(parentValue, args, req) {
+                
             }
         },
 

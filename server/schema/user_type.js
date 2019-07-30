@@ -14,6 +14,7 @@ const Char = require('../models/character');
 const axios = require("axios");
 
 
+
 const UserType = new GraphQLObjectType({
     name: "User",
     fields: () => ({
