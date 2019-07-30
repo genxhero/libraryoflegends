@@ -117,12 +117,14 @@ class AncestryPane extends Component {
                 <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
             </div>
            
-            <select name="freebie-selector">
-                    <option value="blank"></option>
-                    <option value="strength">Strength</option>
-                    <option value="wisdom">Wisdom</option>
-                    <option value="charisma">Charisma</option>
+            <label> Ability To Increase:
+            <select name="freebie-selector" className="freebie-selector">
+                    <option className="freebie-option" value="blank"></option>
+                    <option className="freebie-option" value="strength">Strength</option>
+                    <option className="freebie-option" value="wisdom">Wisdom</option>
+                    <option className="freebie-option"value="charisma">Charisma</option>
                 </select>
+                </label>
                <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 1}></input>
         </div>
        );
@@ -142,12 +144,14 @@ class AncestryPane extends Component {
                     <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
                 </div>
                
-                <select name="freebie-selector">
-                        <option value="blank"></option>
-                        <option value="strength">Strength</option>
-                        <option value="dexterity">Dexterity</option>
-                        <option value="intelligence">Intelligence</option>
+                <label> Ability To Increase:
+                  <select name="freebie-selector" className="freebie-selector">
+                        <option className="freebie-option" value="blank"></option>
+                        <option className="freebie-option" value="strength">Strength</option>
+                        <option className="freebie-option" value="dexterity">Dexterity</option>
+                        <option className="freebie-option" value="intelligence">Intelligence</option>
                     </select>
+                    </label>
                 <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 1}></input>
             </div>
            );
