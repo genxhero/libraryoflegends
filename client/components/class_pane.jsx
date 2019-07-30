@@ -16,9 +16,9 @@ class ClassPane extends Component {
         this.classes = Classes;
         this.selectClass = this.selectClass.bind(this);
         this.passTheProps = this.passTheProps.bind(this);
-        this.describeMeMaybe = this.describeMeMaybe.bind(this);
+        this.showDescription = this.showDescription.bind(this);
         this.choiceMaybe = this.choiceMaybe.bind(this);
-        this.nextPaneMaybe = this.nextPaneMaybe.bind(this);
+        this.showNextButton = this.showNextButton.bind(this);
         this.chooseFreebie = this.chooseFreebie.bind(this);
     }
 
@@ -64,7 +64,7 @@ class ClassPane extends Component {
         })
     }
 
-    nextPaneMaybe(){
+    showNextButton(){
         //Check to see if a class has been chosen
         //Then check to see if it is one of 3 edge cases
         //If it's not a bloody edge case, return the submit button.
@@ -90,7 +90,7 @@ class ClassPane extends Component {
         }
     }
 
-    describeMeMaybe(){
+    showDescription(){
         if (this.state.selected === null) {
             return( <div className="class-description">
                 <p>When you have selected your character's class, a description will appear right here</p>
@@ -128,11 +128,11 @@ class ClassPane extends Component {
             </div>
         <form onChange={this.chooseFreebie} onSubmit={this.passTheProps}>
             <div className="description">
-                {this.describeMeMaybe()}
+                {this.showDescription()}
             </div>
 
             {this.choiceMaybe()}
-            {this.nextPaneMaybe()}
+            {this.showNextButton()}
             </form>
           </div>);
     }
