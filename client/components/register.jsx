@@ -56,8 +56,8 @@ class Register extends Component {
                    <h1>Sign Up</h1>
                    <input className="auth-field" type="text" value={this.state.username} onChange={this.handleFormChange('username')} placeholder="Username"/>
                    <input className="auth-field" type="text" value={this.state.email} onChange={this.handleFormChange('email')} placeholder="Email"/>
-                   <input className="auth-field" type="text"value={this.state.password} onChange={this.handleFormChange('password')} placeholder="Password"/>
-                   <input className="auth-field" type="text"value={this.state.password2} onChange={this.handleFormChange('password2')} placeholder="Confirm Password" /> 
+                   <input className="auth-field" type="password"value={this.state.password} onChange={this.handleFormChange('password')} placeholder="Password"/>
+                   <input className="auth-field" type="password"value={this.state.password2} onChange={this.handleFormChange('password2')} placeholder="Confirm Password" /> 
                    <div className="form-footer"> 
                      <ul className="error-zone">
                        {this.state.password !== this.state.password2  && <li> <span>Passwords must match</span></li>}
