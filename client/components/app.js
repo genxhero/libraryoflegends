@@ -1,7 +1,12 @@
 import React from 'react';
+import Header from './header';
+import {withRouter } from 'react-router-dom';
 
-export default ( { children } ) => {
+const App = ( props ) => {
     return <div className="container">
-         {children}
+         <Header />
+         {props.children}
     </div>;
 }
+
+export default withRouter(App);

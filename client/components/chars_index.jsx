@@ -55,12 +55,11 @@ class CharsIndex extends Component {
   
     const characters = this.props.data.characters;
     return (    
-      <div className="index-page">
-           <div className="intro-content">
-              <h1>Library of Legends</h1>
-              <p>Welcome to the Library of Legends, where tales of great heroes lie.</p>
-           </div>          
+      <div className="index-page"> 
+       <div className="intro-content">
           <h1 id="index-title">Names of Legend</h1>
+          <p>Welcome to the Library of Legends, where tales of great heroes lie.</p>
+          </div>   
         <div className="chars-spread">
             {this.charList(characters)}
           </div>

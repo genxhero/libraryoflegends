@@ -36,13 +36,16 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
-               <form onSubmit={this.saveUser}>
-                   <input type="text" value={this.state.username} onChange={this.handleFormChange('username')}/>
-                   <input type="text" value={this.state.email} onChange={this.handleFormChange('email')}/>
-                   <input type="text"value={this.state.password} onChange={this.handleFormChange('password')}/>
-                   <input type="text"value={this.state.password2} onChange={this.handleFormChange('password2')}/> 
-                   <input type="submit"></input>
+            <div className="register-page">
+               <form onSubmit={this.saveUser} className="register-form">
+                   <h1>Sign Up</h1>
+                   <input className="auth-field" type="text" value={this.state.username} onChange={this.handleFormChange('username')} placeholder="Username"/>
+                   <input className="auth-field" type="text" value={this.state.email} onChange={this.handleFormChange('email')} placeholder="Email"/>
+                   <input className="auth-field" type="text"value={this.state.password} onChange={this.handleFormChange('password')} placeholder="Password"/>
+                   <input className="auth-field" type="text"value={this.state.password2} onChange={this.handleFormChange('password2')} placeholder="Confirm Password" /> 
+                   <div className="form-footer"> 
+                   <input className="submit" type="submit" />
+                   </div>
                </form>
             </div>
         );
