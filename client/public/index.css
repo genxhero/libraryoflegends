@@ -560,8 +560,21 @@ label {
   padding: 2rem;
   box-shadow: 2px 2px black;
   width: 25rem;
-  height: 20rem;
+  height: auto;
+  box-sizing: border-box;
   justify-content: space-around;
+}
+
+.error-zone {
+  font-weight: 800;
+  color: red;
+  position: relative;
+  right: 2.5rem;
+}
+
+.a-special-hell {
+  font-size: 24px;
+  text-decoration: underline;
 }
 
 .auth-field {

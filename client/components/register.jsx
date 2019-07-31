@@ -47,6 +47,7 @@ class Register extends Component {
         }
       }
 
+
     render() {
         return (
             <div className="register-page">
@@ -61,9 +62,9 @@ class Register extends Component {
                      <ul className="error-zone">
                        {this.state.password !== this.state.password2  && <li> <span>Passwords must match</span></li>}
                        {!this.validatePassword(this.state.password) &&   <li> <span>Invalid Password</span></li>}
-                       {this.state.password === "password" && <li><span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!!</span></li>}
+                       {this.state.password.toLowerCase() === "password" && <li><span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!!</span></li>}
                      </ul>
-                   <input className="submit" type="submit" disabled={!this.state.passwordsMatch || !this.validatePassword(this.state.password)}/>
+                   <input className="submit" type="submit" disabled={this.state.password !== this.state.password2 || !this.validatePassword(this.state.password)}/>
                    </div>
                </form>
             </div>
