@@ -9,6 +9,7 @@ import CharCreate from './components/char_create';
 import CharShow from './components/char_show';
 import App from './components/app';
 import Register from './components/register';
+import Header from './components/header';
 
 
 const client = new ApolloClient({
@@ -22,10 +23,11 @@ const Root = () => {
         <Router history={hashHistory}>
           <Route path="/" component={App}>
             <IndexRoute component={CharsIndex} />
-          </Route>
-          <Route path="/newchar" component={CharCreate} />
+            <Route path="/newchar" component={CharCreate} />
           <Route path="/characters/:id" component={CharShow}/>
           <Route path="/register" component={Register} />
+          </Route>
+       
         </Router>
       </ApolloProvider>);
 };

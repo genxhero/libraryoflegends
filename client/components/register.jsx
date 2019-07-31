@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
+import Header from './header';
 
 class Register extends Component {
 
@@ -37,6 +38,7 @@ class Register extends Component {
     render() {
         return (
             <div className="register-page">
+               <Header />
                <form onSubmit={this.saveUser} className="register-form">
                    <h1>Sign Up</h1>
                    <input className="auth-field" type="text" value={this.state.username} onChange={this.handleFormChange('username')} placeholder="Username"/>
