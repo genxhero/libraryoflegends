@@ -12,10 +12,11 @@ class Register extends Component {
             password: "",
             password2: "",
             email: "",
-            invalidPass: null,
-            passwordsMatch: null
         }
+        // This format is far, far easier to debug than using the arrow methods.
         this.saveUser = this.saveUser.bind(this);
+        this.handleFormChange = this.handleFormChange.bind(this);
+        this.validatePassword = this.validatePassword.bind(this);
     }
 
     saveUser() {
@@ -31,8 +32,19 @@ class Register extends Component {
 
     handleFormChange(field) {
         return event => this.setState({
-          [field]: event.currentTarget.value
+          [field]: event.currentTarget.value,
         });
+      }
+
+
+      validatePassword(password) {
+        if (password === "password") {
+          return false;
+        } else if (password.length < 8) {
+          return false;
+        } else {
+          return true;
+        }
       }
 
     render() {
@@ -46,7 +58,12 @@ class Register extends Component {
                    <input className="auth-field" type="text"value={this.state.password} onChange={this.handleFormChange('password')} placeholder="Password"/>
                    <input className="auth-field" type="text"value={this.state.password2} onChange={this.handleFormChange('password2')} placeholder="Confirm Password" /> 
                    <div className="form-footer"> 
-                   <input className="submit" type="submit" />
+                     <ul className="error-zone">
+                       {this.state.password !== this.state.password2  && <li> <span>Passwords must match</span></li>}
+                       {!this.validatePassword(this.state.password) &&   <li> <span>Invalid Password</span></li>}
+                       {this.state.password === "password" && <li><span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!!</span></li>}
+                     </ul>
+                   <input className="submit" type="submit" disabled={!this.state.passwordsMatch || !this.validatePassword(this.state.password)}/>
                    </div>
                </form>
             </div>
