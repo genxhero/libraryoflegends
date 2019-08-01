@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Link, hashHistory} from 'react-router';
 import {graphql} from 'react-apollo';
-import { timesSeries } from 'async';
 import AncestryPane from './ancestry_pane';
 import BackgroundPane from './background_pane';
 import ClassPane from './class_pane';
@@ -9,6 +8,7 @@ import PersonalPane from './personal_pane';
 import FreebiePane from './freebie_pane';
 import gql from 'graphql-tag';
 import query from '../queries/fetchchars';
+import currentUser from '../queries/current_user';
 
 const SavePane = (props) => {
     
@@ -137,10 +137,9 @@ class CharCreate extends Component {
 
     save(event){
         event.preventDefault();
-        debugger;
        this.props.mutate({
          variables: {
-             userId: "5c15c379796d623e5ae350f8", //must replace with current user
+             userId: this.props.data.currentUser.id, 
              firstName: this.state.firstName,
              lastName: this.state.lastName,
              class: this.state.class,
@@ -157,7 +156,7 @@ class CharCreate extends Component {
              },
              level: 1
          },
-         refetchQueries: [{ query }]
+         refetchQueries: [{ query, currentUser }]
        }).then( hashHistory.push('/'));
        //put catch down here later
     }
@@ -253,7 +252,11 @@ mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class
 
 
 
-export default graphql(mutation)(CharCreate);
+// export default graphql(mutation)(CharCreate);
+
+export default graphql(currentUser)(
+    graphql(mutation)(CharCreate) 
+  );
 
 
 /* <div className="tally-pages">
