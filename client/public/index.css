@@ -186,8 +186,9 @@
     margin: 5px;
 }
 
-.custom-greeting {
+.custom-welcome {
   color: gold;
+  margin: 1.5rem;
 }
 
 .freebie-choices {
@@ -225,15 +226,18 @@
 
 .header-link {
   color: black;
-  background: ivory;
   margin: .5rem;
   padding: 1rem;
   text-decoration: none;
   font-weight: bold;
+  background: rgb(36,129,74);
+  background: linear-gradient(180deg, rgba(36,129,74,1) 7%, rgba(6,224,176,1) 38%, rgba(0,65,4,1) 98%);
+  border-radius: 3px;
 }
 
 .header-link:hover{
   background-color: lightslategray;
+  cursor: pointer;
 }
 .header-link:active {
   background: black;

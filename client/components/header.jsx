@@ -4,15 +4,16 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import { graphql } from 'react-apollo';
 import query from '../queries/current_user';
+import gql from 'graphql-tag';
 
 class Header extends Component {
 
   logout() {
-    //The log out mutation goes here, brae
+    this.props.mutate({})
   }
 
   renderErrors() {
-    if (this.props.data.error) {
+    if (this.props.data.error || this.state.dummyError) {
       return <div className="error-popup">
          {this.props.data.error}
       </div>
@@ -20,6 +21,8 @@ class Header extends Component {
       return <div />
     }
   }
+  
+
 
   render() {
     return (
@@ -31,7 +34,7 @@ class Header extends Component {
          {this.props.data.currentUser ? 
           <div className="header-right">
             <h3 className="custom-welcome">Welcome, {this.props.data.currentUser.username}</h3>
-               <Link className="header-link" to="/">Logout</Link>
+               <div className="header-link" onClick={this.logout}>Logout</div>
            </div>
          : 
            <div className="header-right">
@@ -45,4 +48,13 @@ class Header extends Component {
   }
 }
 
-export default graphql(query)(Header);
+const mutation = gql`
+mutation {
+  logout {
+    id
+    username
+  }
+}`
+
+export default graphql(mutation)(
+  graphql(query)(Header));
