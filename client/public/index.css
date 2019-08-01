@@ -186,6 +186,10 @@
     margin: 5px;
 }
 
+.custom-greeting {
+  color: gold;
+}
+
 .freebie-choices {
   display: flex;
   flex-direction: column;

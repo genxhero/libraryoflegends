@@ -22,7 +22,6 @@ class Header extends Component {
   }
 
   render() {
-    console.log("TheData:", this.props.data);
     return (
       <div className="header">
       {this.renderErrors()}
@@ -31,7 +30,7 @@ class Header extends Component {
          </div>
          {this.props.data.currentUser ? 
           <div className="header-right">
-            <h3>Welcome, {this.props.data.currentUser.username}</h3>
+            <h3 className="custom-welcome">Welcome, {this.props.data.currentUser.username}</h3>
                <Link className="header-link" to="/">Logout</Link>
            </div>
          : 
