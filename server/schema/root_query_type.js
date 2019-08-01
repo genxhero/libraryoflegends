@@ -20,11 +20,9 @@ const RootQuery = new GraphQLObjectType({
     fields: () => ({
         user: {
             type: UserType,
-            args: { id: { type: GraphQLString } },
+            args: { username: { type: GraphQLString } },
             resolve(parentValue, args) {
-                return User.findById(args.id);
-                // return axios.get(`http://localhost:3000/users/${args.id}`).then(res => res.data);
-                //result is nested inside of "data". Graphql doesn't know this. That is why we need to grab res.data
+                return User.findById(args.username);
             }
         },
 
@@ -46,8 +44,6 @@ const RootQuery = new GraphQLObjectType({
             type: CharType,
             args: { id: { type: GraphQLString } },
             resolve(parentValue, args) {
-                console.log(Char);
-                debugger;
                 return Char.findById(args.id);
             }
         },

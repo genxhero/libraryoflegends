@@ -24,6 +24,11 @@ const client = new ApolloClient({
 });
 //COnfiguration objects
 
+const UserPage = (props) => {
+  return <div> 
+    <h1>This is a placeholder watch me hold places</h1>
+  </div>
+}
 const Root = () => {
     return (
     <ApolloProvider client={client}>
@@ -34,6 +39,7 @@ const Root = () => {
             <Route path="/characters/:id" component={CharShow}/>
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
+            <Route path="/users/:username" component={UserPage} />
           </Route> 
         </Router>
       </ApolloProvider>);

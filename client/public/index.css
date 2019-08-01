@@ -267,10 +267,15 @@
   font-weight: 600;
   position: relative;
   top: .5rem;
+  text-decoration: none;
 }
 
 .hidden{
   visibility: hidden;
+}
+
+.home-link {
+  text-decoration: none;
 }
 
 .char-creation-pane{
