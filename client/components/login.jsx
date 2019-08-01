@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import {hashHistory} from 'react-router';
-import currentUser from 'current_user';
+import currentUser from '../queries/current_user';
 
 class Login extends Component {
 
