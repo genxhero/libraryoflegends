@@ -8,8 +8,19 @@ import gql from 'graphql-tag';
 
 class Header extends Component {
 
+  constructor(props) {
+    super(props);
+    // This bit of state is for testing the error modal.
+    // Feeling cute might delete later who knows
+    this.state = {dummyError: false};
+    this.logout = this.logout.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+  }
+
   logout() {
-    this.props.mutate({})
+    this.props.mutate({
+      refetchQueries: [ { query } ]
+    })
   }
 
   renderErrors() {
@@ -21,8 +32,6 @@ class Header extends Component {
       return <div />
     }
   }
-  
-
 
   render() {
     return (
