@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import {hashHistory} from 'react-router';
+import currentUser from 'current_user';
 
 class Login extends Component {
 
@@ -29,6 +30,7 @@ class Login extends Component {
                 email: this.state.email,
                 password: this.state.password
                 },
+            refetchQueries: [{currentUser}]
           }).then( hashHistory.push('/'));
     }
 
