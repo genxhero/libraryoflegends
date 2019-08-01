@@ -12,7 +12,7 @@ class Header extends Component {
     super(props);
     // This bit of state is for testing the error modal.
     // Feeling cute might delete later who knows
-    this.state = {dummyError: false, currentUser: this.props.data.currentUser};
+    this.state = {dummyError: false};
     this.logout = this.logout.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
@@ -33,12 +33,11 @@ class Header extends Component {
     }
   }
 
-  componentWillReceiveProps(props) {
-    debugger;
-    if (this.props.data.currentUser !== props.data.currentUser) {
-      this.setState({currentUser: props.data.currentUser})
-    }
-  }
+  // componentWillReceiveProps(props) {
+  //   if (this.props.data.currentUser !== props.data.currentUser) {
+  //     this.setState({currentUser: props.data.currentUser})
+  //   }
+  // }
 
   render() {
     return (
@@ -47,9 +46,9 @@ class Header extends Component {
          <div className="header-left"> 
            <h1 className="header-title">Library of Legends</h1>
          </div>
-         {this.state.currentUser ? 
+         {this.props.data.currentUser ? 
           <div className="header-right">
-            <h3 className="custom-welcome">Welcome, {this.state.currentUser.username}</h3>
+            <h3 className="custom-welcome">Welcome, {this.props.data.currentUser.username}</h3>
                <div className="header-link" onClick={this.logout}>Logout</div>
            </div>
          : 
