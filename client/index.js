@@ -10,6 +10,7 @@ import CharShow from './components/char_show';
 import App from './components/app';
 import Register from './components/register';
 import Login from './components/login';
+import UserPage from './components/user_page';
 
 const networkInterface = createNetworkInterface({
   uri: "/graphql",
@@ -24,11 +25,6 @@ const client = new ApolloClient({
 });
 //COnfiguration objects
 
-const UserPage = (props) => {
-  return <div> 
-    <h1>This is a placeholder watch me hold places</h1>
-  </div>
-}
 const Root = () => {
     return (
     <ApolloProvider client={client}>

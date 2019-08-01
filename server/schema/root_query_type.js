@@ -20,9 +20,11 @@ const RootQuery = new GraphQLObjectType({
     fields: () => ({
         user: {
             type: UserType,
+            // args: { id: { type: GraphQLString } },
             args: { username: { type: GraphQLString } },
             resolve(parentValue, args) {
-                return User.findById(args.username);
+                // return User.findById(args.id);
+                return User.findOne({'username':  { $regex : new RegExp(args.username, "i")}})
             }
         },
 
@@ -36,7 +38,6 @@ const RootQuery = new GraphQLObjectType({
         users: {
             type: new GraphQLList(UserType),
             resolve(){
-                console.log(User);
                 return User.find({});
             }
         },
