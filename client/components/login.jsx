@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import {hashHistory} from 'react-router';
-import currentUser from '../queries/current_user';
-
+import query from '../queries/current_user';
 class Login extends Component {
 
     constructor(props) {
@@ -30,7 +29,7 @@ class Login extends Component {
                 email: this.state.email,
                 password: this.state.password
                 },
-            refetchQueries: [{currentUser}]
+                refetchQueries: [{ query }]
           }).then( hashHistory.push('/'));
     }
 
@@ -61,4 +60,6 @@ mutation LoginMutation($email: String!, $password: String!) {
   }
 }`
 
-export default graphql(mutation)(Login);
+export default graphql(query)(
+  graphql(mutation)(Login) 
+);
