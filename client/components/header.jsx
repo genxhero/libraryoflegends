@@ -29,9 +29,9 @@ class Header extends Component {
          <div className="header-left"> 
            <h1 className="header-title">Library of Legends</h1>
          </div>
-         {this.props.data.user ? 
+         {this.props.data.currentUser ? 
           <div className="header-right">
-            <h3>Welcome, {this.props.data.user.userna,e}</h3>
+            <h3>Welcome, {this.props.data.currentUser.username}</h3>
                <Link className="header-link" to="/">Logout</Link>
            </div>
          : 
