@@ -39,7 +39,12 @@ function signup({ email, username, password, req }) {
   return User.findOne({ email })
     .then(existingUser => {
       if (existingUser) { throw new Error('Email in use'); }
-      return user.save();
+      return User.findOne({username})
+      .then(existingUser => {
+        if (existingUser) {throw new Error('Username in use');}
+          return user.save();
+        }
+      )   
     })
     .then(user => {
       return new Promise((resolve, reject) => {
@@ -49,6 +54,20 @@ function signup({ email, username, password, req }) {
         });
       });
     });
+
+//   return User.findOne({ email })
+//     .then(existingUser => {
+//       if (existingUser) { throw new Error('Email in use'); }
+//       return user.save();
+//     })
+//     .then(user => {
+//       return new Promise((resolve, reject) => {
+//         req.logIn(user, (err) => {
+//           if (err) { reject(err); }
+//           resolve(user);
+//         });
+//       });
+//     });
 }
 
 

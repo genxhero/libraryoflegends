@@ -26,7 +26,6 @@ const UserType = new GraphQLObjectType({
             type: new GraphQLList(CharType),
             resolve(parentValue, args) {
                return User.findChars(parentValue.id);
-                // return axios.get(`http://localhost:3000/users/${parentValue.id}/characters`).then(res => res.data);
             }
         }
     })

@@ -2,24 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { graphql } from 'react-apollo';
 import query from '../queries/fetchchars';
+import { numberSuffix } from '../helpers';
 
 class CharsIndex extends Component {
 
   constructor(props){
     super(props);
-  }
-
-  thStRd(num){
-     switch (num){
-        case 1:
-        return "st";
-        case 2: 
-        return "nd";
-        case 3: 
-        return "rd";
-        default: 
-        return "th";
-     }
   }
 
   componentDidMount() {
@@ -37,7 +25,7 @@ class CharsIndex extends Component {
           value={`${char.id}`}
           >
           <div>{char.firstName} {char.lastName}</div>
-          <div>{char.level}{this.thStRd(char.level)} level {char.class}</div>
+          <div>{char.level}{numberSuffix(char.level)} level {char.class}</div>
         
           <img className="char-thumb" src="http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg" />
           <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>

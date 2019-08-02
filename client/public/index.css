@@ -610,3 +610,10 @@ label {
   justify-content: flex-end;
   flex-direction: row;
 }
+
+.user-profile-page {
+  background: burlywood;
+  height: auto;
+  min-height: 34rem;
+  padding: 2rem;
+}
