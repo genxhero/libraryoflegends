@@ -15,7 +15,8 @@ class UserPage extends Component {
     const timestamp = Date.now();
     if (this.props.data.user.characters.length > 0) {
          return ( 
-         <div className="user-characters"> 
+      <div className="chars-spread"> 
+         <h2 className="user-subtitle">Characters</h2>
             {this.props.data.user.characters.map(
                 char => {
                 return (
@@ -35,7 +36,7 @@ class UserPage extends Component {
         )
      } else {
          return (
-          <div className="user-characters">
+          <div className="chars-spread">
            <h3>No Characters Yet</h3>
          </div>
          );
@@ -49,7 +50,7 @@ class UserPage extends Component {
       }
       return (
           <div className="user-profile-page">
-            <h1>{this.props.data.user.username}'s Profile Page</h1>
+            <h1 className="user-profile-title">{this.props.data.user.username}'s Profile Page</h1>
               {this.charlist()}     
           </div>
       );

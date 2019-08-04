@@ -38,10 +38,10 @@ export  const numberSuffix = (num) => {
     let repeats = 0;
      for (let index = 0; index < string.length; index++){
          if (string[index] === string[index + 1]){
-                repeats += 1;
-                if (repeats === 3) {
-                    return true;
-                }
+            repeats += 1;
+            if (repeats === 3) {
+                return true;
+            }
          } else {
              repeats = 0;
          }
