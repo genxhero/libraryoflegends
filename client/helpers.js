@@ -30,3 +30,22 @@ export  const numberSuffix = (num) => {
      }
      return true
  }
+
+ /**
+  * Checks for any repetitious characters, returning true if it finds 3 or more of the same character in a row.
+  */
+ export const hasTooManyRepeats = (string) => {
+    let repeats = 0;
+     for (let index = 0; index < string.length; index++){
+         if (string[index] === string[index + 1]){
+                repeats += 1;
+                if (repeats === 3) {
+                    return true;
+                }
+         } else {
+             repeats = 0;
+         }
+
+     }
+     return false;
+ }
