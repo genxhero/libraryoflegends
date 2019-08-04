@@ -1,3 +1,10 @@
+/**
+ * Problem: Every number apart from 1, 2, and 3 ends in "th" when talking about order of sequence.
+ * Solution: Create a helper function that 
+ * This particular version only works on numbers between one and twenty.
+ * TODO: Refactor to work with numbers higher than 20
+ */
+
 export  const numberSuffix = (num) => {
     switch (num){
        case 1:
@@ -20,7 +27,6 @@ export  const numberSuffix = (num) => {
          if (string[index] > string[index+ 1]) {
              return false
          }
-
      }
      return true
  }
