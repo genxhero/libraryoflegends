@@ -44,7 +44,7 @@ class Header extends Component {
       <div className="header">
       {this.renderErrors()}
          <div className="header-left"> 
-           <Link className="home-link" to="/"><h1 className="header-title">Library of Legends</h1></Link>
+           <Link className="home-link" to="/"> <h1 className="header-title"> <span className="stud-top-left"/> <span className="stud-top-right" />Library of Legends</h1></Link>
          </div>
          {this.props.data.currentUser ? 
           <div className="header-right">

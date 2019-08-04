@@ -286,6 +286,8 @@
 
 .home-link {
   text-decoration: none;
+  position: relative;
+  left: 6rem;
 }
 
 .char-creation-pane{
@@ -619,6 +621,29 @@ label {
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
+}
+
+.stud-top-left {
+  border-radius: 100%;
+  background: goldenrod;
+  border: 1px solid black;
+  position: absolute;
+  padding: .25rem;
+  top: 0.4rem;
+  border: none;
+  box-shadow: 1px 1px 1px black, -1px 1px 1px black;
+}
+
+.stud-top-right {
+  border-radius: 100%;
+  background: goldenrod;
+  border: 1px solid black;
+  position: absolute;
+  padding: .25rem;
+  top: 0.4rem;
+  left: 17rem;
+  border: none;
+  box-shadow: 1px 1px 1px black, -1px 1px 1px black;
 }
 
 .user-profile-page {
