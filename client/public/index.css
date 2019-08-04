@@ -625,25 +625,44 @@ label {
 
 .stud-top-left {
   border-radius: 100%;
-  background: goldenrod;
   border: 1px solid black;
   position: absolute;
   padding: .25rem;
   top: 0.4rem;
   border: none;
-  box-shadow: 1px 1px 1px black, -1px 1px 1px black;
+  box-shadow: 1px 1px 1px black, -1px 0px 2px 1px black;
 }
 
 .stud-top-right {
   border-radius: 100%;
-  background: goldenrod;
   border: 1px solid black;
   position: absolute;
   padding: .25rem;
   top: 0.4rem;
   left: 17rem;
   border: none;
-  box-shadow: 1px 1px 1px black, -1px 1px 1px black;
+  box-shadow: 1px 1px 1px black, -1px 0px 2px 1px black;
+}
+
+.stud-bottom-left {
+  border-radius: 100%;
+  border: 1px solid black;
+  position: absolute;
+  padding: .25rem;
+  bottom: 0.4rem;
+  border: none;
+  box-shadow: 1px 1px 1px black, -1px 0px 2px 1px black;
+}
+
+.stud-bottom-right {
+  border-radius: 100%;
+  border: 1px solid black;
+  position: absolute;
+  padding: .25rem;
+  bottom: 0.4rem;
+  left: 17rem;
+  border: none;
+  box-shadow: 1px 1px 1px black, -1px 0px 2px 1px black;
 }
 
 .user-profile-page {
