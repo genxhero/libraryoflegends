@@ -3,6 +3,7 @@ import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import {hashHistory} from 'react-router';
 import query from '../queries/current_user';
+import { isSequential } from '../helpers';
 
 class Register extends Component {
 
@@ -40,7 +41,7 @@ class Register extends Component {
 
 
       validatePassword(password) {
-        if (password === "password") {
+        if (password === "password" || isSequential(password)) {
           return false;
         } else if (password.length < 8) {
           return false;
