@@ -15,24 +15,27 @@ class UserPage extends Component {
     const timestamp = Date.now();
     if (this.props.data.user.characters.length > 0) {
          return ( 
-      <div className="chars-spread"> 
-         <h2 className="user-subtitle">Characters</h2>
-            {this.props.data.user.characters.map(
-                char => {
-                return (
-                    <div className="char-snippet"
-                    key={`${char.firstName}${timestamp}${char.lastName}${char.id}`} 
-                    value={`${char.id}`}
-                    >
-                    <div>{char.firstName} {char.lastName}</div>
-                    <div>{char.level}{numberSuffix(char.level)} level {char.class}</div>
-                
-                    <img className="char-thumb" src="http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg" />
-                    <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
+             <div className="user-characters">
+                <h2 className="user-subtitle">Characters</h2>
+                  <div className="chars-spread"> 
+                            {this.props.data.user.characters.map(
+                                char => {
+                                return (
+                                    <div className="char-snippet"
+                                    key={`${char.firstName}${timestamp}${char.lastName}${char.id}`} 
+                                    value={`${char.id}`}
+                                    >
+                                    <div>{char.firstName} {char.lastName}</div>
+                                    <div>{char.level}{numberSuffix(char.level)} level {char.class}</div>
+                                
+                                    <img className="char-thumb" src="http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg" />
+                                    <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
+                                    </div>
+                                );
+                                })}
                     </div>
-                );
-                })}
-          </div>
+             </div>
+   
         )
      } else {
          return (
