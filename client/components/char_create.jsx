@@ -238,8 +238,8 @@ class CharCreate extends Component {
 }
 
 const mutation =  gql`
-mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class: String, $level: Int, $statline: StatLineInput!, $ancestry: String, $background: String, $bio: String){
-    addCharacter(userId: $userId, firstName: $firstName, lastName: $lastName, class: $class, level: $level, statline: $statline, ancestry: $ancestry, background: $background, bio: $bio)
+mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class: String, $level: Int, $statline: StatLineInput!, $ancestry: String, $background: String, $bio: String, $image: String){
+    addCharacter(userId: $userId, firstName: $firstName, lastName: $lastName, class: $class, level: $level, statline: $statline, ancestry: $ancestry, background: $background, bio: $bio, image: $image)
     {
         id
         firstName
@@ -248,6 +248,7 @@ mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class
         background
         class
         bio
+        image
        statline {
         strength
         dexterity
