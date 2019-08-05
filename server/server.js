@@ -8,6 +8,8 @@ const session = require("express-session");
 const db = require('../config/keys').mongoURI;
 const MongoStore = require('connect-mongo')(session);
 const passportConfig = require('./services/auth');
+const API_SECRET = require('../secret');
+const API_KEY = require('../key');
 require('../config/passport');
 
 const app = express();
@@ -17,7 +19,7 @@ const app = express();
 // if (!MONGO_URI){
 //     throw new Error('Invalid URI');
 // }
-
+let shutuplint = [API_SECRET, API_KEY];
 mongoose.Promise = global.Promise;
 // mongoose.connect(MONGO_URI);
 mongoose.connect(db);

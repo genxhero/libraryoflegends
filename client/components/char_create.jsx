@@ -6,6 +6,7 @@ import BackgroundPane from './background_pane';
 import ClassPane from './class_pane';
 import PersonalPane from './personal_pane';
 import FreebiePane from './freebie_pane';
+import ImagePane from './image_pane';
 import gql from 'graphql-tag';
 import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
@@ -42,13 +43,14 @@ class CharCreate extends Component {
         this.applyBackground = this.applyBackground.bind(this);
         this.applyClass = this.applyClass.bind(this);
         this.applyFreebies = this.applyFreebies.bind(this);
+        this.applyImage = this.applyImage.bind(this);
         this.backgroundMaybe = this.backgroundMaybe.bind(this);
         this.saveMeMaybe = this.saveMeMaybe.bind(this);
         this.save = this.save.bind(this);
         this.panes = [<PersonalPane nextPane={this.applyPersonal} />,
              <AncestryPane nextPane={this.applyAncestry} />, 
              <BackgroundPane nextPane={this.applyBackground} />,
-              <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>,
+              <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>, <ImagePane nextPane={this.applyImage}/>,
               <SavePane saveMeMaybe={this.saveMeMaybe} data={this.state}/>
             ];
     }
@@ -132,6 +134,13 @@ class CharCreate extends Component {
           pane: this.state.pane + 1,
           freebiesDone: true
         });
+    }
+
+    applyImage() {
+        console.log("We're working on it, we swear!");
+        this.setState({
+            pane: this.state.pane + 1
+        })
     }
 
 
