@@ -30,16 +30,14 @@ const CharType = new GraphQLObjectType({
         user: {
             type: require('./user_type'),
             resolve(parentValue) {
-                // return axios.get(`http://localhost:3000/users/${parentValue.userId}`)
-                //     .then(res => res.data);
-                debugger;
                 return Char.findById(parentValue).populate('user')
                 .then(char => {
                     console.log(char);
                      return char.user;
                 });
             }
-        }
+        },
+        photo: { type: GraphQLString }
     })
 });
 
