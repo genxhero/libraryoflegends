@@ -36,7 +36,8 @@ const CharType = new GraphQLObjectType({
                      return char.user;
                 });
             }
-        }
+        },
+        image: {type: GraphQLString }
     })
 });
 
