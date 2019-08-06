@@ -163,7 +163,7 @@ class CharCreate extends Component {
        event.preventDefault();
        const image = this.state.image;
        debugger;
-       const response = await thisprops.s3Sign({
+       const response = await this.props.s3Sign({
            variables: {
                filename: this.formatFilename(image.name),
                filetype: image.type
