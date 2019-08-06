@@ -139,7 +139,6 @@ class CharCreate extends Component {
     }
 
     applyImage(imagePaneState) {
-        console.log("We're working on it, we swear!");
         this.setState({
             image: imagePaneState.image,
             pane: this.state.pane + 1
@@ -149,7 +148,7 @@ class CharCreate extends Component {
 
     save(event){
         event.preventDefault();
-        console.log("Image", this.state.image)
+        console.log("State Before Save: ", this.state)
        this.props.mutate({
          variables: {
              userId: this.props.data.currentUser.id, 
@@ -159,7 +158,7 @@ class CharCreate extends Component {
              ancestry: this.state.ancestry,
              background: this.state.background.name,
              bio: this.state.bio,
-             age: this.state.age,
+             age: parseInt(this.state.age),
              statline: {
                  strength: this.state.strength,
                  dexterity: this.state.dexterity,
@@ -253,6 +252,7 @@ mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class
         background
         class
         bio
+        age
         image
        statline {
         strength

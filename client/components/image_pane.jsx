@@ -9,6 +9,7 @@ class ImagePane extends Component {
     }
 
     passTheProps(){
+        console.log(this.state);
         event.preventDefault();
         this.props.nextPane(this.state)
     }

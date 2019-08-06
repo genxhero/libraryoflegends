@@ -44,6 +44,7 @@ render() {
            
             <div className="char-vital"><span>Player:</span>{char.user.username}</div>
             <div className="char-vital"><span>Race: </span><span className="be-capitalized">{char.ancestry}</span></div>
+            <div className="char-vital"><span>Age:</span> {char.age}</div>
             <div className="char-vital"><span>Class: </span><span className="be-capitalized"></span><span className="be-capitalized">{char.class}</span></div>
             <div className="char-vital"><span>Level:</span> {char.level}</div>
           </div>

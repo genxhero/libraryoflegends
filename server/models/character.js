@@ -23,6 +23,7 @@ const CharSchema = new Schema(
     lastName: { type: String },
     class: { type: String },
     level: { type: Number },
+    age: {type: Number},
     ancestry: {type: String },
     background: {type: String},
     statline: { type: StatLine },
