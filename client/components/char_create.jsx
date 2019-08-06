@@ -51,6 +51,7 @@ class CharCreate extends Component {
         this.saveMeMaybe = this.saveMeMaybe.bind(this);
         this.formatFilename = this.formatFilename.bind(this);
         this.save = this.save.bind(this);
+        this.uploadToS3 = this.uploadToS3.bind(this);
         this.panes = [<PersonalPane nextPane={this.applyPersonal} />,
              <AncestryPane nextPane={this.applyAncestry} />, 
              <BackgroundPane nextPane={this.applyBackground} />,
@@ -158,11 +159,19 @@ class CharCreate extends Component {
         return newFileName.substring(0, 60);
     }
 
+    async uploadToS3(file, signedRequest) {
+        const options = {
+            headers: {
+                "Content=Type": file.type
+            }
+        }
+        await axios.put(signedRequest, file, options);
+    }
+
 
     async save(event)  {
        event.preventDefault();
        const image = this.state.image;
-       debugger;
        const response = await this.props.s3Sign({
            variables: {
                filename: this.formatFilename(image.name),
