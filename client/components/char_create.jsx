@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link, hashHistory} from 'react-router';
-import {graphql} from 'react-apollo';
+import {graphql, compose} from 'react-apollo';
 import AncestryPane from './ancestry_pane';
 import BackgroundPane from './background_pane';
 import ClassPane from './class_pane';
@@ -148,7 +148,16 @@ class CharCreate extends Component {
 
     async save (event)  {
        event.preventDefault();
-
+       const image = this.state.image;
+       const response = await thisprops.s3Sign({
+           variables: {
+               filename: image.name,
+               filetype: image.type
+           }
+       });
+       const { signedRequest, url } = response.data.signS3;
+       await this.uploadToS3(image, signedRequest)
+       
        this.props.mutate({
          variables: {
              userId: this.props.data.currentUser.id, 
