@@ -378,6 +378,10 @@
    height: auto;
 }
 
+.char-form-image {
+  padding: 2rem;
+}
+
 .char-show {
   display: flex;
   flex-direction: column;

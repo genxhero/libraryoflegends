@@ -17,7 +17,7 @@ class ImagePane extends Component {
           <div className="char-creation-pane"> 
             <h1>photo upload is work in progress</h1>
             <form className="char-form" onSubmit={this.passTheProps}>   
-                <input type="file" />
+                <input className="char-form-image"type="file" />
                 <input type="submit" className="submit" value="NEXT" />
             </form>
           </div>
