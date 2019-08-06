@@ -379,7 +379,10 @@
 }
 
 .char-form-image {
-  padding: 2rem;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 16pt;
+  margin: auto;
 }
 
 .char-show {
