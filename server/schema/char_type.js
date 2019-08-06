@@ -27,6 +27,7 @@ const CharType = new GraphQLObjectType({
         level: { type: GraphQLInt },
         statline: { type: StatLine },
         bio: {type: GraphQLString},
+        age: {type: GraphQLInt},
         user: {
             type: require('./user_type'),
             resolve(parentValue) {
