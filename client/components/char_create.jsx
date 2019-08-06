@@ -36,7 +36,8 @@ class CharCreate extends Component {
             classDone: false,
             backgroundDone:false,
             ancestry: "",
-            class: "Placeholder"
+            class: "Placeholder",
+            image: null
         }
         this.applyPersonal = this.applyPersonal.bind(this);
         this.applyAncestry = this.applyAncestry.bind(this);
@@ -136,9 +137,10 @@ class CharCreate extends Component {
         });
     }
 
-    applyImage() {
+    applyImage(imagePaneState) {
         console.log("We're working on it, we swear!");
         this.setState({
+            image: imagePaneState.image,
             pane: this.state.pane + 1
         })
     }
@@ -146,6 +148,7 @@ class CharCreate extends Component {
 
     save(event){
         event.preventDefault();
+        console.log("Image", this.state.image)
        this.props.mutate({
          variables: {
              userId: this.props.data.currentUser.id, 

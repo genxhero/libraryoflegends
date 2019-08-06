@@ -10,7 +10,7 @@ class ImagePane extends Component {
 
     passTheProps(){
         event.preventDefault();
-        this.props.nextPane(this.state.image)
+        this.props.nextPane(this.state)
     }
 
     handleFileChange(e) {
