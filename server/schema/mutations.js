@@ -15,8 +15,13 @@ const Char = mongoose.model("character");
 const UserType = require("./user_type");
 const CharType = require("./char_type");
 const StatLineType = require("./statline_type");
+const s3Payload = require("./s3_payload");
 const axios = require("axios");
 const AuthService = require('../services/auth');
+const aws = require("aws-sdk");
+
+//TODO: create function to determine dev or prod bucket.
+const s3Bucket = "temporary";
 
 const StatLineInput = new GraphQLInputObjectType({
   name: "StatLineInput",
@@ -53,8 +58,7 @@ const mutation = new GraphQLObjectType({
                 const { userId, ...rest } = args
                 return User.addChar(userId, rest);
             }
-        },
-
+        }, 
         addUser: {
             type: UserType,
             args: {
@@ -123,6 +127,30 @@ const mutation = new GraphQLObjectType({
             resolve(parentValue, { id }) {
                 return Char.remove({_id: id})
             }
+        },
+
+        signS3: {
+          type: s3Payload,
+          args: {
+              filemame: { type: GraphQLString },
+              filetype: { type: GraphQLString }
+          }, 
+          async resolve(parentValue, { filename, filetype } ) {
+             // API_SECRET
+             // API_KEY
+             const s3 = new aws.S3({
+                 signatureVersion:'v4',
+                 region: 'us-west-1'
+             });
+
+             const s3Params = {
+                 Bucket: s3Bucket,
+                 Key: filename,
+                 Expires: 60,
+                 ContentType: filetype,
+                 ACL: 'public-read'
+             }
+          }
         }
     }
 });

@@ -178,9 +178,11 @@ class CharCreate extends Component {
                filetype: image.type
            }
        });
+
        const { signedRequest, url } = response.data.signS3;
        await this.uploadToS3(image, signedRequest)
 
+       // Add image: url to the key value pairs. This url will be what gets saved to the db
        this.props.mutate({
          variables: {
              userId: this.props.data.currentUser.id, 
