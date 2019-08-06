@@ -146,9 +146,9 @@ class CharCreate extends Component {
     }
 
 
-    save(event){
-        event.preventDefault();
-        console.log("State Before Save: ", this.state)
+    async save (event)  {
+       event.preventDefault();
+
        this.props.mutate({
          variables: {
              userId: this.props.data.currentUser.id, 
@@ -264,6 +264,15 @@ mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class
       }
     }
 }`;
+
+const s3Sign = gql`
+  mutation($filename: String!, $filetype: String!) {
+    signS3(filename: $filename, filetype: $filetype) {
+        url
+        signedRequest
+    }
+  }
+`;
 
 
 export default graphql(currentUser)(
