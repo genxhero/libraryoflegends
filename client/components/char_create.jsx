@@ -264,35 +264,8 @@ mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class
 }`;
 
 
-
-// export default graphql(mutation)(CharCreate);
-
 export default graphql(currentUser)(
     graphql(mutation)(CharCreate) 
   );
 
 
-/* <div className="tally-pages">
-<div className="stats-tally">
-    <h3 className="page-header">Ability Scores</h3>
-    <div className="stat-single">STR: {this.state.strength}</div>
-    <div className="stat-single">DEX: {this.state.dexterity} </div>
-    <div className="stat-single">CON: {this.state.constitution}</div> 
-    <div className="stat-single">INT: {this.state.intelligence}</div>
-    <div className="stat-single">WIS: {this.state.wisdom}</div>
-    <div className="stat-single">CHA: {this.state.charisma}</div>
-</div>
-<div className="personal-tally">
-    <h3 className="page-header">Biography</h3>
-    <div>First Name: <span className="be-capitalized">{this.state.firstName}</span> </div>
-    <div>Last Name: <span className="be-capitalized">{this.state.lastName}</span> </div>
-    <p>{this.state.bio}</p>
-</div>
-
-<div className="ancestry-tally"> 
-    <h3 className="page-header">Ancestry</h3>
-    <div>Ancestry: <span className="be-capitalized"> {this.state.ancestry}</span> </div>
-    <div>Eventually, this area will be filled with a snippet depending on the ancstry chosen, perhaps making a graphql call to my mongo database. who knows. Mongo only pawn in game of life.</div>     
-</div>
-
-{this.backgroundMaybe()} */
