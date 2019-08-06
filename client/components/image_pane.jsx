@@ -10,10 +10,11 @@ class ImagePane extends Component {
 
     passTheProps(){
         event.preventDefault();
-        this.props.nextPane(this.state)
+        this.props.nextPane(this.state.image)
     }
 
     handleFileChange(e) {
+        console.log("I am changing the dagone file");
         const file = e.target.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
@@ -28,7 +29,7 @@ class ImagePane extends Component {
           <div className="char-creation-pane"> 
             <h1>photo upload is work in progress</h1>
             <form className="char-form" onSubmit={this.passTheProps}>   
-                <input className="char-form-image"type="file" />
+                <input className="char-form-image"type="file"  onChange={this.handleFileChange} />
                 <input type="submit" className="submit" value="NEXT" />
             </form>
           </div>
