@@ -10,6 +10,8 @@ import ImagePane from './image_pane';
 import gql from 'graphql-tag';
 import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
+import moment from 'moment';
+import axios from 'axios';
 
 const SavePane = (props) => {
     
@@ -47,6 +49,7 @@ class CharCreate extends Component {
         this.applyImage = this.applyImage.bind(this);
         this.backgroundMaybe = this.backgroundMaybe.bind(this);
         this.saveMeMaybe = this.saveMeMaybe.bind(this);
+        this.formatFilename = this.formatFilename.bind(this);
         this.save = this.save.bind(this);
         this.panes = [<PersonalPane nextPane={this.applyPersonal} />,
              <AncestryPane nextPane={this.applyAncestry} />, 
@@ -145,19 +148,30 @@ class CharCreate extends Component {
         })
     }
 
+  formatFilename(filename) {
+        const date = moment().format("MMDDYYYY");
+        const rando = Math.random()
+            .toString(36)
+            .substring(2, 7);
+        const cleanFileName = filename.toLowerCase().replace(/[^a-z0-9]/g, "-");
+        const newFileName = `images/${date}-${rando}-${cleanFileName}`
+        return newFileName.substring(0, 60);
+    }
 
-    async save (event)  {
+
+    async save(event)  {
        event.preventDefault();
        const image = this.state.image;
+       debugger;
        const response = await thisprops.s3Sign({
            variables: {
-               filename: image.name,
+               filename: this.formatFilename(image.name),
                filetype: image.type
            }
        });
        const { signedRequest, url } = response.data.signS3;
        await this.uploadToS3(image, signedRequest)
-       
+
        this.props.mutate({
          variables: {
              userId: this.props.data.currentUser.id, 
@@ -202,7 +216,7 @@ class CharCreate extends Component {
                         <div className="be-capitalized">Ancestry: {this.state.ancestry}</div>
                         <div className="be-capitalized">Background: {this.state.background.name}</div>
                         <div className="be-capitalized">Class: {this.state.class}</div>
-                        <div className="be-capitalized">Age: Work in Progress</div>
+                        <div className="be-capitalized">Age: {this.state.age}</div>
                         <p>Bio: {this.state.bio}</p>
                     </div>
 
