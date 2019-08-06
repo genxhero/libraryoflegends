@@ -8,6 +8,7 @@ class PersonalPane extends Component {
              lastName:"",
              bio: "",
              gender: "Male",
+             age: 0
         }
         this.update = this.update.bind(this);
         this.passTheProps = this.passTheProps.bind(this)
@@ -47,7 +48,16 @@ class PersonalPane extends Component {
                     ></input>
                  </label>
               
-
+                 <label className="personal-input">
+                   <span className="label-content">Last Name</span>
+                   <input className="char-short-input"
+                        value={this.state.age}
+                        placeholder=""
+                        type="text"
+                        onChange={this.update('age')}
+                    ></input>
+                 </label>
+              
 
                  <label className="personal-input">Biography</label>
                  <textarea className="char-bio"

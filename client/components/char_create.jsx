@@ -65,6 +65,7 @@ class CharCreate extends Component {
             firstName: personal.firstName,
             lastName: personal.lastName,
             bio: personal.bio,
+            age: personal.age,
             personalDone: true
         });
     }
@@ -158,6 +159,7 @@ class CharCreate extends Component {
              ancestry: this.state.ancestry,
              background: this.state.background.name,
              bio: this.state.bio,
+             age: this.state.age,
              statline: {
                  strength: this.state.strength,
                  dexterity: this.state.dexterity,
@@ -241,8 +243,8 @@ class CharCreate extends Component {
 }
 
 const mutation =  gql`
-mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class: String, $level: Int, $statline: StatLineInput!, $ancestry: String, $background: String, $bio: String, $image: String){
-    addCharacter(userId: $userId, firstName: $firstName, lastName: $lastName, class: $class, level: $level, statline: $statline, ancestry: $ancestry, background: $background, bio: $bio, image: $image)
+mutation AddCharacter($userId: ID, $firstName: String, $lastName: String, $class: String, $level: Int, $age: Int, $statline: StatLineInput!, $ancestry: String, $background: String, $bio: String, $image: String){
+    addCharacter(userId: $userId, firstName: $firstName, lastName: $lastName, class: $class, level: $level, age: $age, statline: $statline, ancestry: $ancestry, background: $background, bio: $bio, image: $image)
     {
         id
         firstName
