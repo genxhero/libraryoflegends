@@ -5,12 +5,23 @@ class ImagePane extends Component {
     constructor(props) {
         super(props)
         this.passTheProps = this.passTheProps.bind(this)
+        this.handleFileChange = this.handleFileChange.bind(this)
     }
 
     passTheProps(){
         event.preventDefault();
         this.props.nextPane(this.state)
     }
+
+    handleFileChange(e) {
+        const file = e.target.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+          this.setState({ image: file, photoURL: fileReader.result});
+        }
+    
+        fileReader.readAsDataURL(file);
+      }
 
     render () {
         return (
