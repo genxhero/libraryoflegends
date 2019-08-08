@@ -11,6 +11,7 @@ export default gql`
           age
           ancestry
           bio
+          image
           statline {
               strength
               dexterity

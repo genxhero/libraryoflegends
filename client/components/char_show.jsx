@@ -12,6 +12,10 @@ class CharShow extends Component {
         this.sakujo = this.sakujo.bind(this);
     }
 
+    /**
+     * Sakujo is Japanese for delete. It's a Death Note reference. Deal with it.
+     * @param {*} event 
+     */
     sakujo(event){
         event.preventDefault();
         const id = event.target.value;
@@ -34,7 +38,7 @@ render() {
     return <div className="char-show">
         <div className="char-show-top">
           <div className="char-pic">
-            <img className="char-image" src="https://i.imgur.com/JuPz9g3.gif" />
+            <img className="char-image" src={char.image ? char.image : "https://i.imgur.com/JuPz9g3.gif"} />
           </div>
           <div className="char-vitals">
             <h2>Personal Information</h2>
@@ -63,6 +67,7 @@ render() {
           </div>
 
         </div>
+        <h3>Biography</h3>
         <p className="char-bio">{char.bio}</p>
       </div>;
   }

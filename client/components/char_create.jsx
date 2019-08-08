@@ -12,7 +12,6 @@ import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
 import moment from 'moment';
 import axios from 'axios';
-import $ from 'jquery';
 
 const SavePane = (props) => {
     
@@ -172,13 +171,6 @@ class CharCreate extends Component {
         }
         await axios.put(signedRequest, file, options)
             .then(res => console.log(res)).catch(console.log("aws is a pain in the backend"));
-    //    await $.ajax({
-    //         url: proxy + signedRequest,
-    //         type: 'PUT',
-    //         data: file
-//             headers: { 'X-Requested-With': 'XMLHttpRequest' }
-//crossDomain: true,
-    //     })
     }
 
 
