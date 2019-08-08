@@ -3,7 +3,7 @@ import { graphql } from "react-apollo";
 import query from "../queries/getuser";
 import {hashHistory, Link} from 'react-router';
 import { numberSuffix } from '../helpers';
-import currentUser from "./queries/current_user";
+import currentUser from "../queries/current_user";
 
 class UserPage extends Component {
   constructor(props) {
