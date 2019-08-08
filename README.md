@@ -6,7 +6,7 @@ A web application for players of tabletop role playing games to store informatio
 ## Technologies Used
 This app uses GraphQL, React, and Express.
 
-##Challenges
+## Challenges
 
-###AWS CORS is a regular Pain in the Backend
+### AWS CORS is a regular Pain in the Backend
 Problem: Chrome has decided that localhost shouldnt be allowed to upload images; how the devil did I do it on fliquor then? Does fliquor no longer work?
