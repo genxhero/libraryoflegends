@@ -19,6 +19,8 @@ const s3Payload = require("./s3_payload");
 const axios = require("axios");
 const AuthService = require('../services/auth');
 const aws = require("aws-sdk");
+const API_KEY = require('../../key');
+const API_SECRET = require('../../secret')
 
 //TODO: create function to determine dev or prod bucket.
 const s3Bucket = "libraryoflegends-dev";
@@ -136,11 +138,12 @@ const mutation = new GraphQLObjectType({
               filetype: { type: GraphQLString }
           }, 
           async resolve(parentValue, { filename, filetype } ) {
-             // API_SECRET
-             // API_KEY
+             
              const s3 = new aws.S3({
                  signatureVersion:'v4',
-                 region: 'us-west-1'
+                 region: 'us-west-1',
+                 accessKeyId: API_KEY,
+                 secretAccessKey: API_SECRET
              });
 
              const s3Params = {

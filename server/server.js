@@ -37,7 +37,7 @@ mongoose.connection
       }));
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors('*'));
 
 app.use(passport.initialize());
 app.use(passport.session());

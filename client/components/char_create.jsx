@@ -170,7 +170,8 @@ class CharCreate extends Component {
                 'X-Requested-With': 'XMLHttpRequest'
             }
         }
-        await axios.put(proxy + signedRequest, file, options);
+        await axios.put(proxy + signedRequest, file, options)
+            .then(res => console.log(res)).catch(console.log("aws is a pain in the backend"));
     //    await $.ajax({
     //         url: proxy + signedRequest,
     //         type: 'PUT',
