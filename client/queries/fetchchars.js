@@ -8,6 +8,7 @@ export default  gql`
       lastName
       class
       level
+      image
     }
   }
 `;

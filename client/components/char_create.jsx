@@ -161,7 +161,7 @@ class CharCreate extends Component {
     }
 
     async uploadToS3(file, signedRequest) {
-        // debugger;
+        console.log("Signed Request:", signedRequest);
         const proxy = 'https://cors-anywhere.herokuapp.com/';
         const options = {
             headers: {
@@ -170,7 +170,7 @@ class CharCreate extends Component {
                 'X-Requested-With': 'XMLHttpRequest'
             }
         }
-        await axios.put(proxy + signedRequest, file, options)
+        await axios.put(signedRequest, file, options)
             .then(res => console.log(res)).catch(console.log("aws is a pain in the backend"));
     //    await $.ajax({
     //         url: proxy + signedRequest,
@@ -194,7 +194,6 @@ class CharCreate extends Component {
           console.log("response:",response);
        const { signedRequest, url } = response.data.signS3;
        await this.uploadToS3(image, signedRequest)
-       debugger;
 
        // Add image: url to the key value pairs. This url will be what gets saved to the db
        this.props.mutate({
