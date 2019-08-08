@@ -49,7 +49,7 @@ class PersonalPane extends Component {
                  </label>
               
                  <label className="personal-input">
-                   <span className="label-content">Last Name</span>
+                   <span className="label-content">Age</span>
                    <input className="char-short-input"
                         value={this.state.age}
                         placeholder=""
