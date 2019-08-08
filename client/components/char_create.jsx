@@ -12,6 +12,7 @@ import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
 import moment from 'moment';
 import axios from 'axios';
+import $ from 'jquery';
 
 const SavePane = (props) => {
     
@@ -160,12 +161,20 @@ class CharCreate extends Component {
     }
 
     async uploadToS3(file, signedRequest) {
+        // debugger;
+        const proxy = 'https://cors-anywhere.herokuapp.com/';
         const options = {
             headers: {
                 "Content-Type": file.type
             }
         }
-        await axios.put(signedRequest, file, options);
+        console.log(signedRequest);
+        await axios.put(proxy + signedRequest, file, options);
+    //    await $.ajax({
+    //         url: proxy + signedRequest,
+    //         method: 'POST',
+    //         data: file
+    //     })
     }
 
 
@@ -178,7 +187,7 @@ class CharCreate extends Component {
                filetype: image.type
            }
        });
-
+          console.log("response:",response);
        const { signedRequest, url } = response.data.signS3;
        await this.uploadToS3(image, signedRequest)
        debugger;
