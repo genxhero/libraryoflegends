@@ -165,15 +165,18 @@ class CharCreate extends Component {
         const proxy = 'https://cors-anywhere.herokuapp.com/';
         const options = {
             headers: {
-                "Content-Type": file.type
+                "Content-Type": file.type,
+                "Access-Control-Allow-Origin": "*",
+                'X-Requested-With': 'XMLHttpRequest'
             }
         }
-        console.log(signedRequest);
         await axios.put(proxy + signedRequest, file, options);
     //    await $.ajax({
     //         url: proxy + signedRequest,
-    //         method: 'POST',
+    //         type: 'PUT',
     //         data: file
+//             headers: { 'X-Requested-With': 'XMLHttpRequest' }
+//crossDomain: true,
     //     })
     }
 
