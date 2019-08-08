@@ -53,7 +53,7 @@ class PersonalPane extends Component {
                    <input className="char-short-input"
                         value={this.state.age}
                         placeholder=""
-                        type="text"
+                        type="number"
                         onChange={this.update('age')}
                     ></input>
                  </label>

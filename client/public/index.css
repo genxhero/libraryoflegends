@@ -405,16 +405,30 @@
   margin:5px;
 }
 
-.char-thumb {
+/* .char-thumb {
   width: 100px;
   height: auto;
   margin: 2px;
   margin-left: 20px;
+} */
+
+
+.char-thumb {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
 }
 
 .char-thumb-container {
-  display: flex;
-  justify-content: center;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
 }
 
 .char-vitals {
