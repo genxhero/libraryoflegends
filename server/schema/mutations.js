@@ -19,7 +19,7 @@ const s3Payload = require("./s3_payload");
 const axios = require("axios");
 const AuthService = require('../services/auth');
 const aws = require("aws-sdk");
-const API_KEY = require('../../key');
+const API_KEY = require('../../newkey');
 const API_SECRET = require('../../secret')
 
 //TODO: create function to determine dev or prod bucket.
