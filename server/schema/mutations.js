@@ -21,7 +21,7 @@ const AuthService = require('../services/auth');
 const aws = require("aws-sdk");
 
 //TODO: create function to determine dev or prod bucket.
-const s3Bucket = "temporary";
+const s3Bucket = "libraryoflegends-dev";
 
 const StatLineInput = new GraphQLInputObjectType({
   name: "StatLineInput",
@@ -132,7 +132,7 @@ const mutation = new GraphQLObjectType({
         signS3: {
           type: s3Payload,
           args: {
-              filemame: { type: GraphQLString },
+              filename: { type: GraphQLString },
               filetype: { type: GraphQLString }
           }, 
           async resolve(parentValue, { filename, filetype } ) {

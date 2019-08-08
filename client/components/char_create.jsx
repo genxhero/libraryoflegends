@@ -162,7 +162,7 @@ class CharCreate extends Component {
     async uploadToS3(file, signedRequest) {
         const options = {
             headers: {
-                "Content=Type": file.type
+                "Content-Type": file.type
             }
         }
         await axios.put(signedRequest, file, options);
@@ -181,6 +181,7 @@ class CharCreate extends Component {
 
        const { signedRequest, url } = response.data.signS3;
        await this.uploadToS3(image, signedRequest)
+       debugger;
 
        // Add image: url to the key value pairs. This url will be what gets saved to the db
        this.props.mutate({
@@ -201,7 +202,8 @@ class CharCreate extends Component {
                  wisdom: this.state.wisdom,
                  charisma: this.state.charisma
              },
-             level: 1
+             level: 1,
+             image: url
          },
          refetchQueries: [{ query, currentUser }]
        }).then( hashHistory.push('/'));
@@ -309,8 +311,14 @@ const s3Sign = gql`
 `;
 
 
-export default graphql(currentUser)(
+// export default graphql(currentUser)(
+//     graphql(mutation)(CharCreate) 
+//   );
+
+
+export default compose( 
+    graphql(s3Sign, { name: "s3Sign" }),
+    graphql(currentUser)
+)(
     graphql(mutation)(CharCreate) 
-  );
-
-
+)
