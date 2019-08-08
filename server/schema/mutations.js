@@ -149,7 +149,14 @@ const mutation = new GraphQLObjectType({
                  Expires: 60,
                  ContentType: filetype,
                  ACL: 'public-read'
-             }
+             };
+
+             const signedRequest = await s3.getSignedUrl('putObject', s3Params);
+             const url = `https://${s3Bucket}.s3.amazonaws.com/${filename}`;
+             return {
+                 signedRequest,
+                 url
+             };
           }
         }
     }
