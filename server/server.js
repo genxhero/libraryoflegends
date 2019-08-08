@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const expressGraphQL = require('express-graphql');
 const mongoose = require("mongoose");
@@ -13,11 +14,6 @@ require('../config/passport');
 
 const app = express();
 
-// const MONGO_URI =
-//   "mongodb://FierySwagger:butter469@ds151840.mlab.com:51840/libraryoflegends";
-// if (!MONGO_URI){
-//     throw new Error('Invalid URI');
-// }
 mongoose.Promise = global.Promise;
 // mongoose.connect(MONGO_URI);
 mongoose.connect(db);
