@@ -8,6 +8,5 @@ This app uses GraphQL, React, and Express.
 
 ##Challenges
 
-###Free Ability Boost for Human Characters
-Problem: How to allow a player creating a human character to select two ability scores to receive an ancestry bonus.  Doing it for elves and dwarves was a simple matter of letting the user select one stat from a short list.  
-Solution: Create a FIFO queue! When there are already two ability scores selected, the oldest ability score in queue is removed from the array, and the new one takes its place.
+###AWS CORS is a regular Pain in the Backend
+Problem: Chrome has decided that localhost shouldnt be allowed to upload images; how the devil did I do it on fliquor then? Does fliquor no longer work?
