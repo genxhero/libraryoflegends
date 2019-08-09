@@ -19,10 +19,10 @@ const s3Payload = require("./s3_payload");
 const axios = require("axios");
 const AuthService = require('../services/auth');
 const aws = require("aws-sdk");
-const API_KEY = require('../../newkey');
-const API_SECRET = require('../../secret')
 
 //TODO: create function to determine dev or prod bucket.
+const API_KEY = process.env.AWS_ACCESS_KEY_ID;
+const API_SECRET = process.env.AWS_SECRET_ACCESS_KEY;
 const s3Bucket = "libraryoflegends-dev";
 
 const StatLineInput = new GraphQLInputObjectType({
