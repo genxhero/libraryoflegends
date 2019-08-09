@@ -24,7 +24,7 @@ mongoose.connection
     app.use(session({
         resave: true,
         saveUninitialized: true,
-        secret: 'aaabbbccc',
+        secret: process.env.SECRET_OR_KEY,
         store: new MongoStore({
           url: db,
           autoReconnect: true
