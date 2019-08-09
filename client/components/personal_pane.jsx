@@ -86,7 +86,7 @@ class PersonalPane extends Component {
                      value={this.state.bio}
                      placeholder=""
                      type="text"
-                     onChange={this.update('bio')}
+                     onChange={this.updateText('bio')}
                  ></textarea>
 
              
