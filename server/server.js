@@ -7,6 +7,7 @@ const schema = require('./schema/schema');
 const passport = require("passport");
 const session = require("express-session");
 const db = require('../config/keys').mongoURI;
+const secretOrKey = require('../config/keys').secretOrPrivateKey;
 const MongoStore = require('connect-mongo')(session);
 const passportConfig = require('./services/auth');
 const cors = require('cors')
@@ -24,7 +25,7 @@ mongoose.connection
     app.use(session({
         resave: true,
         saveUninitialized: true,
-        secret: process.env.SECRET_OR_KEY,
+        secret: secretOrKey,
         store: new MongoStore({
           url: db,
           autoReconnect: true
