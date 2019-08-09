@@ -47,8 +47,9 @@ class CharsIndex extends Component {
     return (    
       <div className="index-page"> 
        <div className="intro-content">
+          <h1 id="index-title">Welcome</h1>
+          <p id="index-paragraph">You have entered the Library of Legends, where tales of great heroes lie.</p>
           <h1 id="index-title">Names of Legend</h1>
-          <p>Welcome to the Library of Legends, where tales of great heroes lie.</p>
           </div>   
         <div className="chars-spread">
             {this.charList(characters)}

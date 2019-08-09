@@ -28,7 +28,8 @@ mongoose.connection
         secret: secretOrKey,
         store: new MongoStore({
           url: db,
-          autoReconnect: true
+          autoReconnect: true,
+          mongooseConnection: mongoose.connection
         })
       }));
 
