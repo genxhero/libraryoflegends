@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { graphql } from 'react-apollo';
 import query from '../queries/fetchchars';
+import currentUser from '../queries/current_user';
 import { numberSuffix } from '../helpers';
 
 class CharsIndex extends Component {
@@ -42,7 +43,7 @@ class CharsIndex extends Component {
           <h1>LOADING.......</h1>
       </div>);
     }
-  
+    console.log("Data in Index", this.props.data)
     const characters = this.props.data.characters;
     return (    
       <div className="index-page"> 

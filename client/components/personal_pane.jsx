@@ -8,15 +8,29 @@ class PersonalPane extends Component {
              lastName:"",
              bio: "",
              gender: "Male",
-             age: 0
+             age: 0,
+             ageValid: null,
+             firstNameValid: null,
+             lastNameValid: null
         }
-        this.update = this.update.bind(this);
+        this.updateNumeric = this.updateNumeric.bind(this);
+        this.updateText = this.updateText.bind(this);
         this.passTheProps = this.passTheProps.bind(this)
+        this.validateNumericInput = this.validateNumericInput.bind(this);
     }
     
-    update(field) {
+    // TODO: validate text input on the front end in some way.
+    updateText(field) {
         return event => this.setState({
-            [field]: event.currentTarget.value
+            [field]: event.currentTarget.value,
+            [`${field}Valid`]: true
+        });
+    }
+
+    updateNumeric(field) {
+        return event => this.setState({
+            [field]: event.currentTarget.value,
+            [`${field}Valid`]: this.validateNumericInput(event.currentTarget.value)
         });
     }
 
@@ -25,37 +39,45 @@ class PersonalPane extends Component {
         this.props.nextPane(this.state)
     }
 
+    validateNumericInput(input) {
+        if (input < 0 || isNaN(input)) {
+            return false;
+        } 
+        return true;
+    }
+
     render (){ 
      return (
          <div className="char-creation-pane">
             <form className="char-form" onSubmit={this.passTheProps}>   
                  <label className="personal-input">
                     <span className="label-content">First Name</span>
-                    <input className="char-name"
+                    <input className="char-field-long"
                         value={this.state.firstName}
                         placeholder=""
                         type="text"
-                        onChange={this.update('firstName')}
+                        onChange={this.updateText('firstName')}
                     ></input>
                  </label>
                  <label className="personal-input">
                  <span className="label-content">Last Name</span>
-                    <input className="char-name"
+                    <input className="char-field-long"
                         value={this.state.lastName}
                         placeholder=""
                         type="text"
-                        onChange={this.update('lastName')}
+                        onChange={this.updateText('lastName')}
                     ></input>
                  </label>
               
                  <label className="personal-input">
                    <span className="label-content">Age</span>
-                   <input className="char-short-input"
+                   <input className="char-field-short"
                         value={this.state.age}
                         placeholder=""
-                        type="number"
-                        onChange={this.update('age')}
+                        type="text"
+                        onChange={this.updateNumeric('age')}  
                     ></input>
+                         {this.state.ageValid === false && <span>Age must be a positive number</span>}
                  </label>
               
 

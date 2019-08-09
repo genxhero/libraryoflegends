@@ -84,7 +84,7 @@
   
 }
 
-.char-name {
+.char-field-long {
   font-size: 24px;
   font-family: cursive;
   line-height: 24px;
@@ -95,6 +95,21 @@
   border-bottom: 1px solid black;
   background: ivory;
   box-shadow: 2px 2px 2px black;
+}
+
+.char-field-short {
+  font-size: 24px;
+  font-family: cursive;
+  line-height: 24px;
+  padding: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid black;
+  background: ivory;
+  box-shadow: 2px 2px 2px black;
+  width: 6rem;
+  text-align: center;
 }
 
 .char-bio{
@@ -481,11 +496,12 @@ textarea:focus{
 
 
 .personal-input {
+  width: 100%;
   font-weight: 500;
-  margin: 5px;
+  margin: .25rem;  
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   text-align: center;
   text-shadow: 2px 2px 0px, #EEDBC2;
