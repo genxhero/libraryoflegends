@@ -283,6 +283,7 @@
 .header {
   top: -1rem;
   position: fixed;
+  z-index: 9000;
   width: 100%;
   padding: 2rem;
   box-shadow: 9px 10px 2px black;  
@@ -486,6 +487,7 @@
 
 .char-thumb {
   position: absolute;
+  z-index: 1000;
   left: 50%;
   top: 50%;
   height: 100%;
