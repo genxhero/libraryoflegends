@@ -9,6 +9,9 @@ export default  gql`
       class
       level
       image
-    }
+    },
+      currentUser {
+        id
+      }
   }
 `;

@@ -24,6 +24,9 @@ export default gql`
               id
               username
           }
+      },
+      currentUser {
+        id
       }
   }
 `;

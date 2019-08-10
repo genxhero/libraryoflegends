@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { graphql } from "react-apollo";
+import { graphql, compose} from "react-apollo";
 import gql from 'graphql-tag';
 import query from "../queries/fetchchar";
 import index from "../queries/fetchchars";
+import currentUser from "../queries/current_user";
 import {hashHistory} from 'react-router';
 
 class CharShow extends Component {
@@ -28,12 +29,13 @@ class CharShow extends Component {
 
 
 render() {
-   
     const char = this.props.data.character;
-
+  
     if (!char){
         return <div>Loading...</div>
     }
+
+    const creatorMatch = char.user.id === this.props.data.currentUser.id;
 
     return <div className="char-show">
         <div className="char-show-top">
@@ -63,7 +65,7 @@ render() {
             <h4>Charisma: {char.statline.charisma}</h4>
           </div>
           <div className="char-cp"> 
-             <button onClick={this.sakujo} value={char.id}>Delete Character</button>
+             {creatorMatch && <button className="char-delete" onClick={this.sakujo} value={char.id}>Delete Character</button>}
           </div>
 
         </div>
@@ -80,6 +82,7 @@ mutation DeleteChar($id: String!){
     }
 }
 `;
+
 
 export default graphql(mutation)(
     graphql(query, {
