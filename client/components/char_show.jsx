@@ -7,6 +7,7 @@ import currentUser from "../queries/current_user";
 import {hashHistory} from 'react-router';
 import $ from 'jquery';
 import EditBio from './edit_bio';
+import EditPersonal from './edit_personal';
 
 class CharShow extends Component {
 
@@ -16,6 +17,7 @@ class CharShow extends Component {
         this.state = {
             showModal: false, 
             editingBio: false,
+            editingPersonal: false,
             bio: ""
         }
         this.sakujo = this.sakujo.bind(this);
@@ -63,7 +65,7 @@ class CharShow extends Component {
         this.setState(   { [`editing${event.target.name}`]: true} );
     }
 
-     cancelEdit(event){
+    cancelEdit(event){
          this.setState( { [`editing${event.target.name}`]: false } )
     }
 
@@ -88,14 +90,25 @@ render() {
             <img className="char-image" src={char.image ? char.image : "https://i.imgur.com/JuPz9g3.gif"} />
           </div>
           <div className="char-vitals">
-            <h2>Personal Information</h2>
-            <h4 className="char-vital">
-            <div>Name:</div> <div className="be-capitalized">{char.firstName}</div> <div className="be-capitalized">{char.lastName} </div>
-            </h4>
-           
-            <div className="char-vital"><span>Player:</span>{char.user.username}</div>
-            <div className="char-vital"><span>Race: </span><span className="be-capitalized">{char.ancestry}</span></div>
-            <div className="char-vital"><span>Age:</span> {char.age}</div>
+                {this.state.editingPersonal ? 
+                  <EditPersonal first={char.firstName} 
+                  last={char.lastName} 
+                  age={char.age} 
+                  cancelEdit={this.cancelEdit} 
+                  finishEdit={this.finishEdit}/> 
+                  : 
+            <div>
+                <h2>Personal Information</h2>
+                <h4 className="char-vital">
+                  <div>Name: </div> <div className="be-capitalized">{char.firstName}</div> <div className="be-capitalized">{char.lastName} </div>
+                </h4>
+                <div className="char-vital"><span>Race: </span><span className="be-capitalized">{char.ancestry}</span></div>
+                <div className="char-vital"><span>Age:</span> {char.age}</div>
+            </div>}
+             {!this.state.editingPersonal && <button onClick={this.editCharacter} name="Personal">Edit</button>}
+             
+            <h2>Game Information</h2>
+            <div className="char-vital"><span>Player: </span>{char.user.username}</div>
             <div className="char-vital"><span>Class: </span><span className="be-capitalized"></span><span className="be-capitalized">{char.class}</span></div>
             <div className="char-vital"><span>Level:</span> {char.level}</div>
           </div>
