@@ -5,28 +5,43 @@ import query from "../queries/fetchchar";
 import index from "../queries/fetchchars";
 import currentUser from "../queries/current_user";
 import {hashHistory} from 'react-router';
+import $ from 'jquery';
 
 class CharShow extends Component {
 
     constructor(props){
         super(props);
+        this.state = {showModal: false}
         this.sakujo = this.sakujo.bind(this);
+        this.openConfirmationModal = this.openConfirmationModal.bind(this);
+        this.closeConfirmationModal = this.closeConfirmationModal.bind(this);
     }
 
     /**
      * Sakujo is Japanese for delete. It's a Death Note reference. Deal with it.
      * @param {*} event 
      */
-    sakujo(event){
+    sakujo(event) {
         event.preventDefault();
         const id = event.target.value;
-        this.props.mutate({ 
+        this.props.mutate({
             variables: { id: id },
-            refetchQueries: [ { query: index } ]
+            refetchQueries: [{ query: index }]
         })
         .then(hashHistory.push('/'));
     }
-
+    
+    openConfirmationModal() {
+        event.preventDefault();
+        $('body').css('overflow', 'hidden');
+        this.setState( () => {return {showModal: true}})
+    }
+    
+    closeConfirmationModal() {
+        event.preventDefault();
+        $('body').css('overflow', 'auto');
+        this.setState(() => { return { showModal: false } })
+    }
 
 render() {
     const char = this.props.data.character;
@@ -65,12 +80,22 @@ render() {
             <h4>Charisma: {char.statline.charisma}</h4>
           </div>
           <div className="char-cp"> 
-             {creatorMatch && <button className="char-delete" onClick={this.sakujo} value={char.id}>Delete Character</button>}
+             {creatorMatch && <button className="char-delete" onClick={this.openConfirmationModal} value={char.id}>Delete Character</button>}
           </div>
 
         </div>
         <h3>Biography</h3>
         <p className="char-bio">{char.bio}</p>
+        {this.state.showModal && ( 
+            <div className="confirmation-modal">
+                <div className="confirmation-dialog">
+                    <h1>Confirm Deletion</h1>
+                    <h3>Are you sure you want to delete {char.firstName} {char.lastName}???</h3>
+                    <button className="confirm-btn" onClick={this.sakujo}>Yes</button>
+                    <button className="confirm-btn" onClick={this.closeConfirmationModal}>No</button>
+                </div>
+            </div> 
+            )}
       </div>;
   }
 }
