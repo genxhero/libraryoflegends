@@ -105,11 +105,11 @@ class PersonalPane extends Component {
                     ></input>
                  </label>
               
-                 <div className="error-zone">
-                     {this.state.ageValid === false && <span>Age must be a positive number</span>}
-                     {this.state.firstNameValid === false && <span>Only letters and dashes permitted in the First Name</span>}
-                     {this.state.lastNameValid === false && <span>Only letters and dashes permitted in the Last Name</span>}
-                 </div>
+                 <ul className="error-zone">
+                     {this.state.ageValid === false && <li>Age must be a positive number</li>}
+                     {this.state.firstNameValid === false && <li>Only letters and dashes permitted in the First Name</li>}
+                     {this.state.lastNameValid === false && <li>Only letters and dashes permitted in the Last Name</li>}
+                 </ul>
                  <label className="personal-input">Biography</label>
                  <textarea className="char-bio"
                      value={this.state.bio}
