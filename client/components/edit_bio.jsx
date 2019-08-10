@@ -35,14 +35,17 @@ class EditBio extends Component {
 
     render(){
         return(
-            <div>
+            <div className="edit-pane">
                 <textarea
                     className="char-bio-edit"
                     value={this.state.bio}
                     type="text"
                     onChange={this.updateText('bio')} />
-                <button onClick={this.updateBio}>Save</button>
-                <button onClick={this.props.cancelEdit} name="Bio">Cancel</button>
+                <div className="edit-btn-container">
+                    <button onClick={this.updateBio}>Save</button>
+                    <button onClick={this.props.cancelEdit} name="Bio">Cancel</button>
+                </div>
+                
             </div>
         );
     }

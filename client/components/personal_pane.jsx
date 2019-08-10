@@ -111,7 +111,7 @@ class PersonalPane extends Component {
                      {this.state.lastNameValid === false && <li>Only letters and dashes permitted in the Last Name</li>}
                  </ul>
                  <label className="personal-input">Biography</label>
-                 <textarea className="char-bio"
+                 <textarea className="char-bio-input"
                      value={this.state.bio}
                      placeholder=""
                      type="text"

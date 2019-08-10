@@ -109,7 +109,7 @@ render() {
             <h4>Wisdom: {char.statline.wisdom}</h4>
             <h4>Charisma: {char.statline.charisma}</h4>
           </div>
-            <div className="char-bio">
+            <div className="char-bio-show">
                 <h3>Biography</h3>
                 {this.state.editingBio ? <EditBio bio={char.bio} id={char.id} cancelEdit={this.cancelEdit} finishEdit={this.finishEdit}/> : <p>{char.bio}</p>}
                 {!this.state.editingBio && <button onClick={this.editCharacter} name="Bio">Edit</button>}
