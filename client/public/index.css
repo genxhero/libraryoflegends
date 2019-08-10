@@ -562,6 +562,11 @@ label {
   background: black;
 }
 
+.submit:disabled{
+  background: gray;
+  color: white;
+}
+
 
 
 

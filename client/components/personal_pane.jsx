@@ -17,13 +17,14 @@ class PersonalPane extends Component {
         this.updateText = this.updateText.bind(this);
         this.passTheProps = this.passTheProps.bind(this)
         this.validateNumericInput = this.validateNumericInput.bind(this);
+        this.allValid = this.allValid.bind(this);
     }
     
     // TODO: validate text input on the front end in some way.
     updateText(field) {
         return event => this.setState({
             [field]: event.currentTarget.value,
-            [`${field}Valid`]: true
+            [`${field}Valid`]: field === "bio" ? true : true
         });
     }
 
@@ -46,7 +47,16 @@ class PersonalPane extends Component {
         return true;
     }
 
+    allValid(){
+        console.log(`Age: ${this.state.ageValid}, First: ${this.state.firstNameValid}, Last: ${this.state.lastNameValid}`)
+        if (!this.state.ageValid || !this.state.firstNameValid || !this.state.lastNameValid ) {
+          return false
+        }
+        return true;
+    }
+
     render (){ 
+     const submitEnabled = this.allValid();
      return (
          <div className="char-creation-pane">
             <form className="char-form" onSubmit={this.passTheProps}>   
@@ -77,10 +87,11 @@ class PersonalPane extends Component {
                         type="text"
                         onChange={this.updateNumeric('age')}  
                     ></input>
-                         {this.state.ageValid === false && <span>Age must be a positive number</span>}
                  </label>
               
-
+                 <div className="error-zone">
+                     {this.state.ageValid === false && <span>Age must be a positive number</span>}
+                 </div>
                  <label className="personal-input">Biography</label>
                  <textarea className="char-bio"
                      value={this.state.bio}
@@ -88,9 +99,7 @@ class PersonalPane extends Component {
                      type="text"
                      onChange={this.updateText('bio')}
                  ></textarea>
-
-             
-                 <input type="submit" className="submit" value="NEXT"></input>
+                 <input type="submit" className= "submit" value="NEXT" disabled={!submitEnabled}></input>
             </form>
           
         </div>
