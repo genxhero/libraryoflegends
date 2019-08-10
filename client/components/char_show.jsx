@@ -90,15 +90,18 @@ render() {
             <img className="char-image" src={char.image ? char.image : "https://i.imgur.com/JuPz9g3.gif"} />
           </div>
           <div className="char-vitals">
+                <h2>Personal Information</h2>
                 {this.state.editingPersonal ? 
-                  <EditPersonal first={char.firstName} 
+                  <EditPersonal 
+                  id={char.id}
+                  first={char.firstName} 
                   last={char.lastName} 
                   age={char.age} 
                   cancelEdit={this.cancelEdit} 
-                  finishEdit={this.finishEdit}/> 
+                  finishEdit={this.finishEdit}
+                  /> 
                   : 
             <div>
-                <h2>Personal Information</h2>
                 <h4 className="char-vital">
                   <div>Name: </div> <div className="be-capitalized">{char.firstName}</div> <div className="be-capitalized">{char.lastName} </div>
                 </h4>

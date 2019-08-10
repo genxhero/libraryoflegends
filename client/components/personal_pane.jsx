@@ -55,16 +55,13 @@ class PersonalPane extends Component {
         //Lordy, regular expressions are terrible
         const testForSpecial = new RegExp(/[~`!#$%\^&*+=\\[\]\\';,/{}|\\":<>\?]/g);
         const testForNumber = new RegExp(/[0-9]/);
-        console.log(`Specials: ${testForSpecial}. Numbers: ${testForNumber}`)
         if (testForNumber.test(input) || testForSpecial.test(input)) {
-            console.log("False input")
             return false
         }
         return true;
     }
 
     allValid(){
-        console.log(`Age: ${this.state.ageValid}, First: ${this.state.firstNameValid}, Last: ${this.state.lastNameValid}`)
         if (!this.state.ageValid || !this.state.firstNameValid || !this.state.lastNameValid ) {
           return false
         }

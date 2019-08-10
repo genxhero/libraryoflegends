@@ -280,6 +280,13 @@
   margin: 1.5rem;
 }
 
+.edit-multi-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: .5rem;
+}
+
 .edit-pane {
   display: flex;
   flex-direction: column;
@@ -734,8 +741,7 @@ label {
 .error-zone {
   font-weight: 800;
   color: red;
-  position: relative;
-  right: 2.5rem;
+  padding-inline-start: 1rem;
 }
 
 .a-special-hell {

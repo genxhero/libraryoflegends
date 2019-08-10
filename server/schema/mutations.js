@@ -115,9 +115,26 @@ const mutation = new GraphQLObjectType({
                 bio: { type: GraphQLString }
             },
             async resolve(parentValue, {bio, id}) {
-                // into the Mongoose Model we go, this note exists in case we forget
                 const char = await Char.findById(id);
                 char.bio = bio;
+                return char.save();
+            }
+        },
+
+        updatePersonal: {
+           type: CharType,
+           args: {
+               id: { type: new GraphQLNonNull(GraphQLString) },
+               firstName: { type: GraphQLString },
+                lastName: { type: GraphQLString },
+                age: { type: GraphQLInt }
+            },
+            async resolve(parentValue, { age, firstName, lastName, id }) {
+                // I could have used ...rest but I don't want opaque code.
+                const char = await Char.findById(id);
+                char.firstName = firstName;
+                char.lastName = lastName;
+                char.age = age;
                 return char.save();
             }
         },
