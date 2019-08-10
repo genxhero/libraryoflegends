@@ -150,6 +150,9 @@
     max-height: 10rem;
 }
 
+.char-bio-edit {
+  width: -webkit-fill-available;
+}
 
 .char-submit {
   padding: 20px;

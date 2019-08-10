@@ -6,6 +6,7 @@ import index from "../queries/fetchchars";
 import currentUser from "../queries/current_user";
 import {hashHistory} from 'react-router';
 import $ from 'jquery';
+import EditBio from './edit_bio';
 
 class CharShow extends Component {
 
@@ -19,7 +20,6 @@ class CharShow extends Component {
         }
         this.sakujo = this.sakujo.bind(this);
         this.editCharacter = this.editCharacter.bind(this);
-        this.updateCharacter = this.updateCharacter.bind(this);
         this.openConfirmationModal = this.openConfirmationModal.bind(this);
         this.closeConfirmationModal = this.closeConfirmationModal.bind(this);
         this.showBioEdit = this.showBioEdit.bind(this);
@@ -64,32 +64,13 @@ class CharShow extends Component {
     }
 
     showBioEdit(){
-        return <div>
-                 <textarea
-                 className="char-bio-edit"
-                  value={this.state.bio}
-                  type="text"
-                  onChange={this.updateText('bio')}/>
-                  <button onClick={this.updateCharacter}>Save</button>
-                  <button onClick={this.cancelEdit}>Cancel</button>
-              </div>
+         
     }
 
      cancelEdit(){
         this.setState(() => { return { editing: false } })
     }
 
-    updateCharacter(){
-        console.log("Work in progress")
-        this.setState(() => { return { editing: false } })
-    }
-
-    updateText(field) {
-        return event => this.setState({
-            [field]: event.currentTarget.value,
-            // [`${field}Valid`]: field === "bio" ? true : this.validateTextInput(event.currentTarget.value)
-        });
-    }
 
 render() {
     const char = this.props.data.character;
@@ -130,7 +111,7 @@ render() {
           </div>
             <div className="char-bio">
                 <h3>Biography</h3>
-                {this.state.editing ? this.showBioEdit() : <p>{char.bio}</p>}
+                {this.state.editing ? <EditBio bio={char.bio} id={char.id} cancelEdit={this.cancelEdit} /> : <p>{char.bio}</p>}
             </div> 
         </div>
         <div className="char-cp">
