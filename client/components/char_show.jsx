@@ -23,6 +23,7 @@ class CharShow extends Component {
      */
     sakujo(event) {
         event.preventDefault();
+        $('body').css('overflow', 'auto');
         const id = event.target.value;
         this.props.mutate({
             variables: { id: id },
