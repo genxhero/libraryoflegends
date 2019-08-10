@@ -108,6 +108,17 @@ const mutation = new GraphQLObjectType({
             }
         },
 
+        updateBio: {
+            type: CharType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) },
+                bio: { type: GraphQLString }
+            },
+            resolve(parentValue, {bio, id}) {
+                // into the Mongoose Model we go, this note exists in case we forget
+            }
+        },
+
         updateUser: {
             type: UserType,
             args: {
