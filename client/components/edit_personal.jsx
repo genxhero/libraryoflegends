@@ -27,12 +27,17 @@ class EditPersonal extends Component {
     }
 
     updatePersonal() {
-        // this.props.mutate({
-        //     variables: { id: this.props.id, bio: this.state.bio },
-        //     refetchQueries: [{ query: currentUser }]
-        // }).then(
-        //     this.props.finishEdit("Personal")
-        // );
+         this.props.mutate({
+             variables: { 
+                 id: this.props.id, 
+                 lastName: this.state.last, 
+                 firstName: this.state.first, 
+                 age: this.state.age 
+                },
+             refetchQueries: [{ query: currentUser }]
+         }).then(
+             this.props.finishEdit("Personal")
+         );
     }
 
     render() {
