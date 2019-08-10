@@ -46,12 +46,13 @@ class CharShow extends Component {
 
 render() {
     const char = this.props.data.character;
-  
+    const currentUser = this.props.data.currentUser || {id: "nobody is logged in"};
+
     if (!char){
         return <div>Loading...</div>
     }
 
-    const creatorMatch = char.user.id === this.props.data.currentUser.id;
+    const creatorMatch = char.user.id === currentUser.id;
 
     return <div className="char-show">
         <div className="char-show-top">
