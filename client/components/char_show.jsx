@@ -11,14 +11,24 @@ class CharShow extends Component {
 
     constructor(props){
         super(props);
-        this.state = {showModal: false, editing: false}
+        // Bio state is required for in-line editing.
+        this.state = {
+            showModal: false, 
+            editing: false,
+            bio: ""
+        }
         this.sakujo = this.sakujo.bind(this);
         this.editCharacter = this.editCharacter.bind(this);
         this.updateCharacter = this.updateCharacter.bind(this);
         this.openConfirmationModal = this.openConfirmationModal.bind(this);
         this.closeConfirmationModal = this.closeConfirmationModal.bind(this);
+        this.showBioEdit = this.showBioEdit.bind(this);
+        this.cancelEdit = this.cancelEdit.bind(this);
     }
 
+    componentWillReceiveProps(newProps) {
+        this.setState(() => { return { bio: newProps.data.character.bio}})
+    }
     /**
      * Sakujo is Japanese for delete. It's a Death Note reference. Deal with it.
      * @param {*} event 
@@ -46,12 +56,39 @@ class CharShow extends Component {
         this.setState(() => { return { showModal: false } })
     }
 
+    /**
+     * Opens editing.
+     */
     editCharacter(){
         this.setState( () => { return {editing: true}})
     }
+
+    showBioEdit(){
+        return <div>
+                 <textarea
+                 className="char-bio-edit"
+                  value={this.state.bio}
+                  type="text"
+                  onChange={this.updateText('bio')}/>
+                  <button onClick={this.updateCharacter}>Save</button>
+                  <button onClick={this.cancelEdit}>Cancel</button>
+              </div>
+    }
+
+     cancelEdit(){
+        this.setState(() => { return { editing: false } })
+    }
+
     updateCharacter(){
         console.log("Work in progress")
         this.setState(() => { return { editing: false } })
+    }
+
+    updateText(field) {
+        return event => this.setState({
+            [field]: event.currentTarget.value,
+            // [`${field}Valid`]: field === "bio" ? true : this.validateTextInput(event.currentTarget.value)
+        });
     }
 
 render() {
@@ -91,17 +128,19 @@ render() {
             <h4>Wisdom: {char.statline.wisdom}</h4>
             <h4>Charisma: {char.statline.charisma}</h4>
           </div>
-          <div className="char-cp"> 
-             {creatorMatch && <div>
-                    <button className="char-delete" onClick={this.editCharacter} >Edit Character</button>}
-                    <button className="char-delete" onClick={this.openConfirmationModal} >Delete Character</button>}
-                 </div>
-             }
-          </div>
-
+            <div className="char-bio">
+                <h3>Biography</h3>
+                {this.state.editing ? this.showBioEdit() : <p>{char.bio}</p>}
+            </div> 
         </div>
-        <h3>Biography</h3>
-        <p className="char-bio">{char.bio}</p>
+        <div className="char-cp">
+            {creatorMatch && <div>
+                <button className="char-delete" onClick={this.editCharacter}>Edit Character</button>
+                <button className="char-delete" onClick={this.openConfirmationModal} >Delete Character</button>
+            </div>
+            }
+        </div>
+
         {this.state.showModal && ( 
             <div className="confirmation-modal">
                 <div className="confirmation-dialog">

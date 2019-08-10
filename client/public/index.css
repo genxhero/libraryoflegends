@@ -83,6 +83,7 @@
     background-color: wheat;
     box-shadow: 0px 6px 0px 0px sienna;
     position:relative;
+    margin: .5rem;
 }
 
 .char-delete:active{
@@ -468,7 +469,8 @@
 .char-show-top {
   display:flex;
   flex-direction: row;
-  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 .char-vital {
@@ -518,7 +520,8 @@
 }
 
 .char-image {
-  width: 500px;
+  height: 20rem;
+  margin-top: 3rem;
 }
 
 .char-statline {
