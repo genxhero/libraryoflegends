@@ -81,7 +81,7 @@ render() {
             <h4>Charisma: {char.statline.charisma}</h4>
           </div>
           <div className="char-cp"> 
-             {creatorMatch && <button className="char-delete" onClick={this.openConfirmationModal} value={char.id}>Delete Character</button>}
+             {creatorMatch && <button className="char-delete" onClick={this.openConfirmationModal} >Delete Character</button>}
           </div>
 
         </div>
@@ -92,7 +92,7 @@ render() {
                 <div className="confirmation-dialog">
                     <h1>Confirm Deletion</h1>
                     <h3>Are you sure you want to delete {char.firstName} {char.lastName}???</h3>
-                    <button className="confirm-btn" onClick={this.sakujo}>Yes</button>
+                    <button className="confirm-btn" onClick={this.sakujo} value={char.id}>Yes</button>
                     <button className="confirm-btn" onClick={this.closeConfirmationModal}>No</button>
                 </div>
             </div> 
