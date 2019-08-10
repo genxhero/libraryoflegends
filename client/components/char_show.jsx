@@ -11,8 +11,10 @@ class CharShow extends Component {
 
     constructor(props){
         super(props);
-        this.state = {showModal: false}
+        this.state = {showModal: false, editing: false}
         this.sakujo = this.sakujo.bind(this);
+        this.editCharacter = this.editCharacter.bind(this);
+        this.updateCharacter = this.updateCharacter.bind(this);
         this.openConfirmationModal = this.openConfirmationModal.bind(this);
         this.closeConfirmationModal = this.closeConfirmationModal.bind(this);
     }
@@ -42,6 +44,14 @@ class CharShow extends Component {
         event.preventDefault();
         $('body').css('overflow', 'auto');
         this.setState(() => { return { showModal: false } })
+    }
+
+    editCharacter(){
+        this.setState( () => { return {editing: true}})
+    }
+    updateCharacter(){
+        console.log("Work in progress")
+        this.setState(() => { return { editing: false } })
     }
 
 render() {
@@ -82,7 +92,11 @@ render() {
             <h4>Charisma: {char.statline.charisma}</h4>
           </div>
           <div className="char-cp"> 
-             {creatorMatch && <button className="char-delete" onClick={this.openConfirmationModal} >Delete Character</button>}
+             {creatorMatch && <div>
+                    <button className="char-delete" onClick={this.editCharacter} >Edit Character</button>}
+                    <button className="char-delete" onClick={this.openConfirmationModal} >Delete Character</button>}
+                 </div>
+             }
           </div>
 
         </div>
