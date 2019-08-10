@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import gql from 'graphql-tag';
 import { graphql } from "react-apollo";
+import currentUser from '../queries/current_user';
 
 /**
  * REMINDER: Do the backend stuff before this component will even work.
@@ -24,8 +25,12 @@ class EditBio extends Component {
     }
 
     updateBio() {
-        console.log("Work in progress")
-        this.setState(() => { return { editing: false } })
+        this.props.mutate({
+            variables: { id: this.props.id, bio: this.state.bio },
+            refetchQueries: [{ query: currentUser }]
+        }).then(
+            this.props.finishEdit("Bio")
+        );
     }
 
     render(){
@@ -37,12 +42,18 @@ class EditBio extends Component {
                     type="text"
                     onChange={this.updateText('bio')} />
                 <button onClick={this.updateBio}>Save</button>
-                <button onClick={this.props.cancelEdit}>Cancel</button>
+                <button onClick={this.props.cancelEdit} name="Bio">Cancel</button>
             </div>
         );
     }
 }
 const mutation = gql`
+mutation  updateBio($id: String!, $bio: String!) {
+  updateBio(id: $id, bio: $bio) {
+    id
+    bio
+  }
+}
 `;
 
 export default graphql(mutation)(EditBio)

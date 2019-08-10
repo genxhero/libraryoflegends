@@ -114,8 +114,11 @@ const mutation = new GraphQLObjectType({
                 id: { type: new GraphQLNonNull(GraphQLString) },
                 bio: { type: GraphQLString }
             },
-            resolve(parentValue, {bio, id}) {
+            async resolve(parentValue, {bio, id}) {
                 // into the Mongoose Model we go, this note exists in case we forget
+                const char = await Char.findById(id);
+                char.bio = bio;
+                return char.save();
             }
         },
 

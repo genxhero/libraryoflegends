@@ -15,15 +15,15 @@ class CharShow extends Component {
         // Bio state is required for in-line editing.
         this.state = {
             showModal: false, 
-            editing: false,
+            editingBio: false,
             bio: ""
         }
         this.sakujo = this.sakujo.bind(this);
         this.editCharacter = this.editCharacter.bind(this);
         this.openConfirmationModal = this.openConfirmationModal.bind(this);
         this.closeConfirmationModal = this.closeConfirmationModal.bind(this);
-        this.showBioEdit = this.showBioEdit.bind(this);
         this.cancelEdit = this.cancelEdit.bind(this);
+        this.finishEdit = this.finishEdit.bind(this);
     }
 
     componentWillReceiveProps(newProps) {
@@ -59,16 +59,16 @@ class CharShow extends Component {
     /**
      * Opens editing.
      */
-    editCharacter(){
-        this.setState( () => { return {editing: true}})
+    editCharacter(event){
+        this.setState(   { [`editing${event.target.name}`]: true} );
     }
 
-    showBioEdit(){
-         
+     cancelEdit(event){
+         this.setState( { [`editing${event.target.name}`]: false } )
     }
 
-     cancelEdit(){
-        this.setState(() => { return { editing: false } })
+    finishEdit(field) {
+        this.setState({ [`editing${field}`]: false })
     }
 
 
@@ -111,12 +111,12 @@ render() {
           </div>
             <div className="char-bio">
                 <h3>Biography</h3>
-                {this.state.editing ? <EditBio bio={char.bio} id={char.id} cancelEdit={this.cancelEdit} /> : <p>{char.bio}</p>}
+                {this.state.editingBio ? <EditBio bio={char.bio} id={char.id} cancelEdit={this.cancelEdit} finishEdit={this.finishEdit}/> : <p>{char.bio}</p>}
+                {!this.state.editingBio && <button onClick={this.editCharacter} name="Bio">Edit</button>}
             </div> 
         </div>
         <div className="char-cp">
             {creatorMatch && <div>
-                <button className="char-delete" onClick={this.editCharacter}>Edit Character</button>
                 <button className="char-delete" onClick={this.openConfirmationModal} >Delete Character</button>
             </div>
             }
