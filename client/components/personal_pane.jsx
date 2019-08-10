@@ -17,14 +17,18 @@ class PersonalPane extends Component {
         this.updateText = this.updateText.bind(this);
         this.passTheProps = this.passTheProps.bind(this)
         this.validateNumericInput = this.validateNumericInput.bind(this);
+        this.validateTextInput = this.validateTextInput.bind(this);
         this.allValid = this.allValid.bind(this);
     }
     
-    // TODO: validate text input on the front end in some way.
+    /**
+     * We always want our bio field to be valid, we don't want numbers or special characters in our 
+     * character names. 
+     */
     updateText(field) {
         return event => this.setState({
             [field]: event.currentTarget.value,
-            [`${field}Valid`]: field === "bio" ? true : true
+            [`${field}Valid`]: field === "bio" ? true : this.validateTextInput(event.currentTarget.value)
         });
     }
 
@@ -44,6 +48,18 @@ class PersonalPane extends Component {
         if (input < 0 || isNaN(input)) {
             return false;
         } 
+        return true;
+    }
+
+    validateTextInput(input) {
+        //Lordy, regular expressions are terrible
+        const testForSpecial = new RegExp(/[~`!#$%\^&*+=\\[\]\\';,/{}|\\":<>\?]/g);
+        const testForNumber = new RegExp(/[0-9]/);
+        console.log(`Specials: ${testForSpecial}. Numbers: ${testForNumber}`)
+        if (testForNumber.test(input) || testForSpecial.test(input)) {
+            console.log("False input")
+            return false
+        }
         return true;
     }
 
@@ -91,6 +107,8 @@ class PersonalPane extends Component {
               
                  <div className="error-zone">
                      {this.state.ageValid === false && <span>Age must be a positive number</span>}
+                     {this.state.firstNameValid === false && <span>Only letters and dashes permitted in the First Name</span>}
+                     {this.state.lastNameValid === false && <span>Only letters and dashes permitted in the Last Name</span>}
                  </div>
                  <label className="personal-input">Biography</label>
                  <textarea className="char-bio"
