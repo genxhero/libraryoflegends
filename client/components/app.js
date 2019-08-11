@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from './header';
+import { graphql } from 'react-apollo';
+import currentUser from '../queries/current_user';
 
 const App = ( props ) => {
     return <div className="container">
@@ -10,4 +12,4 @@ const App = ( props ) => {
     </div>;
 }
 
-export default App;
+export default graphql(currentUser)(App);

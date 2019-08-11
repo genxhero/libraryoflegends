@@ -43,7 +43,7 @@ class CharsIndex extends Component {
           <h1>LOADING.......</h1>
       </div>);
     }
-    console.log("Data in Index", this.props.data)
+    const user = this.props.data.currentUser;
     const characters = this.props.data.characters;
     return (    
       <div className="index-page"> 
@@ -56,7 +56,11 @@ class CharsIndex extends Component {
             {this.charList(characters)}
           </div>
           <div className="link-container"> 
-            <Link to="/newchar" className="link-button">Create New Character</Link>
+          {
+            user ? <Link to="/newchar" className="link-button">Create New Character</Link> :
+            <h1>Log In or Sign Up to Create a New Character!</h1>
+          }
+           
           </div>
       </div>
        );
