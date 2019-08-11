@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import { graphql } from 'react-apollo';
@@ -10,11 +8,7 @@ class Header extends Component {
 
   constructor(props) {
     super(props);
-    // This bit of state is for testing the error modal.
-    // Feeling cute might delete later who knows
-    this.state = {dummyError: false};
     this.logout = this.logout.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
   }
 
   logout() {
@@ -33,16 +27,12 @@ class Header extends Component {
     }
   }
 
-  // componentWillReceiveProps(props) {
-  //   if (this.props.data.currentUser !== props.data.currentUser) {
-  //     this.setState({currentUser: props.data.currentUser})
-  //   }
-  // }
 
   render() {
     return (
       <div className="header">
-      {this.renderErrors()}
+        <div className ="header-content">
+                  <div className="header-buffer" />
          <div className="header-left"> 
            <Link className="home-link" to="/"> 
               <h1 className="header-title"> 
@@ -55,16 +45,18 @@ class Header extends Component {
             </Link>
          </div>
          {this.props.data.currentUser ? 
-          <div className="header-right">
+          <div className="header-right" id="header-right">
             <h3 className="custom-welcome">Welcome, {this.props.data.currentUser.username}</h3>
                <div className="header-link" onClick={this.logout}>Logout</div>
            </div>
          : 
-           <div className="header-right">
+           <div className="header-right" id="header-right">
              <Link className="header-link" to="/register">Register</Link>
              <Link className="header-link"to="/login">Login</Link>
            </div>
          }
+        </div>
+
           
       </div>
     )
