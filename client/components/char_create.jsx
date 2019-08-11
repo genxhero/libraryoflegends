@@ -12,6 +12,7 @@ import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
 import moment from 'moment';
 import axios from 'axios';
+import InstructionsPane from './instructions_pane';
 
 const SavePane = (props) => {
     
@@ -50,16 +51,22 @@ class CharCreate extends Component {
         this.backgroundMaybe = this.backgroundMaybe.bind(this);
         this.saveMeMaybe = this.saveMeMaybe.bind(this);
         this.formatFilename = this.formatFilename.bind(this);
+        this.dismissInstructions = this.dismissInstructions.bind(this);
         this.save = this.save.bind(this);
         this.uploadToS3 = this.uploadToS3.bind(this);
-        this.panes = [<PersonalPane nextPane={this.applyPersonal} />,
-             <AncestryPane nextPane={this.applyAncestry} />, 
-             <BackgroundPane nextPane={this.applyBackground} />,
+        this.panes = [
+              <InstructionsPane nextPane={this.dismissInstructions} user={this.props.data.currentUser} />,
+              <PersonalPane nextPane={this.applyPersonal} />,
+              <AncestryPane nextPane={this.applyAncestry} />, 
+              <BackgroundPane nextPane={this.applyBackground} />,
               <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>, <ImagePane nextPane={this.applyImage}/>,
               <SavePane saveMeMaybe={this.saveMeMaybe} data={this.state}/>
             ];
     }
 
+    dismissInstructions(){
+        this.setState({ pane: this.state.pane + 1,});
+    }
     /**
      * Applies data from the personal pane to the overall cumulative character stats
      */
@@ -276,7 +283,7 @@ class CharCreate extends Component {
     return (
       <div className="char-creation-page">
         {this.panes[this.state.pane]}
-    </div>
+      </div>
     )
   }
 }
@@ -313,12 +320,6 @@ const s3Sign = gql`
     }
   }
 `;
-
-
-// export default graphql(currentUser)(
-//     graphql(mutation)(CharCreate) 
-//   );
-
 
 export default compose( 
     graphql(s3Sign, { name: "s3Sign" }),

@@ -368,10 +368,6 @@
   color: ivory;
 }
 
-.header-left {
-
-}
-
 .header-right {
   display: flex;
   flex-direction: row;
@@ -419,15 +415,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
-  /* box-sizing: border-box; */
+  height: -webkit-fill-available;
+  box-sizing: border-box;
   border: 1px solid;
-    width: 500px;
-    padding: 1rem;
-    background: burlywood;
-    background-size: cover;
-    box-shadow: 3px 3px 3px;
-    margin-top: 1rem;
+  width: 500px;
+  padding: 1rem;
+  background: burlywood;
+  background-size: cover;
+  box-shadow: 3px 3px 3px;
+  margin-top: 1rem;
 }
 
 .char-creation-page {
@@ -652,6 +648,7 @@ label {
   font-size: 24px;
   border-radius: 4px;
   box-shadow: 2px 2px 2px black;
+  text-align: center;
 }
 
 .submit:hover{

@@ -86,7 +86,7 @@ render() {
 
     return <div className="char-show">
         <div className="char-show-top">
-          <div className="char-pic">
+          <div className="char-vitals">
             <img className="char-image" src={char.image ? char.image : "https://i.imgur.com/JuPz9g3.gif"} />
           </div>
           <div className="char-vitals">
