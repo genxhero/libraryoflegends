@@ -1,6 +1,6 @@
 .ancestry-choice{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   font-weight: bold;
 }
 

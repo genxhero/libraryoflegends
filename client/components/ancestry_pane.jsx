@@ -211,6 +211,7 @@ class AncestryPane extends Component {
                     onChange={this.changeSelection}
                     onSubmit={this.passTheProps}
                   >
+                <div style={{"display":"flex"}}>
                     <label>
                         <input type="radio" value="human" checked={this.state.selected === 'human'}/>
                         Human
@@ -223,8 +224,9 @@ class AncestryPane extends Component {
                         <input type="radio" value="dwarf" checked={this.state.selected === 'dwarf'}/>
                         Dwarf
                     </label>
-                  </form>
-                {this.displayChoices()}
+                </div>
+                    {this.displayChoices()}
+                  </form>     
             </div>
         )
     }
