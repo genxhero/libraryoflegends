@@ -108,7 +108,7 @@ render() {
                 <div className="char-vital"><span>Race: </span><span className="be-capitalized">{char.ancestry}</span></div>
                 <div className="char-vital"><span>Age:</span> {char.age}</div>
             </div>}
-             {!this.state.editingPersonal && <button onClick={this.editCharacter} name="Personal">Edit</button>}
+                {(!this.state.editingPersonal && creatorMatch) && <button onClick={this.editCharacter} name="Personal">Edit</button>}
              
             <h2>Game Information</h2>
             <div className="char-vital"><span>Player: </span>{char.user.username}</div>
@@ -128,7 +128,7 @@ render() {
             <div className="char-bio-show">
                 <h3>Biography</h3>
                 {this.state.editingBio ? <EditBio bio={char.bio} id={char.id} cancelEdit={this.cancelEdit} finishEdit={this.finishEdit}/> : <p>{char.bio}</p>}
-                {!this.state.editingBio && <button onClick={this.editCharacter} name="Bio">Edit</button>}
+                {(!this.state.editingBio && creatorMatch) && <button onClick={this.editCharacter} name="Bio">Edit</button>}
             </div> 
         </div>
         <div className="char-cp">
