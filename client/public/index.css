@@ -1,6 +1,6 @@
 .ancestry-choice{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-weight: bold;
 }
 
@@ -10,6 +10,17 @@
     background: wheat;
     box-shadow: 2px 2px 1px;
     border-radius: 4px;
+}
+
+.ancestry-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed;
+  height: 18rem;
+  padding: 1rem;
+  width: 30rem;
+  margin-bottom: 2rem;
 }
 
 .background-description {
@@ -368,6 +379,7 @@
   color: ivory;
 }
 
+
 .header-right {
   display: flex;
   flex-direction: row;
@@ -415,11 +427,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: -webkit-fill-available;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   border: 1px solid;
-  width: 500px;
-  padding: 1rem;
+  width: 40rem;
+  padding: .5rem;
   background: burlywood;
   background-size: cover;
   box-shadow: 3px 3px 3px;

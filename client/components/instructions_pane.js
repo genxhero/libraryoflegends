@@ -3,7 +3,7 @@ import React from 'react';
 const InstructionsPane = (props) => {
     return (
        <div className="char-creation-pane">
-           <h2>Hello, {props.user.username}</h2>
+           <h2>Hello, {props.user ? props.user.username : "brave bugseeker"}</h2>
            <h3 className="pane-title">How To Use</h3>
            <p>Character generation follows the <a href ="">Pathfinder 2nd Edition</a> RPG rule set.  Unlike previous incarnations
            of the d20-based role playing game where you get all of your ability scores all at once, in this system your ability scores

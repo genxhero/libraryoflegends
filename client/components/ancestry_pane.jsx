@@ -35,7 +35,10 @@ class AncestryPane extends Component {
     displayChoices(){
         switch (this.state.selected){
             default:
-                return <div>Please select an ancestry to continue</div>;
+                return <div>
+                    Please select an ancestry to continue
+                    <div className="ancestry-placeholder">Ability Score Choices Will Appear Here</div>
+                </div>;
             case "elf":
                 return this.elfChoices();
                 break;
@@ -168,29 +171,30 @@ class AncestryPane extends Component {
                 <p>+2 to two unique ability scores of your choice</p>
                 <p>Please check two ability scores from the list below</p>
                </div>
-   
-                <div className="freebie-checkboxes">
-                       <label className="pure-checkbox" >
-                 <input type="checkbox" name="freebie-checkbox" value="strength" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("strength")}/> Strength
-                </label>
-                <label className="pure-checkbox">
-                 <input type="checkbox" name="freebie-checkbox" value="dexterity" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("dexterity")}/> Dexterity
-                </label>
-                <label className="pure-checkbox">
-                 <input type="checkbox" name="freebie-checkbox" value="constitution" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("constitution")}/> Constitution
-                </label>
-                <label className="pure-checkbox">
-                 <input type="checkbox" name="freebie-checkbox" value="intelligence" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("intelligence")}/> Intelligence 
-                </label>
-                <label className="pure-checkbox">
-                 <input type="checkbox" name="freebie-checkbox" value="wisdom" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("wisdom")}/> Wisdom
-                </label>
-                <label className="pure-checkbox">
-                 <input type="checkbox" name="freebie-checkbox" value="charisma" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("charisma")}/> Charisma
-                </label>
+              <div style={{"display":"flex"}}>
+                    <div className="freebie-checkboxes">
+                        <label className="pure-checkbox" >
+                        <input type="checkbox" name="freebie-checkbox" value="strength" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("strength")}/> Strength
+                        </label>
+                        <label className="pure-checkbox">
+                        <input type="checkbox" name="freebie-checkbox" value="dexterity" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("dexterity")}/> Dexterity
+                        </label>
+                        <label className="pure-checkbox">
+                        <input type="checkbox" name="freebie-checkbox" value="constitution" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("constitution")}/> Constitution
+                        </label>
+                    </div>
+                    <div className="freebie-checkboxes">
+                        <label className="pure-checkbox">
+                        <input type="checkbox" name="freebie-checkbox" value="intelligence" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("intelligence")}/> Intelligence 
+                        </label>
+                        <label className="pure-checkbox">
+                        <input type="checkbox" name="freebie-checkbox" value="wisdom" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("wisdom")}/> Wisdom
+                        </label>
+                        <label className="pure-checkbox">
+                        <input type="checkbox" name="freebie-checkbox" value="charisma" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("charisma")}/> Charisma
+                        </label>
+                    </div>
                 </div>
-             
-             
                 <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 2}></input>
             </div>
         );
@@ -219,8 +223,8 @@ class AncestryPane extends Component {
                         <input type="radio" value="dwarf" checked={this.state.selected === 'dwarf'}/>
                         Dwarf
                     </label>
-                    {this.displayChoices()}
                   </form>
+                {this.displayChoices()}
             </div>
         )
     }

@@ -55,7 +55,7 @@ class CharCreate extends Component {
         this.save = this.save.bind(this);
         this.uploadToS3 = this.uploadToS3.bind(this);
         this.panes = [
-              <InstructionsPane nextPane={this.dismissInstructions} user={this.props.data.currentUser} />,
+              <InstructionsPane nextPane={this.dismissInstructions} data={this.props.data} />,
               <PersonalPane nextPane={this.applyPersonal} />,
               <AncestryPane nextPane={this.applyAncestry} />, 
               <BackgroundPane nextPane={this.applyBackground} />,
