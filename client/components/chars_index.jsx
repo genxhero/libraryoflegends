@@ -50,7 +50,7 @@ class CharsIndex extends Component {
        <div className="intro-content">
           <h1 id="index-title">Welcome</h1>
           <p id="index-paragraph">You have entered the Library of Legends, where tales of great heroes lie.</p>
-          <h1 id="index-title">Names of Legend</h1>
+          <h2 id="index-title">Names of Legend</h2>
           </div>   
         <div className="chars-spread">
             {this.charList(characters)}
@@ -58,7 +58,7 @@ class CharsIndex extends Component {
           <div className="link-container"> 
           {
             user ? <Link to="/newchar" className="link-button">Create New Character</Link> :
-            <h1>Log In or Sign Up to Create a New Character!</h1>
+              <h2> <Link to="/login"k>Log In </Link>or<Link to="/register">Sign Up</Link> to Create a New Character!</h2>
           }
            
           </div>

@@ -121,11 +121,15 @@
   color: black;
   text-align: center;
   text-shadow: none;
+  font-weight: 100;
+  font-family: sans-serif;
 }
 
 #index-paragraph {
   color: black;
   text-shadow: none;
+  text-align: center;
+  font-size: 18px;
 }
 
 .char-delete {
@@ -203,6 +207,10 @@
     resize: none;
     min-height: 10rem;
     max-height: 10rem;
+}
+
+p {
+  font-family: sans-serif;
 }
 
 .char-bio-show {
