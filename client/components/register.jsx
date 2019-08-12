@@ -16,11 +16,17 @@ class Register extends Component {
             email: "",
             emailValid: null,
             usernameValid: null,
-            userEnteredPassword: false
+            userEnteredPassword: false,
+            errors: null
         }
         // This format is far, far easier to debug than using the arrow methods.
         this.saveUser = this.saveUser.bind(this);
         this.handleFormChange = this.handleFormChange.bind(this);
+        this.clearErrors = this.clearErrors.bind(this);
+    }
+
+    clearErrors() {
+      this.setState({errors: null})
     }
 
     saveUser() {
@@ -32,7 +38,13 @@ class Register extends Component {
                 password: this.state.password
                 },
             refetchQueries: [{ query }]
-          }).then( hashHistory.push('/'));
+          }).then( res => {
+            hashHistory.push('/')
+          })
+          
+          .catch(res => {
+            this.setState({ errors: res.graphQLErrors})
+          });
     }
 
     handleFormChange(field) {
@@ -60,7 +72,6 @@ class Register extends Component {
       const passwordIsPassword = this.state.password.toLowerCase() === "password";
       const noMatch = this.state.password !== this.state.password2 && this.state.userEnteredPassword;
       const sequence = isSequential(this.state.password) && this.state.userEnteredPassword;
-      console.log("No Match", noMatch)
         return (
             <div className="session-page">
                <form onSubmit={this.saveUser} className="session-form">
@@ -85,6 +96,14 @@ class Register extends Component {
                      disabled={noMatch || passwordIsPassword || repetitious || tooShort || !this.state.emailValid || !this.state.usernameValid}/>
                    </div>
                </form>
+               {this.state.errors && 
+               <div className="auth-error-modal">
+                 <div className="auth-error-message">
+                    {this.state.errors.map(error => <span>{error.message}</span>)}
+                    <button onClick={this.clearErrors}>OK</button>
+                 </div>             
+                </div>
+                }
             </div>
         );
     }

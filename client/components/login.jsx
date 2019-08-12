@@ -30,7 +30,9 @@ class Login extends Component {
                 password: this.state.password
                 },
                 refetchQueries: [{ query }]
-          }).then( hashHistory.push('/'));
+        }).then(hashHistory.push('/')).catch(res => {
+          console.log(res);
+        });;
     }
 
     render() {
