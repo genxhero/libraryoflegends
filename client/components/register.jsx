@@ -14,11 +14,13 @@ class Register extends Component {
             password: "",
             password2: "",
             email: "",
+            emailValid: null,
+            usernameValid: null,
+            userEnteredPassword: false
         }
         // This format is far, far easier to debug than using the arrow methods.
         this.saveUser = this.saveUser.bind(this);
         this.handleFormChange = this.handleFormChange.bind(this);
-        this.validatePassword = this.validatePassword.bind(this);
     }
 
     saveUser() {
@@ -36,22 +38,29 @@ class Register extends Component {
     handleFormChange(field) {
         return event => this.setState({
           [field]: event.currentTarget.value,
+          userEnteredPassword: field === 'password' || this.state.userEnteredPassword,
+          [`${field}Valid`]: this.validateEntry(field, event.currentTarget.value)
         });
       }
 
-
-      validatePassword(password) {
-        if (password === "password" || isSequential(password) || hasTooManyRepeats(password) ) {
-          return false;
-        } else if (password.length < 8) {
-          return false;
-        } else {
-          return true;
-        }
+      validateEntry(field, value) {
+        switch(field) {
+           case "email": {
+            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+           }
+           case "username": {
+            return /^[a-zA-Z\d-_]+$/.test(value);
+           }
+        } 
       }
 
-
     render() {
+      const repetitious = hasTooManyRepeats(this.state.password);
+      const tooShort = this.state.password.length < 8;
+      const passwordIsPassword = this.state.password.toLowerCase() === "password";
+      const noMatch = this.state.password !== this.state.password2 && this.state.userEnteredPassword;
+      const sequence = isSequential(this.state.password) && this.state.userEnteredPassword;
+      console.log("No Match", noMatch)
         return (
             <div className="session-page">
                <form onSubmit={this.saveUser} className="session-form">
@@ -63,10 +72,17 @@ class Register extends Component {
                    <div className="form-footer"> 
                      <ul className="error-zone">
                        {this.state.password !== this.state.password2  && <li> <span>Passwords must match</span></li>}
-                       {!this.validatePassword(this.state.password) &&   <li> <span>Invalid Password</span></li>}
-                       {this.state.password.toLowerCase() === "password" && <li><span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!!</span></li>}
+                       {(tooShort && this.state.userEnteredPassword) && <li> <span>Password is too short</span></li>}
+                       {repetitious && <li> <span>Password has too many repeating characters</span></li>}
+                       {sequence && <li> <span>Password is a sequential series.</span></li> }
+                       {this.state.emailValid === false && <li><span>Invalid email address.</span></li>}
+                       {this.state.usernameValid === false && <li><span>Username contains invalid characters.</span></li>}
+                       { passwordIsPassword && <li><span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!!</span></li>}
                      </ul>
-                   <input className="submit" type="submit" disabled={this.state.password !== this.state.password2 || !this.validatePassword(this.state.password)}/>
+                   <input 
+                     className="submit" 
+                     type="submit" 
+                     disabled={noMatch || passwordIsPassword || repetitious || tooShort || !this.state.emailValid || !this.state.usernameValid}/>
                    </div>
                </form>
             </div>
