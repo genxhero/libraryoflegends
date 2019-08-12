@@ -40,7 +40,8 @@ class CharCreate extends Component {
             backgroundDone:false,
             ancestry: "",
             class: "Placeholder",
-            image: null
+            image: null,
+            currentUser: this.props.currentUser
         }
         this.applyPersonal = this.applyPersonal.bind(this);
         this.applyAncestry = this.applyAncestry.bind(this);
@@ -55,13 +56,19 @@ class CharCreate extends Component {
         this.save = this.save.bind(this);
         this.uploadToS3 = this.uploadToS3.bind(this);
         this.panes = [
-              <InstructionsPane nextPane={this.dismissInstructions} data={this.props.data} />,
+              <InstructionsPane nextPane={this.dismissInstructions} user={this.state.currentUser}/>,
               <PersonalPane nextPane={this.applyPersonal} />,
               <AncestryPane nextPane={this.applyAncestry} />, 
               <BackgroundPane nextPane={this.applyBackground} />,
               <ClassPane nextPane={this.applyClass}/>, <FreebiePane nextPane={this.applyFreebies}/>, <ImagePane nextPane={this.applyImage}/>,
               <SavePane saveMeMaybe={this.saveMeMaybe} data={this.state}/>
             ];
+    }
+
+    componentWillReceiveProps(newProps) {
+        if (newProps.data.currentUser !== this.props.data.currentUser) {
+            this.setState( () => {return {currentUser: newProps.data.currentUser}})
+        }
     }
 
     dismissInstructions(){
@@ -280,9 +287,23 @@ class CharCreate extends Component {
     }
 
   render() {
+      if (this.props.data.loading) {
+          return (<div>
+              <h1>LOADING.......</h1>
+          </div>);
+      }
+      const panes = [
+          <InstructionsPane nextPane={this.dismissInstructions} user={this.state.currentUser} />,
+          <PersonalPane nextPane={this.applyPersonal} />,
+          <AncestryPane nextPane={this.applyAncestry} />,
+          <BackgroundPane nextPane={this.applyBackground} />,
+          <ClassPane nextPane={this.applyClass} />, <FreebiePane nextPane={this.applyFreebies} />, <ImagePane nextPane={this.applyImage} />,
+          <SavePane saveMeMaybe={this.saveMeMaybe} data={this.state} />
+      ];
+      //to revert changes, add this. to panes on 307
     return (
       <div className="char-creation-page">
-        {this.panes[this.state.pane]}
+        {panes[this.state.pane]}
       </div>
     )
   }

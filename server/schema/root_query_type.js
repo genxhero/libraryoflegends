@@ -30,7 +30,7 @@ const RootQuery = new GraphQLObjectType({
 
         currentUser: {
              type: UserType,
-             resolve(parentValue, args, req) {
+             async resolve(parentValue, args, req) {
                 return req.user;
              }
         },

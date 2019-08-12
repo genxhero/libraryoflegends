@@ -1,6 +1,7 @@
 import React from 'react';
 
 const InstructionsPane = (props) => {
+    console.log("Instruction Props:",props)
     return (
        <div className="char-creation-pane">
            <h2>Hello, {props.user ? props.user.username : "brave bugseeker"}</h2>
