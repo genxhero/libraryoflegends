@@ -49,3 +49,9 @@ export  const numberSuffix = (num) => {
      }
      return false;
  }
+
+ export const capitalize = (string) => {
+     const first = string.slice(0, 1).toUpperCase();
+     const rest = string.slice(1);
+     return first + rest;
+ }
