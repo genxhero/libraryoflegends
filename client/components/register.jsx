@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import {hashHistory} from 'react-router';
 import query from '../queries/current_user';
 import { isSequential, hasTooManyRepeats} from '../helpers';
+import ErrorsModal from './errors_modal';
 
 class Register extends Component {
 
@@ -96,14 +97,7 @@ class Register extends Component {
                      disabled={noMatch || passwordIsPassword || repetitious || tooShort || !this.state.emailValid || !this.state.usernameValid}/>
                    </div>
                </form>
-               {this.state.errors && 
-               <div className="auth-error-modal">
-                 <div className="auth-error-message">
-                    {this.state.errors.map(error => <span>{error.message}</span>)}
-                    <button onClick={this.clearErrors}>OK</button>
-                 </div>             
-                </div>
-                }
+               {this.state.errors && <ErrorsModal errors={this.state.errors} clearErrors={this.clearErrors}/>}
             </div>
         );
     }
@@ -121,3 +115,13 @@ mutation SignupMutation($email: String!, $password: String!, $username: String!)
 export default graphql(query)(
   graphql(mutation)(Register) 
 );
+
+/**
+ * for recovery in case i messed up.
+ *       <div className="auth-error-modal">
+                 <div className="auth-error-message">
+                    {this.state.errors.map(error => <span>{error.message}</span>)}
+                    <button onClick={this.clearErrors}>OK</button>
+                 </div>
+                </div>
+ */
