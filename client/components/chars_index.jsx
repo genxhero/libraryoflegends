@@ -25,8 +25,8 @@ class CharsIndex extends Component {
           key={`${char.firstName}${timestamp}${char.lastName}${char.id}`} 
           value={`${char.id}`}
           >
-          <div>{char.firstName} {char.lastName}</div>
-          <div>{char.level}{numberSuffix(char.level)} level {char.class}</div>
+          <div className="char-snippet-name">{char.firstName} {char.lastName}</div>
+          <div className="char-snippet-class">{char.level}{numberSuffix(char.level)} level {char.class}</div>
         
            <div className="char-thumb-container">
              <img className="char-thumb" src={char.image ? `${char.image}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"} />
