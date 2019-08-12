@@ -108,9 +108,16 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background: burlywood;
+  /* background: burlywood; */
   padding: 1rem;
   width: 100%;
+}
+
+.content {
+  background: url("../../images/old-paper.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat-y;
 }
 
 #index-title  {
@@ -538,7 +545,7 @@ p {
 .index-page {
   display: flex;
   flex-direction:column;
-  background: burlywood;
+  /* background: burlywood; */
   margin-top: -2rem;
   padding: 2rem;
 }
