@@ -1,5 +1,4 @@
 
-
 .ancestry-choice{
   display: flex;
   flex-direction: column;
@@ -114,10 +113,13 @@
 }
 
 .content {
-  background: url("../../images/old-paper.jpg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: repeat-y;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 #index-title  {
@@ -497,13 +499,18 @@ p {
   background: burlywood;
   background-size: cover;
   box-shadow: 3px 3px 3px;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .char-creation-page {
   display: flex;
   justify-content: center;
-  background-color: beige;
+  background: url("../../images/old-paper.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+  width: 100%;
+  padding-bottom: 4rem;
 }
 
 .char-creation-label {
@@ -545,9 +552,12 @@ p {
 .index-page {
   display: flex;
   flex-direction:column;
-  /* background: burlywood; */
   margin-top: -2rem;
   padding: 2rem;
+  background: url("../../images/old-paper.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat-y;
 }
 
 .link-container {
@@ -905,8 +915,8 @@ label {
   background: burlywood;
 }
 
-body {
-  margin: 0px;
-  background: burlywood;
-
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
 }
