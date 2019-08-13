@@ -50,6 +50,7 @@ class CharsIndex extends Component {
        <div className="intro-content">
           <h1 id="index-title">Welcome</h1>
           <p id="index-paragraph">You have entered the Library of Legends, where tales of great heroes lie.</p>
+          <p id="index-paragraph">Disclaimer: This app is styled with a three-dimensional look in mind. You may encounter shadows and borders.</p>
           <h2 id="index-title">Names of Legend</h2>
           </div>   
         <div className="chars-spread">
