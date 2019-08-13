@@ -589,7 +589,7 @@ p {
   background: white;
   color: black;
   width: 20rem;
-  height: auto;
+  height: autoh;
   text-align: justify;
   padding: 1rem;
   border-radius: 4px;
@@ -813,6 +813,11 @@ label {
 .freebie-checkboxes {
   display: flex;
   flex-direction: column;
+}
+
+.freebie-checkboxes > .pure-checkbox {
+  font-weight: 600;
+  font-size: 18px;
 }
 
 
