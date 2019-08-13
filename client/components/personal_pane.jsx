@@ -72,7 +72,10 @@ class PersonalPane extends Component {
      const submitEnabled = this.allValid();
      return (
          <div className="char-creation-pane">
-            <form className="char-form" onSubmit={this.passTheProps}>   
+
+            <form className="char-form" onSubmit={this.passTheProps}>
+            <div className="char-form-row">   
+              <div className="char-form-col"> 
                  <label className="personal-input">
                     <span className="label-content">First Name</span>
                     <input className="char-field-long"
@@ -101,22 +104,25 @@ class PersonalPane extends Component {
                         onChange={this.updateNumeric('age')}  
                     ></input>
                  </label>
-              
-                 <ul className="error-zone">
-                     {this.state.ageValid === false && <li>Age must be a positive number</li>}
-                     {this.state.firstNameValid === false && <li>Only letters and dashes permitted in the First Name</li>}
-                     {this.state.lastNameValid === false && <li>Only letters and dashes permitted in the Last Name</li>}
-                 </ul>
-                 <label className="personal-input">Biography</label>
-                 <textarea className="char-bio-input"
-                     value={this.state.bio}
-                     placeholder=""
-                     type="text"
-                     onChange={this.updateText('bio')}
-                 ></textarea>
-                 <input type="submit" className= "submit" value="NEXT" disabled={!submitEnabled}></input>
+                </div>
+                
+                 <div className="char-form-col"> 
+                     <label className="personal-input">Biography</label>
+                     <textarea className="char-bio-input"
+                         value={this.state.bio}
+                         placeholder=""
+                         type="text"
+                         onChange={this.updateText('bio')}
+                     ></textarea>
+                 </div>
+                </div>
+                 <input type="submit" className="submit" value="NEXT" disabled={!submitEnabled}></input>
             </form>
-          
+             <ul className="error-zone">
+                 {this.state.ageValid === false && <li>Age must be a positive number</li>}
+                 {this.state.firstNameValid === false && <li>Only letters and dashes permitted in the First Name</li>}
+                 {this.state.lastNameValid === false && <li>Only letters and dashes permitted in the Last Name</li>}
+             </ul>
         </div>
     )
   }

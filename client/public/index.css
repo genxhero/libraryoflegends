@@ -212,7 +212,6 @@
     box-shadow: 2px 2px 1px;
     border: 1px solid black;
     padding: 20px;
-    margin: 10px;
     text-align: left;
     font-weight: bold;
     font-size: 16px;
@@ -492,14 +491,26 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* box-sizing: border-box; */
   border: 1px solid;
-  width: 40rem;
   padding: .5rem;
+  width: auto;
   background: burlywood;
   background-size: cover;
   box-shadow: 3px 3px 3px;
   margin-top: 3rem;
+  font-family: sans-serif;
+}
+
+.char-creation-pane > p {
+  padding-left: .5rem;
+  padding-right: .5rem;
+  text-align: justify;
+  font-weight: 600;
+  width: 40rem;
+}
+
+.char-creation-pane > ol {
+  width:40rem;
 }
 
 .char-creation-page {
@@ -510,7 +521,6 @@ p {
   background-size: cover;
   background-repeat: repeat-y;
   width: 100%;
-  padding-bottom: 4rem;
 }
 
 .char-creation-label {
@@ -583,6 +593,16 @@ p {
   font-size: 16pt;
   margin: auto;
   padding: 2rem;
+}
+
+.char-form-col {
+  margin: .5rem;
+}
+
+.char-form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .char-show {
@@ -679,7 +699,7 @@ textarea:focus{
   font-weight: 500;
   margin: .25rem;  
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
