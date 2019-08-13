@@ -730,8 +730,7 @@ textarea:focus{
   margin-right: 10px;
   margin-right: 10px;
   text-shadow: 2px 2px 0px, #EEDBC2;
-  font-weight: bolder;
-  font-family: fantasy;
+  font-family: sans-serif;
   font-size: 22px;
 }
 
@@ -748,7 +747,7 @@ label {
   margin-right: 10px;
   text-shadow: 1px 1px 1px aliceblue;
   font-weight: bolder;
-  font-family: fantasy;
+  font-family: sans-serif;
   font-size: 22px;
 }
 
@@ -957,5 +956,8 @@ html, body {
   margin:0;
   padding:0;
   height:100%;
-  /* background: url("../../images/old-paper.jpg"); */
+  background: url("../../images/old-paper.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat-y;
 }
