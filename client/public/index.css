@@ -425,6 +425,16 @@ p {
 .freebie-choices {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.freebie-choices > .pure-checkbox {
+  display: flex;
+  width: 10rem;
+}
+
+.freebie-form > p {
+  font-weight: bold;
 }
 
 .freebie-selector {

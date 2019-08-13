@@ -57,7 +57,6 @@ class ClassPane extends Component {
 
     chooseFreebie(event){
         event.preventDefault();
-        console.log(event.target.value)
         this.setState({
             freebChosen: event.target.value !== "" ? true : false,
             chosen: event.target.value

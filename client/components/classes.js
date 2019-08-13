@@ -7,7 +7,7 @@ const Alchemist = {
 const Barbarian = {
     name: "barbarian",
     keyAbility: "strength",
-    description: "Civilization...who needs it? You are a warrior driven by rage, and you know what is best in life.  You join the ranks of such legendary wild men as Enkidu, Conan, and Wulfgar."
+    description: "You are a warrior driven by rage, and you know what is best in life.  You join the ranks of such legendary wild men as Enkidu, Conan, and Wulfgar."
 }
 
 const Bard = {
@@ -37,7 +37,7 @@ const Fighter = {
 const Monk = {
     name: "monk",
     keyAbility: ["dexterity", "strength"],
-    description: "You are a practitioner of martial arts dedicated to perfecting yourself.  You rank among such heroes as Bruce Lee, Chuck Norris, and the Karate Kid"
+    description: "A martial artist dedicated to self-perfection.  You rank among such heroes as Bruce Lee, Chuck Norris, and the Karate Kid"
 }
 
 const Paladin = {
@@ -55,7 +55,7 @@ const Ranger = {
 const Rogue = {
     name: "rogue",
     keyAbility: ["strength", "dexterity"],
-    description: "Full of cunning, guille, and a healthy dose of swagger, you get things done with skill rather than brute force.  You follow in the footsteps of such great characters as Han Solo, Robin Hood, and ???"
+    description: "Full of cunning and guile, you follow in the footsteps of such great characters as Han Solo, Locke, and Robin Hood"
 }
 
 const Sorcerer = {
@@ -67,7 +67,7 @@ const Sorcerer = {
 const Wizard = {
     name: 'wizard',
     keyAbility: "intelligence",
-    description: "The boundless powers of the arcane arts are your bread and butter.  The wizard has long been an advisor to heroes and kings, and includes such names as Gandalf, Merlin, Elminster, and Harry Potter"
+    description: "The boundless powers of the arcane arts are your bread and butter.  The wizard has long been an advisor to heroes and kings, and includes such names as Gandalf, Merlin, and Elminster"
 }
 
 export default [

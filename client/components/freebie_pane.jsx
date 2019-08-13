@@ -45,7 +45,7 @@ export default class FreebiePane extends Component {
   <div className="char-creation-pane">
       <form className="freebie-form" onChange={this.changeSelection} onSubmit={this.passTheProps}>  
          <p>Now, please select four ability scores that will each receive a +2 boost</p>
-         <div className="freebie-choices">
+        <div className="freebie-choices">
           <label className="pure-checkbox" >
             <input type="checkbox" name="freebie-checkbox" value="strength" disabled={this.state.freebs.length === 4 && !this.state.freebs.includes("strength")} /> Strength
                   </label>
@@ -64,8 +64,8 @@ export default class FreebiePane extends Component {
           <label className="pure-checkbox">
             <input type="checkbox" name="freebie-checkbox" value="charisma" disabled={this.state.freebs.length === 4 && !this.state.freebs.includes("charisma")} /> Charisma
                   </label>
-          <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 4}></input>
         </div>
+          <input type="submit" className="submit" value="Next" disabled={this.state.freebs.length < 4}></input>
       </form>
   </div>
     )

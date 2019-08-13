@@ -12,7 +12,7 @@ class ImagePane extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {image: null, fileTooBig: false, invalidType: false}
+        this.state = {image: null, fileTooBig: false, invalidType: false, imageURL: null}
         this.passTheProps = this.passTheProps.bind(this)
         this.handleFileChange = this.handleFileChange.bind(this)
     }
@@ -49,7 +49,10 @@ class ImagePane extends Component {
         return (
           <div className="char-creation-pane"> 
             <h1>Please Select a Picture for Your Character</h1>
-            <form className="char-form" onSubmit={this.passTheProps}>   
+            <form className="char-form" onSubmit={this.passTheProps}>  
+                <div className="image-preview">
+                {this.state.photoURL ? <img src={this.state.photoURL}/> : <div className="image-placeholder"><span>Image Preview</span></div>}
+                </div> 
                 <input className="char-form-image"
                   type="file"  
                   onChange={this.handleFileChange} 
