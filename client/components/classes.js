@@ -1,7 +1,7 @@
 const Alchemist = {
     name: "alchemist",
     keyAbility: "intelligence",
-    description: "You're basically Geralt of Rivia."
+    description: "Mutagens...potions...bombs...let's face it, you're basically Geralt of Rivia."
 }
 
 const Barbarian = {
@@ -31,7 +31,7 @@ const Druid = {
 const Fighter = {
      name: "fighter",
      keyAbility: ["strength", "dexterity"],
-     description: "You are a fighter; that is what you do. You fight. Bred for battle, you walk the path of warriors trodden by such figures as Kansuke Yamamoto, Achilles, Gimli, and many more throughout history, mythology, and fiction."
+     description: "You are a fighter; that is what you do. You fight. You walk the path of Musashi, Achilles, Gimli, and many more."
 }
 
 const Monk = {

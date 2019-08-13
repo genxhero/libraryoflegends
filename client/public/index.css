@@ -302,12 +302,18 @@ p {
 }
 
 .class-description {
-       margin: 5px;
+    margin: 5px;
     padding: 10px;
     background: wheat;
     box-shadow: 2px 2px 1px;
     border-radius: 4px;
-      text-align: center;
+    text-align: center;
+}
+
+.class-description > p {
+    width: 30rem;
+    text-align: justify;
+    padding: 1rem;
 }
 
 .class-freeb {
@@ -347,13 +353,22 @@ p {
 
 .class-list{
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background: wheat;
+  box-shadow: 1px 1px 2px;
+  border-radius: 3px;
+  margin: 2px;
+}
+
+.class-list-column{
+  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-      padding: 40px;
-    background: wheat;
-    box-shadow: 1px 1px 2px;
-    border-radius: 3px;
-    margin: 5px;
+  padding: 1rem;
+  background: wheat;
+  margin: 5px;
 }
 
 .confirm-btn {

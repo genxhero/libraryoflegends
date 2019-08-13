@@ -172,7 +172,7 @@ class AncestryPane extends Component {
                 <p>Short-lived but alarmingly industrious, humans are also diverse in the extreme.</p>
                 <p>+2 to two unique ability scores of your choice</p>
                </div>
-              <div style={{"display":"flex", "justifyContent": "center"}}>
+              <div style={{"display":"flex", "justifyContent": "center", "margin":"1rem"}}>
                     <div className="freebie-checkboxes">
                         <label className="pure-checkbox" >
                         <input type="checkbox" name="freebie-checkbox" value="strength" disabled={this.state.freebs.length === 2 && !this.state.freebs.includes("strength")}/> Strength
