@@ -117,10 +117,9 @@ class AncestryPane extends Component {
                 <p>+2 Dexterity, +2 Intelligence, -2 Constitution,
                     <span className="greenie"> +2 to one ability score of your choice </span>
                 </p>
-                <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
             </div>
            
-            <label> Ability To Increase:
+         <label className="nonhuman-selector"> <span>Ability To Increase:</span>
             <select name="freebie-selector" className="freebie-selector">
                     <option className="freebie-option" value="blank"></option>
                     <option className="freebie-option" value="strength">Strength</option>
@@ -144,10 +143,9 @@ class AncestryPane extends Component {
                     <p>+2 Constitution, +2 Wisdom, -2 Charisma,
                         <span className="greenie"> +2 to one ability score of your choice </span>
                     </p>
-                    <p>Please select which of three ability scores you'd like to receive a +2 increase</p>
                 </div>
                
-                <label> Ability To Increase:
+                <label className="nonhuman-selector"> <span>Ability To Increase:</span>
                   <select name="freebie-selector" className="freebie-selector">
                         <option className="freebie-option" value="blank"></option>
                         <option className="freebie-option" value="strength">Strength</option>
@@ -169,7 +167,6 @@ class AncestryPane extends Component {
                <div className="ancestry-info"> 
                                 <p>Extremely diverse and industrious; you know the drill.</p>
                 <p>+2 to two unique ability scores of your choice</p>
-                <p>Please check two ability scores from the list below</p>
                </div>
               <div style={{"display":"flex"}}>
                     <div className="freebie-checkboxes">

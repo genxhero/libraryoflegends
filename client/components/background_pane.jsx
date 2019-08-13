@@ -25,9 +25,7 @@ class BackgroundPane extends Component {
         if (this.state.background) {
             return (<h1>{this.state.background.name}</h1>);
         }  else {
-            return (<p>
-                        Please select a background for your character from the dropdown list.
-                   </p>
+            return (<h1>Background</h1>
               )
         }
     }
@@ -146,19 +144,10 @@ class BackgroundPane extends Component {
             );
         } else {
           return (
-            <div className="background-description">
-            Desription of background will appear here upon selection.
+            <div className="background-placeholder">
+               Desription of background will appear here upon selection.
             </div>
           );
-        }
-    }
-
-    submitMeMaybe(){
-        if (this.state.secondPicked && this.state.firstPicked){
-            return ( 
-                <input type="submit" className="submit"  value="NEXT">
-                </input>
-            )
         }
     }
 
@@ -168,7 +157,9 @@ class BackgroundPane extends Component {
             <div className="char-creation-pane">
             {this.titleMaybe()}
                 <form onSubmit={this.passTheProps} onChange={this.handleChange}> 
-                  <select className="bg-selector" name="background">
+                <label className="nonhuman-selector">
+                  <span>Please Select One of The Following:{'  '}</span>
+                 <select className="bg-selector" name="background">
                      <option value="blank"></option>
                      {
                        Object.values(this.backgrounds).map( (bg) => 
@@ -180,14 +171,20 @@ class BackgroundPane extends Component {
                        )
                        }
                   </select>
-                    {this.describeMeMaybe()}
-                    {this.firstChoice()}
-                    {this.secondChoice()}
-                    {this.submitMeMaybe()}
-                </form>
+                </label>
               
+                    {this.describeMeMaybe()}
+                    <div style={{"display": "flex"}}>
+                        {this.firstChoice()}
+                        {this.secondChoice()}
+                    </div>
 
-    
+                    <input type="submit" 
+                           className="submit" 
+                           value="NEXT" 
+                        disabled={!this.state.secondPicked || !this.state.firstPicked}
+                    />
+                </form>
             </div>
         )
     }

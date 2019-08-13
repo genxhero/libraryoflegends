@@ -41,7 +41,8 @@ class CharCreate extends Component {
             ancestry: "",
             class: "Placeholder",
             image: null,
-            currentUser: this.props.currentUser
+            currentUser: this.props.currentUser,
+            futureFeatures: false
         }
         this.applyPersonal = this.applyPersonal.bind(this);
         this.applyAncestry = this.applyAncestry.bind(this);
@@ -55,6 +56,7 @@ class CharCreate extends Component {
         this.dismissInstructions = this.dismissInstructions.bind(this);
         this.save = this.save.bind(this);
         this.uploadToS3 = this.uploadToS3.bind(this);
+        this.closeFutureFeatures = this.closeFutureFeatures.bind(this);
         this.panes = [
               <InstructionsPane nextPane={this.dismissInstructions} user={this.state.currentUser}/>,
               <PersonalPane nextPane={this.applyPersonal} />,
@@ -73,6 +75,10 @@ class CharCreate extends Component {
 
     dismissInstructions(){
         this.setState({ pane: this.state.pane + 1,});
+    }
+
+    closeFutureFeatures() {
+        this.setState({futureFeatures: false})
     }
     /**
      * Applies data from the personal pane to the overall cumulative character stats
@@ -174,7 +180,6 @@ class CharCreate extends Component {
     }
 
     async uploadToS3(file, signedRequest) {
-        console.log("Signed Request:", signedRequest);
         const proxy = 'https://cors-anywhere.herokuapp.com/';
         const options = {
             headers: {
@@ -184,7 +189,7 @@ class CharCreate extends Component {
             }
         }
         await axios.put(signedRequest, file, options)
-            .then(res => console.log(res)).catch(console.log("aws is a pain in the backend"));
+            .then(res => console.log(res)).catch(console.log("Aws failed to save, please check your bucket"));
     }
 
 
@@ -197,7 +202,6 @@ class CharCreate extends Component {
                filetype: image.type
            }
        });
-          console.log("response:",response);
        const { signedRequest, url } = response.data.signS3;
        await this.uploadToS3(image, signedRequest)
 
@@ -229,7 +233,6 @@ class CharCreate extends Component {
     }
 
     saveMeMaybe(){
-      
         if (this.state.freebiesDone) {
             return (
                 <div>

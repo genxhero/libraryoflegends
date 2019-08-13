@@ -1,8 +1,24 @@
 
+#root > img {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+
 .ancestry-choice{
   display: flex;
   flex-direction: column;
   font-weight: bold;
+}
+
+.nonhuman-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nonhuman-selector > span {
+  font-size: small;
+  min-width: fit-content;
 }
 
 .ancestry-info {
@@ -74,6 +90,25 @@
     background: wheat;
     box-shadow: 2px 2px 1px;
     border-radius: 4px;
+}
+
+.background-description > p {
+  width: 30rem;
+  padding: .5rem;
+  text-align: justify;
+}
+
+.background-placeholder {
+  width: 30rem;
+  height: 15rem;
+  border: 1px dashed;
+  margin: 5px;
+  padding: 5px;
+  background: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .be-capitalized {
@@ -538,6 +573,29 @@ p {
   background-size: contain;
 }
 
+.char-creation-future {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  z-index: 100000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.char-creation-future-message {
+  position: absolute;
+  background: white;
+  color: black;
+  width: 20rem;
+  height: auto;
+  text-align: justify;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
 .link-button {
     border-radius: 3px;
     padding: 10px;
@@ -681,6 +739,7 @@ p {
 .select-wrapper {
   display: flex;
   justify-content: center;
+  width: 50%;
 }
 
 
@@ -960,4 +1019,24 @@ html, body {
   background-position: center;
   background-size: contain;
   background-repeat: repeat-y;
+}
+
+.dismiss-x{
+    float: right;
+    margin-top:-30px;
+    margin-right:-30px;
+    cursor:pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #605F61;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;       
+}
+
+.dismiss-x:before {
+    content: "×";
 }
