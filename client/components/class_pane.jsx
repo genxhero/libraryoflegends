@@ -33,15 +33,16 @@ class ClassPane extends Component {
         this.props.nextPane(newState);
     }
 
-    choiceMaybe(){
-        const edgeCases = (this.state.selected.name === "fighter" || this.state.selected.name === "monk" || this.state.selected.name === "rogue")
-        if (this.state.selected === null ){
-            return <div />
-        } else if (edgeCases) {
+    choiceMaybe(){ 
+     if( !this.state.selected) {
+         return <div />
+     }   
+     if (this.state.selected.name === "fighter" || this.state.selected.name === "monk" || this.state.selected.name === "rogue") {
             return (
                 <label className="nonhuman-selector"> 
+                   <span>Strong or Agile, your choice: </span>
                     <select className="freebie-selector">
-                        <option></option>
+                        <option value=""></option>
                         <option className="be-capitalized" value={this.state.selected.keyAbility[0]}>{this.state.selected.keyAbility[0]}</option>
                         <option className="be-capitalized" value={this.state.selected.keyAbility[1]}>{this.state.selected.keyAbility[1]}</option>
                   </select>
@@ -56,8 +57,9 @@ class ClassPane extends Component {
 
     chooseFreebie(event){
         event.preventDefault();
+        console.log(event.target.value)
         this.setState({
-            freebChosen: true,
+            freebChosen: event.target.value !== "" ? true : false,
             chosen: event.target.value
         })
     }
@@ -94,7 +96,6 @@ class ClassPane extends Component {
                   <p>{this.state.selected.description}</p>
                      {edgeCases && <span>A {this.state.selected.name} gain a +2 to their {this.state.selected.keyAbility[0]} or {this.state.selected.keyAbility[1]}</span>}
                      {!edgeCases && <span>A {this.state.selected.name} gain a +2 bonus to their {this.state.selected.keyAbility} score.</span>}
-                     {this.choiceMaybe()}
                 </div>
             );
         }
@@ -151,7 +152,8 @@ class ClassPane extends Component {
             <div className="description">
                 {this.showDescription()}
             </div>
-            <input type="submit" className="submit" value="NEXT" disabled={!nextEnabled}/>>
+            {this.choiceMaybe()}
+            <input type="submit" className="submit" value="NEXT" disabled={!nextEnabled}/>
             </form>
           </div>);
     }
