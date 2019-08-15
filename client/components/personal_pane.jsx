@@ -70,6 +70,7 @@ class PersonalPane extends Component {
 
     render (){ 
      const submitEnabled = this.allValid();
+        const creationErrorStyle = { "right": "20.5rem", "top":"1.75rem"}
      return (
          <div className="char-creation-pane">
 
@@ -84,7 +85,7 @@ class PersonalPane extends Component {
                         type="text"
                         onChange={this.updateText('firstName')}
                     ></input>
-                 {this.state.firstNameValid === false && <span className="error-message">Only letters and dashes</span>}
+                             {this.state.firstNameValid === false && <span className="error-message" style={creationErrorStyle}>Only letters and dashes</span>}
                  </label>
                  <label className="personal-input">
                  <span className="label-content">Last Name</span>
@@ -94,10 +95,11 @@ class PersonalPane extends Component {
                         type="text"
                         onChange={this.updateText('lastName')}
                     ></input>
-                  {this.state.lastNameValid === false && <span className="error-message">Only letters and dashes</span>}
+                             {this.state.lastNameValid === false && <span className="error-message" style={creationErrorStyle}>Only letters and dashes</span>}
                  </label>
               
-                 <label className="personal-input">
+                 <span className="personal-input">
+                             {this.state.ageValid === false && <span className="error-message" style={creationErrorStyle}>Age must be a positive number</span>}
                    <span className="label-content">Age</span>
                    <input className="char-field-short"
                         value={this.state.age}
@@ -105,8 +107,7 @@ class PersonalPane extends Component {
                         type="text"
                         onChange={this.updateNumeric('age')}  
                     ></input>
-                             {this.state.ageValid === false && <span className="error-message">Age must be a positive number</span>}
-                 </label>
+                 </span>
                 </div>
                 
                  <div className="char-form-col"> 

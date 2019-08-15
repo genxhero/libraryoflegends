@@ -77,21 +77,19 @@ class EditPersonal extends Component {
         return (
             <div className="edit-pane">
                 <div className="edit-multi-field">
-                    <span>First Name:{' '}
+                    <span style={{"position":"relative"}}>First Name:{' '}
                       <input className="edit-pane-text-input" onChange={this.updateText('first')} value={this.state.first}/>
+                        {!this.state.firstValid && <span className="error-message">Name may only have letters</span>}
                     </span>
                     <span>Last Name:{' '}
                       <input className="edit-pane-text-input" onChange={this.updateText('last')} value={this.state.last}/>
+                        {!this.state.lastValid && <span className="error-message">Name may only have letters</span>}
                     </span>
                     <span>Age:{' '}
                     <input className="edit-pane-text-input" onChange={this.updateNumeric('age')} value={this.state.age}/>
-                </span>
+                        {!this.state.ageValid && <span className="error-message" style={{"margin-right": "-4rem"}}>Age must be a positive number</span>}
+                    </span>
                 </div>
-                <ul className="error-zone">
-                    {this.state.ageValid === false && <li>Age must be a positive number</li>}
-                    {this.state.firstValid === false && <li>Name may only have letters</li>}
-                    {this.state.lastValid === false && <li>Name may only have letters</li>}
-                </ul>
                 <div className="edit-btn-container">
                     <button onClick={this.updatePersonal} disabled={!allFieldsValid}>Save</button>
                     <button onClick={this.props.cancelEdit} name="Personal">Cancel</button>

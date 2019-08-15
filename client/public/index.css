@@ -818,8 +818,8 @@ textarea:focus{
   background:ivory;
   border: 1px solid black;
   width: fit-content;
-  right: 20rem;
-  top: 1.75rem;
+  /* right: 20rem; */
+  /* top: 1.75rem; */
   margin-right: .25rem;
   font-weight: 100;
   border-radius: 4px;
