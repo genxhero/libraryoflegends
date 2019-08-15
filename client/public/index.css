@@ -275,7 +275,7 @@ p {
 
 .char-bio-edit {
   width: -webkit-fill-available;
-  height: 10rem;
+  /* height: 10rem; */
 }
 
 .char-submit {

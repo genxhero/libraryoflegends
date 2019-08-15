@@ -13,6 +13,7 @@ class EditBio extends Component {
         this.state = {
             bio: this.props.bio
         }
+        this.bioEditHeight = document.getElementById("char-bio").offsetHeight;
         this.updateBio = this.updateBio.bind(this);
         this.updateText = this.updateText.bind(this);
     }
@@ -40,7 +41,9 @@ class EditBio extends Component {
                     className="char-bio-edit"
                     value={this.state.bio}
                     type="text"
-                    onChange={this.updateText('bio')} />
+                    onChange={this.updateText('bio')} 
+                    style={{"height":`${this.bioEditHeight}px`}}
+                    />
                 <div className="edit-btn-container">
                     <button onClick={this.updateBio}>Save</button>
                     <button onClick={this.props.cancelEdit} name="Bio">Cancel</button>

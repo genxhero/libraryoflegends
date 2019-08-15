@@ -127,7 +127,7 @@ render() {
           </div>
             <div className="char-bio-show">
                 <h3>Biography</h3>
-                {this.state.editingBio ? <EditBio bio={char.bio} id={char.id} cancelEdit={this.cancelEdit} finishEdit={this.finishEdit}/> : <p id="char-bio">{char.bio}</p>}
+                {this.state.editingBio ? <EditBio bio={char.bio}  id={char.id} cancelEdit={this.cancelEdit} finishEdit={this.finishEdit}/> : <p id="char-bio">{char.bio}</p>}
                 {(!this.state.editingBio && creatorMatch) && <button onClick={this.editCharacter} name="Bio">Edit</button>}
             </div> 
         </div>
