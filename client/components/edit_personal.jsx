@@ -79,11 +79,11 @@ class EditPersonal extends Component {
                 <div className="edit-multi-field">
                     <span style={{"position":"relative"}}>First Name:{' '}
                       <input className="edit-pane-text-input" onChange={this.updateText('first')} value={this.state.first}/>
-                        {!this.state.firstValid && <span className="error-message">Name may only have letters</span>}
+                        {!this.state.firstValid && <span className="error-message" style={{ "margin-right": "-4rem" }}>Name may only have letters</span>}
                     </span>
                     <span>Last Name:{' '}
                       <input className="edit-pane-text-input" onChange={this.updateText('last')} value={this.state.last}/>
-                        {!this.state.lastValid && <span className="error-message">Name may only have letters</span>}
+                        {!this.state.lastValid && <span className="error-message" style={{ "margin-right": "-4rem" }}>Name may only have letters</span>}
                     </span>
                     <span>Age:{' '}
                     <input className="edit-pane-text-input" onChange={this.updateNumeric('age')} value={this.state.age}/>

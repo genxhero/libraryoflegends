@@ -101,19 +101,27 @@ render() {
                   finishEdit={this.finishEdit}
                   /> 
                   : 
-            <div>
-                <h4 className="char-vital">
-                  <div>Name: </div> <div className="be-capitalized">{char.firstName}</div> <div className="be-capitalized">{char.lastName} </div>
-                </h4>
-                <div className="char-vital"><span>Race: </span><span className="be-capitalized">{char.ancestry}</span></div>
-                <div className="char-vital"><span>Age:</span> {char.age}</div>
+            <div style={{"display": "flex","flex-direction": "row"}}>
+                <div className="char-show-fieldnames">
+
+                </div>
+                <div className="char-show-fields">
+                    
+                </div>
+                <span className="char-vital"> 
+                  <span className="char-vital-fieldname">Name:</span> 
+                  <span className="be-capitalized">{char.firstName}</span>
+                  <span className="be-capitalized">{char.lastName}</span>
+                </span>
+                <span className="char-vital"><span className="char-vital-fieldname">Race:</span><span className="be-capitalized">{char.ancestry}</span></span>
+                <span className="char-vital"><span className="char-vital-fieldname">Age:</span> <span>{char.age}</span></span>
             </div>}
                 {(!this.state.editingPersonal && creatorMatch) && <button onClick={this.editCharacter} name="Personal">Edit</button>}
              
             <h2>Game Information</h2>
-            <div className="char-vital"><span>Player: </span>{char.user.username}</div>
-            <div className="char-vital"><span>Class: </span><span className="be-capitalized"></span><span className="be-capitalized">{char.class}</span></div>
-            <div className="char-vital"><span>Level:</span> {char.level}</div>
+                <div className="char-vital"><span className="char-vital-fieldname">Player:{' '}</span>{char.user.username}</div>
+                <div className="char-vital"><span className="char-vital-fieldname">Class:{' '}</span><span className="be-capitalized"></span><span className="be-capitalized">{char.class}</span></div>
+                <div className="char-vital"><span className="char-vital-fieldname">Level:{' '}</span> {char.level}</div>
           </div>
 
           <div className="char-statline">

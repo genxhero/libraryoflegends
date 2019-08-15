@@ -112,7 +112,7 @@
 
 .be-capitalized {
   text-transform: capitalize;
-  margin-left: 3px;
+  /* margin-left: 3px; */
 }
 
 .bg-selector {
@@ -723,6 +723,10 @@ p {
   display: flex;
   flex-direction: row;
   margin:5px;
+}
+
+.char-vital-fieldname {
+  /* margin-right: 1rem; */
 }
 
 
