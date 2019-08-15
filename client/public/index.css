@@ -708,8 +708,8 @@ p {
 .char-show {
   display: flex;
   flex-direction: column;
-  background: burlywood;
   padding: 20px;
+  font-family: sans-serif;
 }
 
 .char-show-top {
