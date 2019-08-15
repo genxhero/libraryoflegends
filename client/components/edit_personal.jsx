@@ -3,10 +3,6 @@ import gql from 'graphql-tag';
 import { graphql } from "react-apollo";
 import currentUser from '../queries/current_user';
 
-/**
- * REMINDER: Do the backend stuff before this component will even work.
- */
-
 class EditPersonal extends Component {
     constructor(props) {
         super(props)
@@ -81,9 +77,15 @@ class EditPersonal extends Component {
         return (
             <div className="edit-pane">
                 <div className="edit-multi-field">
-                    <span>First Name:{' '}<input onChange={this.updateText('first')} value={this.state.first}/></span>
-                    <span>Last Name:{' '}<input onChange={this.updateText('last')} value={this.state.last}/></span>
-                    <span>Age:{' '}<input onChange={this.updateNumeric('age')} value={this.state.age}/></span>
+                    <span>First Name:{' '}
+                      <input className="edit-pane-text-input" onChange={this.updateText('first')} value={this.state.first}/>
+                    </span>
+                    <span>Last Name:{' '}
+                      <input className="edit-pane-text-input" onChange={this.updateText('last')} value={this.state.last}/>
+                    </span>
+                    <span>Age:{' '}
+                    <input className="edit-pane-text-input" onChange={this.updateNumeric('age')} value={this.state.age}/>
+                </span>
                 </div>
                 <ul className="error-zone">
                     {this.state.ageValid === false && <li>Age must be a positive number</li>}
