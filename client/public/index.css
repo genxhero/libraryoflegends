@@ -415,6 +415,14 @@ p {
 .edit-pane {
   display: flex;
   flex-direction: column;
+  background: white;
+  padding: .5rem;
+  box-shadow: 2px 2px 2px 2px;
+}
+
+.edit-pane > textarea {
+  border: none;
+  resize: none;
 }
 
 .edit-btn-container {
