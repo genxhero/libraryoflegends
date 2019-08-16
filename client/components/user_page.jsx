@@ -48,7 +48,6 @@ class UserPage extends Component {
  }
   
   render() {
-      console.log(this.props.data);
       if (!this.props.data.user || this.props.data.loading) {
           return <h1>Loading...</h1>
       }
