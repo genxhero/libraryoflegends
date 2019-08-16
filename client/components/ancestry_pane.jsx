@@ -91,11 +91,9 @@ class AncestryPane extends Component {
             let newArr = this.state.freebs;
             if (event.target.checked) {
                 newArr.push(event.target.value)
-                console.log("new Freebs:", newArr);
               }
               else {
                 newArr.splice(newArr.indexOf(event.target.value), 1)
-                console.log("new Freebs:", newArr);
               }
               this.setState({
                   freebs: newArr
