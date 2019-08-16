@@ -31,7 +31,7 @@ class Login extends Component {
                 },
                 refetchQueries: [{ query }]
         }).then(hashHistory.push('/')).catch(res => {
-          console.log(res);
+          this.setState({ errors: res.graphQLErrors})
         });;
     }
 
