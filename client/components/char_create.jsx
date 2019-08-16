@@ -149,7 +149,7 @@ class CharCreate extends Component {
      * Adds freebie points to the cumulative ability scores.
      */
     applyFreebies(freebies) {
-        console.log(freebies);
+       
         this.setState({
           strength: this.state.strength + freebies.strength,
           dexterity: this.state.dexterity + freebies.dexterity,
