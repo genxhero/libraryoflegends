@@ -4,7 +4,7 @@
 A web application for players of tabletop role playing games to store information about their characters.
 
 ## Technologies Used
-This app uses GraphQL, React, and Express.
+This app uses GraphQL, React, and Express.  Images are stored on Amazon S3.
 
 ## Challenges
 
