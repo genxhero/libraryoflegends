@@ -102,19 +102,19 @@ render() {
                   /> 
                   : 
             <div style={{"display": "flex","flex-direction": "row"}}>
-                <div className="char-show-fieldnames">
-
+                <div className="char-show-fieldnames" style={{ "display": "flex", "flex-direction": "column", "align-items": "flex-end"}}>
+                    <span className="char-vital-fieldname">First Name:</span> 
+                    <span className="char-vital-fieldname">Last Name:</span>
+                    <span className="char-vital-fieldname">Race:</span>
+                    <span className="char-vital-fieldname">Age:</span>
                 </div>
-                <div className="char-show-fields">
-                    
+                <div className="char-show-data" style={{ "display": "flex", "flex-direction": "column", "justify-content": "flex-start" }}>
+                    <span className="char-vital"> <span className="be-capitalized">{char.firstName}</span></span>
+                    <span className="char-vital"><span className="be-capitalized">{char.lastName}</span></span>
+                    <span className="char-vital"><span className="be-capitalized">{char.ancestry}</span></span>
+                    <span className="char-vital"> <span>{char.age}</span></span>
                 </div>
-                <span className="char-vital"> 
-                  <span className="char-vital-fieldname">Name:</span> 
-                  <span className="be-capitalized">{char.firstName}</span>
-                  <span className="be-capitalized">{char.lastName}</span>
-                </span>
-                <span className="char-vital"><span className="char-vital-fieldname">Race:</span><span className="be-capitalized">{char.ancestry}</span></span>
-                <span className="char-vital"><span className="char-vital-fieldname">Age:</span> <span>{char.age}</span></span>
+                
             </div>}
                 {(!this.state.editingPersonal && creatorMatch) && <button onClick={this.editCharacter} name="Personal">Edit</button>}
              
