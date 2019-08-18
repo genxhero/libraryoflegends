@@ -4,13 +4,10 @@
 A web application for players of tabletop role playing games to store information about their characters.
 
 ## Technologies Used
-This app uses GraphQL, React, and Express.
+This app uses GraphQL, React, and Express.  Images are stored on Amazon S3.
 
 ## Challenges
 
-### AWS CORS is a regular Pain in the Backend
-Problem: Chrome has decided that localhost shouldnt be allowed to upload images; how the devil did I do it on fliquor then? Does fliquor no longer work?
-Solution: Turns out the problem is with how aws handles secret keys; it gives one the keys filled with random white space. Deleting the white space caused images to upload properly.
 
 ## TODOS
 
