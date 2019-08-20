@@ -138,12 +138,12 @@ render() {
 
           <div className="char-statline">
             <h2>Ability Scores</h2>
-            <h4>Strength: {char.statline.strength}</h4>
-            <h4>Dexterity: {char.statline.dexterity}</h4>
-            <h4>Constitution: {char.statline.constitution}</h4> 
-            <h4>Intelligence: {char.statline.intelligence}</h4>
-            <h4>Wisdom: {char.statline.wisdom}</h4>
-            <h4>Charisma: {char.statline.charisma}</h4>
+            <h4><span className="char-vital-fieldname">STR:</span> {char.statline.strength}</h4>
+            <h4><span className="char-vital-fieldname">DEX:</span> {char.statline.dexterity}</h4>
+            <h4><span className="char-vital-fieldname">CON:</span> {char.statline.constitution}</h4> 
+            <h4><span className="char-vital-fieldname">INT:</span> {char.statline.intelligence}</h4>
+            <h4><span className="char-vital-fieldname">WIS:</span> {char.statline.wisdom}</h4>
+            <h4><span className="char-vital-fieldname">CHA:</span> {char.statline.charisma}</h4>
           </div>
             <div className="char-bio-show">
                 <h3>Biography</h3>
