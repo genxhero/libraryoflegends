@@ -1069,11 +1069,14 @@ label {
   font-weight: bolder;
   left: 20rem;
   color: darkred;
-  background-image: url('https://thumbs.gfycat.com/AlarmingRaggedChick-small.gif');
+  /* background-image: url('https://thumbs.gfycat.com/AlarmingRaggedChick-small.gif');
+   */
+   background-image: url('https://media3.giphy.com/media/850z0YBGF1RYs/source.gif');
   color: darkorange;
   background-size: contain;
   padding: 1rem;
   top: 8rem;
+  text-shadow: 2px 2px 1px black;
   border-radius: 5px;
 }
 
