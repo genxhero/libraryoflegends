@@ -235,7 +235,7 @@ class CharCreate extends Component {
     saveMeMaybe(){
         if (this.state.freebiesDone) {
             return (
-                <div>
+                <div style={{ "display":"flex", "flexDirection": "column","alignItems": "center"}}>
                     <div className="stats-tally">
                         <h3 className="page-header">Ability Scores</h3>
                         <div className="stat-single">STR: {this.state.strength}</div>
