@@ -42,7 +42,6 @@ class Register extends Component {
           }).then( res => {
             hashHistory.push('/')
           })
-          
           .catch(res => {
             this.setState({ errors: res.graphQLErrors})
           });
@@ -89,13 +88,13 @@ class Register extends Component {
                        {sequence && <li> <span>Password is a sequential series.</span></li> }
                        {this.state.emailValid === false && <li><span>Invalid email address.</span></li>}
                        {this.state.usernameValid === false && <li><span>Username contains invalid characters.</span></li>}
-                       { passwordIsPassword && <li><span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!!</span></li>}
                      </ul>
                    <input 
                      className="submit" 
                      type="submit" 
                      disabled={noMatch || passwordIsPassword || repetitious || tooShort || !this.state.emailValid || !this.state.usernameValid}/>
                    </div>
+                   { passwordIsPassword && <span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!!</span>}
                </form>
                {this.state.errors && <ErrorsModal errors={this.state.errors} clearErrors={this.clearErrors}/>}
             </div>

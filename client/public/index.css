@@ -75,7 +75,7 @@
   z-index: 8000;
   background-color: rgba(0, 0, 0, 0.6); 
   width: 100%;
-  height: 100%;
+  height: 61rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1040,7 +1040,6 @@ label {
    display: flex;
    justify-content: center;
    align-items: center;
-   background: burlywood;
    height: calc(100% - 112px);;
 }
 
@@ -1059,12 +1058,17 @@ label {
   font-weight: 800;
   color: red;
   padding-inline-start: 1rem;
+  margin-right: 1rem;
 }
 
 
 .a-special-hell {
-  font-size: 24px;
-  text-decoration: underline;
+  text-align: center;
+  position: absolute;
+  font-size: 40px;
+  font-weight: bolder;
+  left: 20rem;
+  color: darkred;
 }
 
 .auth-field {
