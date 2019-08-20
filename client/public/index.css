@@ -1,19 +1,5 @@
 
-#root > img {
-  /* width: -webkit-fill-available;
-  height: -webkit-fill-available; */
-  width: 100px;
-  height: 100px;
-}
 
-#spinny-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 50%;
-  right: 50%;
-}
 
 
 .ancestry-choice{
