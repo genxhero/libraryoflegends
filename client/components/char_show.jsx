@@ -116,7 +116,7 @@ render() {
                 </div>
                 
             </div>}
-                {(!this.state.editingPersonal && creatorMatch) && <button onClick={this.editCharacter} name="Personal">Edit</button>}
+                {(!this.state.editingPersonal && creatorMatch) && <button className="edit-btn" onClick={this.editCharacter} name="Personal">EDIT</button>}
              
             <h2>Game Information</h2>
             <div style={{ "display": "flex", "flexDirection": "row" }}>
@@ -132,8 +132,10 @@ render() {
                     <span className="char-vital">{char.level}</span>
                 </div>
             </div>
-            
-          
+                {creatorMatch && <div>
+                    <button className="edit-btn" onClick={this.openConfirmationModal} >DELETE CHARACTER</button>
+                </div>
+                }
           </div>
 
           <div className="char-statline">
@@ -162,14 +164,11 @@ render() {
             <div className="char-bio-show">
                 <h3>Biography</h3>
                 {this.state.editingBio ? <EditBio bio={char.bio}  id={char.id} cancelEdit={this.cancelEdit} finishEdit={this.finishEdit}/> : <p id="char-bio">{char.bio}</p>}
-                {(!this.state.editingBio && creatorMatch) && <button onClick={this.editCharacter} name="Bio">Edit</button>}
+                {(!this.state.editingBio && creatorMatch) && <button className="edit-btn" onClick={this.editCharacter} name="Bio">EDIT</button>}
             </div> 
         </div>
         <div className="char-cp">
-            {creatorMatch && <div>
-                <button className="char-delete" onClick={this.openConfirmationModal} >Delete Character</button>
-            </div>
-            }
+          
         </div>
 
         {this.state.showModal && ( 

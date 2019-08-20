@@ -91,8 +91,8 @@ class EditPersonal extends Component {
                     </span>
                 </div>
                 <div className="edit-btn-container">
-                    <button onClick={this.updatePersonal} disabled={!allFieldsValid}>Save</button>
-                    <button onClick={this.props.cancelEdit} name="Personal">Cancel</button>
+                    <button className="edit-btn"onClick={this.updatePersonal} disabled={!allFieldsValid}>Save</button>
+                    <button className="edit-btn-reverse" onClick={this.props.cancelEdit} name="Personal">Cancel</button>
                 </div>
             </div>
         );
