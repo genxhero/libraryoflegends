@@ -832,6 +832,7 @@ p {
   border-radius: 3px;
   box-shadow: 2px 2px 1px;
   border: 1px solid black;
+  position: relative;
 }
 
 .char-image {

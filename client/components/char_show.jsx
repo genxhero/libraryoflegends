@@ -107,7 +107,7 @@ render() {
                   finishEdit={this.finishEdit}
                   /> 
                   : 
-            <div style={{"display": "flex","flex-direction": "row"}}>
+            <div style={{"display": "flex","flex-direction": "row", "paddingBottom": "1rem"}}>
                 <div className="char-show-fieldnames" style={{ "display": "flex", "flex-direction": "column", "align-items": "flex-end"}}>
                     <span className="char-vital-fieldname">First Name:</span> 
                     <span className="char-vital-fieldname">Last Name:</span>
