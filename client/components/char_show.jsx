@@ -119,9 +119,21 @@ render() {
                 {(!this.state.editingPersonal && creatorMatch) && <button onClick={this.editCharacter} name="Personal">Edit</button>}
              
             <h2>Game Information</h2>
-                <div className="char-vital"><span className="char-vital-fieldname">Player:{' '}</span>{char.user.username}</div>
-                <div className="char-vital"><span className="char-vital-fieldname">Class:{' '}</span><span className="be-capitalized"></span><span className="be-capitalized">{char.class}</span></div>
-                <div className="char-vital"><span className="char-vital-fieldname">Level:{' '}</span> {char.level}</div>
+            <div style={{ "display": "flex", "flex-direction": "row" }}>
+                <div className="char-show-fieldnames" style={{ "display": "flex", "flex-direction": "column", "align-items": "flex-end" }}>
+                    <span className="char-vital-fieldname">Player:{' '}</span>
+                    <span className="char-vital-fieldname">Class:{' '}</span>
+                    <span className="char-vital-fieldname">Level:{' '}</span>
+                </div>
+
+                <div className="char-show-data" style={{ "display": "flex", "flex-direction": "column", "justify-content": "flex-start" }}>
+                    <span className="char-vital">{char.user.username} </span>
+                    <span className="be-capitalized char-vital">{char.class}</span>
+                    <span className="char-vital">{char.level}</span>
+                </div>
+            </div>
+            
+          
           </div>
 
           <div className="char-statline">
