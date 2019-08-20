@@ -369,19 +369,36 @@ p {
 }
 
 .confirm-btn {
-    background: blue;
-    color: white;
+    background: sienna;
+    color: gold;
     border: none;
-    padding: .5rem;
+    padding: 1rem;
     margin: .5rem;
     font-size: larger;
-    font-family: fantasy;
+    border-radius: 4px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.confirm-btn:hover {
+  cursor: pointer;
+  background: #723214;
+  color: #fed254;
+  transition: all .2s;
 }
 
 .confirmation-dialog{
-  background: white;
+  background-image: url("../../images/woodbg.jpg");
   padding: 2rem;
   width: fit-content;
+  color: gold;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 2px black;
+}
+
+.confirmation-dialog > h1 {
+  text-align: center;
 }
 
 .confirmation-modal {
@@ -391,7 +408,7 @@ p {
     top: -10rem;
     left: 0rem;
     z-index: 10000;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.623);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -791,6 +808,10 @@ p {
     border-radius: 3px;
     box-shadow: 2px 2px 1px;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Overpass Mono', monospace;
 }
 
 .select-wrapper {

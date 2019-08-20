@@ -137,13 +137,27 @@ render() {
           </div>
 
           <div className="char-statline">
-            <h2>Ability Scores</h2>
-            <h4><span className="char-vital-fieldname">STR:</span> {char.statline.strength}</h4>
-            <h4><span className="char-vital-fieldname">DEX:</span> {char.statline.dexterity}</h4>
-            <h4><span className="char-vital-fieldname">CON:</span> {char.statline.constitution}</h4> 
-            <h4><span className="char-vital-fieldname">INT:</span> {char.statline.intelligence}</h4>
-            <h4><span className="char-vital-fieldname">WIS:</span> {char.statline.wisdom}</h4>
-            <h4><span className="char-vital-fieldname">CHA:</span> {char.statline.charisma}</h4>
+            <h2 style={{"fontFamily":"sans-serif"}}>Ability Scores</h2>
+            <div style={{"display":"flex", "fontSize":"larger"}}>
+
+            <div className="char-show-fieldnames" style={{ "display": "flex", "flex-direction": "column", "align-items": "flex-end" }}>
+                <span className="char-vital-fieldname">STR:</span>
+                <span className="char-vital-fieldname">DEX:</span>
+                <span className="char-vital-fieldname">CON:</span>
+                <span className="char-vital-fieldname">INT:</span>
+                <span className="char-vital-fieldname">WIS:</span>
+                <span className="char-vital-fieldname">CHA:</span>
+            </div>
+            <div className="char-show-data" style={{ "display": "flex", "flex-direction": "column", "justify-content": "flex-start" }}>
+                <span className="char-vital">{char.statline.strength}</span>
+                <span className="char-vital">{char.statline.dexterity}</span>
+                <span className="char-vital">{char.statline.constitution}</span>
+                <span className="char-vital">{char.statline.intelligence} </span>
+                <span className="char-vital">{char.statline.wisdom}</span>
+                <span className="char-vital">{char.statline.charisma}</span>
+            </div>
+        </div>
+
           </div>
             <div className="char-bio-show">
                 <h3>Biography</h3>
@@ -163,8 +177,11 @@ render() {
                 <div className="confirmation-dialog">
                     <h1>Confirm Deletion</h1>
                     <h3>Are you sure you want to delete {char.firstName} {char.lastName}???</h3>
-                    <button className="confirm-btn" onClick={this.sakujo} value={char.id}>Yes</button>
-                    <button className="confirm-btn" onClick={this.closeConfirmationModal}>No</button>
+                    <div style={{"display":"flex", "justifyContent":"center"}}>
+                        <button className="confirm-btn" onClick={this.sakujo} value={char.id}>Yes</button>
+                        <button className="confirm-btn" onClick={this.closeConfirmationModal}>No</button> 
+                    </div>
+
                 </div>
             </div> 
             )}
