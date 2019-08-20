@@ -62,7 +62,9 @@ class CharShow extends Component {
      * Opens editing.
      */
     editCharacter(event){
-        $(`#${event.target.id}`).get(0).scrollIntoView();
+        if (event.target.id === 'bio') {
+          $(`#${event.target.id}`).get(0).scrollIntoView();
+        }
         $('body').css('overflow', 'hidden');
         this.setState(   { [`editing${event.target.name}`]: true} );
     }
