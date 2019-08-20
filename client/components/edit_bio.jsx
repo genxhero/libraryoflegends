@@ -45,10 +45,9 @@ class EditBio extends Component {
                     style={{"height":`${this.bioEditHeight}px`}}
                     />
                 <div className="edit-btn-container">
-                    <button className="edit-btn" onClick={this.updateBio}>Save</button>
-                    <button className="edit-btn-reverse" onClick={this.props.cancelEdit} name="Bio">Cancel</button>
+                    <button className="edit-btn" onClick={this.updateBio}>SAVE</button>
+                    <button className="edit-btn-reverse" onClick={this.props.cancelEdit} name="Bio">CANCEL</button>
                 </div>
-                
             </div>
         );
     }

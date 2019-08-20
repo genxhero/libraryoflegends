@@ -10,6 +10,7 @@ class Login extends Component {
         this.state = {
             password: "",
             email: "",
+            errors: null
         }
         // This format is far, far easier to debug than using the arrow methods.
         this.handleFormChange = this.handleFormChange.bind(this);

@@ -268,13 +268,13 @@ p {
     text-align: left;
     font-weight: bold;
     font-size: 16px;
-    width: 25rem;
+    width: 60rem;
     min-height: 10rem;
 }
 
 .char-bio-edit {
   width: -webkit-fill-available;
-  /* height: 10rem; */
+  padding: 1rem;
 }
 
 .char-submit {
@@ -460,8 +460,8 @@ p {
 
 .edit-btn {
     width: fit-content;
+    background: rgb(129, 66, 36);
     padding: .5rem;
-    background: sienna;
     border-radius: 4px;
     color: gold;
     font-weight: 600;
@@ -471,16 +471,16 @@ p {
 }
 
 .edit-btn:hover {
-    background: rgb(129, 66, 36);
+    background: sienna;
     color: rgb(255, 228, 74);
     cursor: pointer;
     transition: all .2s ease-in-out;
 }
 
 .edit-btn-reverse {
-     width: fit-content;
+    width: fit-content;
     padding: .5rem;
-    color: sienna;
+    color: rgb(129, 66, 36);
     border-radius: 4px;
     background: gold;
     font-weight: 600;
@@ -490,9 +490,9 @@ p {
 }
 
 .edit-btn-reverse:hover {
-    color: rgb(129, 66, 36);
     background: rgb(255, 228, 74);
     cursor: pointer;
+    color: sienna;
     transition: all .2s ease-in-out;
 }
 
@@ -500,7 +500,7 @@ p {
     position: absolute;
     background: #0000006b;
     width: -webkit-fill-available;
-    height: -webkit-fill-available;
+    height: 60rem;    
     z-index: 200;
     top: 0;
     left: 0;
@@ -824,14 +824,14 @@ p {
 .char-vitals {
   display: flex;
   flex-direction: column;
-      width: auto;
-    box-sizing: border-box;
-    margin: 10px;
-    padding: 10px;
-    background: ivory;
-    border-radius: 3px;
-    box-shadow: 2px 2px 1px;
-    border: 1px solid black;
+  width: auto;
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 10px;
+  background: ivory;
+  border-radius: 3px;
+  box-shadow: 2px 2px 1px;
+  border: 1px solid black;
 }
 
 .char-image {
@@ -852,6 +852,7 @@ p {
     flex-direction: column;
     align-items: center;
     font-family: 'Overpass Mono', monospace;
+    justify-content: center;
 }
 
 .select-wrapper {

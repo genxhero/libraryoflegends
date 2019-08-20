@@ -62,14 +62,17 @@ class CharShow extends Component {
      * Opens editing.
      */
     editCharacter(event){
+        $('body').css('overflow', 'hidden');
         this.setState(   { [`editing${event.target.name}`]: true} );
     }
 
     cancelEdit(event){
+         $('body').css('overflow', 'auto');
          this.setState( { [`editing${event.target.name}`]: false } )
     }
 
     finishEdit(field) {
+        $('body').css('overflow', 'auto');
         this.setState({ [`editing${field}`]: false })
     }
 
@@ -150,7 +153,7 @@ render() {
                 <span className="char-vital-fieldname">WIS:</span>
                 <span className="char-vital-fieldname">CHA:</span>
             </div>
-            <div className="char-show-data" style={{ "display": "flex", "flex-direction": "column", "justify-content": "flex-start" }}>
+            <div className="char-show-data" style={{ "display": "flex", "flexDirection": "column", "justifyContent": "flex-start" }}>
                 <span className="char-vital">{char.statline.strength}</span>
                 <span className="char-vital">{char.statline.dexterity}</span>
                 <span className="char-vital">{char.statline.constitution}</span>
@@ -161,15 +164,19 @@ render() {
         </div>
 
           </div>
-            <div className="char-bio-show">
-                <h3>Biography</h3>
-                {this.state.editingBio ? <EditBio bio={char.bio}  id={char.id} cancelEdit={this.cancelEdit} finishEdit={this.finishEdit}/> : <p id="char-bio">{char.bio}</p>}
-                {(!this.state.editingBio && creatorMatch) && <button className="edit-btn" onClick={this.editCharacter} name="Bio">EDIT</button>}
-            </div> 
-        </div>
         <div className="char-cp">
-          
+         
         </div>
+
+        </div>
+        <div style={{"display": "flex", "justifyContent":"center"}}>
+            <div className="char-bio-show">
+            <h3>Biography</h3>
+            {this.state.editingBio ? <EditBio bio={char.bio} id={char.id} cancelEdit={this.cancelEdit} finishEdit={this.finishEdit} /> : <p id="char-bio">{char.bio}</p>}
+            {(!this.state.editingBio && creatorMatch) && <button className="edit-btn" onClick={this.editCharacter} name="Bio">EDIT</button>}
+        </div>
+        </div>
+  
 
         {this.state.showModal && ( 
             <div className="confirmation-modal">
@@ -184,7 +191,7 @@ render() {
                 </div>
             </div> 
             )}
-            {(this.state.editingPersonal || this.state.editingBio) && <div className="edit-overlay" />}
+        {(this.state.editingBio || this.state.editingPersonal) && <div className="edit-overlay" />}
       </div>;
   }
 }
