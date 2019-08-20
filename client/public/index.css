@@ -436,7 +436,7 @@ p {
 .edit-pane {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: beige;
   padding: .5rem;
   box-shadow: 2px 2px 2px 2px;
   position: relative;
@@ -467,6 +467,7 @@ p {
     font-weight: 600;
     box-shadow: 1px 1px 1px 1px black;
     border-style: hidden;
+    margin:.5rem;
 }
 
 .edit-btn:hover {
@@ -485,6 +486,7 @@ p {
     font-weight: 600;
     box-shadow: 1px 1px 1px 1px black;
     border-style: hidden;
+    margin: .5rem;
 }
 
 .edit-btn-reverse:hover {

@@ -77,22 +77,22 @@ class EditPersonal extends Component {
         return (
             <div className="edit-pane">
                 <div className="edit-multi-field">
-                    <span style={{"position":"relative"}}>First Name:{' '}
+                    <span style={{"position":"relative", "fontWeight":"bold"}}>First Name:{' '}
                       <input className="edit-pane-text-input" onChange={this.updateText('first')} value={this.state.first}/>
                         {!this.state.firstValid && <span className="error-message" style={{ "margin-right": "-4rem" }}>Name may only have letters</span>}
                     </span>
-                    <span>Last Name:{' '}
+                    <span style={{"fontWeight":"bold"}}>Last Name:{' '}
                       <input className="edit-pane-text-input" onChange={this.updateText('last')} value={this.state.last}/>
                         {!this.state.lastValid && <span className="error-message" style={{ "margin-right": "-4rem" }}>Name may only have letters</span>}
                     </span>
-                    <span>Age:{' '}
+                    <span style={{ "fontWeight": "bold" }}>Age:{' '}
                     <input className="edit-pane-text-input" onChange={this.updateNumeric('age')} value={this.state.age}/>
                         {!this.state.ageValid && <span className="error-message" style={{"margin-right": "-4rem"}}>Age must be a positive number</span>}
                     </span>
                 </div>
                 <div className="edit-btn-container">
-                    <button className="edit-btn"onClick={this.updatePersonal} disabled={!allFieldsValid}>Save</button>
-                    <button className="edit-btn-reverse" onClick={this.props.cancelEdit} name="Personal">Cancel</button>
+                    <button className="edit-btn"onClick={this.updatePersonal} disabled={!allFieldsValid}>SAVE</button>
+                    <button className="edit-btn-reverse" onClick={this.props.cancelEdit} name="Personal">CANCEL</button>
                 </div>
             </div>
         );
