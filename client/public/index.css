@@ -4,6 +4,12 @@
   height: -webkit-fill-available;
 }
 
+#spinny-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .ancestry-choice{
   display: flex;
   flex-direction: column;
@@ -722,11 +728,11 @@ p {
 .char-vital {
   display: flex;
   flex-direction: row;
-  margin:5px;
+  margin-left: 5px;
 }
 
 .char-vital-fieldname {
-  /* margin-right: 1rem; */
+ font-weight: bold;
 }
 
 
