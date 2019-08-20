@@ -108,7 +108,7 @@ render() {
                     <span className="char-vital-fieldname">Race:</span>
                     <span className="char-vital-fieldname">Age:</span>
                 </div>
-                <div className="char-show-data" style={{ "display": "flex", "flex-direction": "column", "justify-content": "flex-start" }}>
+                <div className="char-show-data" style={{ "display": "flex", "flexDirection": "column", "justifyContent": "flexStart" }}>
                     <span className="char-vital"> <span className="be-capitalized">{char.firstName}</span></span>
                     <span className="char-vital"><span className="be-capitalized">{char.lastName}</span></span>
                     <span className="char-vital"><span className="be-capitalized">{char.ancestry}</span></span>
@@ -119,7 +119,7 @@ render() {
                 {(!this.state.editingPersonal && creatorMatch) && <button onClick={this.editCharacter} name="Personal">Edit</button>}
              
             <h2>Game Information</h2>
-            <div style={{ "display": "flex", "flex-direction": "row" }}>
+            <div style={{ "display": "flex", "flexDirection": "row" }}>
                 <div className="char-show-fieldnames" style={{ "display": "flex", "flex-direction": "column", "align-items": "flex-end" }}>
                     <span className="char-vital-fieldname">Player:{' '}</span>
                     <span className="char-vital-fieldname">Class:{' '}</span>
@@ -168,6 +168,7 @@ render() {
                 </div>
             </div> 
             )}
+            {(this.state.editingPersonal || this.state.editingBio) && <div className="edit-overlay" />}
       </div>;
   }
 }

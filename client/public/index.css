@@ -429,6 +429,8 @@ p {
   background: white;
   padding: .5rem;
   box-shadow: 2px 2px 2px 2px;
+  position: relative;
+  z-index: 400;
 }
 
 .edit-pane > textarea {
@@ -444,6 +446,17 @@ p {
 .edit-btn-container {
   display: flex;
   flex-direction: row;
+}
+
+.edit-overlay {
+    position: absolute;
+    background: #0000006b;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    transition: all .2s ease-in;
 }
 
 .freebie-choices {
