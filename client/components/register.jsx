@@ -94,7 +94,7 @@ class Register extends Component {
                      type="submit" 
                      disabled={noMatch || passwordIsPassword || repetitious || tooShort || !this.state.emailValid || !this.state.usernameValid}/>
                    </div>
-                   { passwordIsPassword && <span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!!</span>}
+                   { passwordIsPassword && <span className="a-special-hell">PASSWORD IS NOT A VALID PASSWORD!!!! </span>}
                </form>
                {this.state.errors && <ErrorsModal errors={this.state.errors} clearErrors={this.clearErrors}/>}
             </div>
