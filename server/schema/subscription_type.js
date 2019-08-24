@@ -14,14 +14,17 @@ const {
 } = graphql;
 
 const SubscriptionType = new GraphQLObjectType({ 
-    name: SubscriptionType,
+    name: "SubscriptionType",
     fields: () => ({ 
         charAdded: {
             type: CharType,
             args: {repoFullName: {type: GraphQLString}},
-            resolve(parentValue, args) {
-                return parentValue;
-            }
+            resolve: (payload) => {
+                return {
+                  customData: payload,
+                };
+              },
+            subscribe: () => pubsub.asyncIterator('charAdded')
         }
     })
 })
