@@ -13,11 +13,16 @@ const {
   GraphQLNonNull
 } = graphql;
 
-const Subscription = new GraphQLObjectType({ 
-  characterCreated: {
-      type: CharType,
-      subscribe: () => pubsub.asyncIterator("characterCreated")
-}
+const SubscriptionType = new GraphQLObjectType({ 
+    name: SubscriptionType,
+    fields: () => ({ 
+        newCharacter: {
+            type: CharType,
+            resolve(parentValue, args) {
+                
+            }
+        }
+    })
 })
 
 module.exports = Subscription;
