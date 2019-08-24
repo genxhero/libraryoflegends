@@ -16,13 +16,14 @@ const {
 const SubscriptionType = new GraphQLObjectType({ 
     name: SubscriptionType,
     fields: () => ({ 
-        newCharacter: {
+        charAdded: {
             type: CharType,
+            args: {repoFullName: {type: GraphQLString}},
             resolve(parentValue, args) {
-                
+                return parentValue;
             }
         }
     })
 })
 
-module.exports = Subscription;
+module.exports = SubscriptionType;
