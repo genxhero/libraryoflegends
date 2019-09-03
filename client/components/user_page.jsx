@@ -23,15 +23,17 @@ class UserPage extends Component {
                                 char => {
                                 return (
                                     <div className="char-snippet"
-                                    key={`${char.firstName}${timestamp}${char.lastName}${char.id}`} 
-                                    value={`${char.id}`}
-                                    >
-                                    <div>{char.firstName} {char.lastName}</div>
-                                    <div>{char.level}{numberSuffix(char.level)} level {char.class}</div>
-                                
-                                    <img className="char-thumb" src={char.image} />
-                                    <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
-                                    </div>
+                                        key={`${char.firstName}${timestamp}${char.lastName}${char.id}`} 
+                                        value={`${char.id}`}
+                                        >
+                                        <div className="char-snippet-name">{char.firstName} {char.lastName}</div>
+                                        <div className="char-snippet-class">{char.level}{numberSuffix(char.level)} level {capitalize(char.class)}</div>
+                                        
+                                        <div className="char-thumb-container">
+                                            <img className="char-thumb" src={char.image ? `${char.image}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"} />
+                                        </div>
+                                        <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
+                                        </div>
                                 );
                                 })}
                     </div>
