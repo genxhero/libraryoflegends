@@ -27,7 +27,7 @@ class UserPage extends Component {
                                         value={`${char.id}`}
                                         >
                                         <div className="char-snippet-name">{char.firstName} {char.lastName}</div>
-                                        <div className="char-snippet-class">{char.level}{numberSuffix(char.level)} level {capitalize(char.class)}</div>
+                                        <div className="char-snippet-class">{char.level}{numberSuffix(char.level)} level <span className="be-capitalized"> {char.class}</span></div>
                                         
                                         <div className="char-thumb-container">
                                             <img className="char-thumb" src={char.image ? `${char.image}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"} />
