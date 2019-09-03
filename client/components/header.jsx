@@ -46,7 +46,7 @@ class Header extends Component {
          </div>
          {this.props.data.currentUser ? 
           <div className="header-right" id="header-right">
-            <h3 className="custom-welcome">Welcome, <Link to={`/users/${this.props.data.currentUser.username}`}>{this.props.data.currentUser.username}</Link></h3>
+            <h3 className="custom-welcome">Welcome, <Link className="custom-welcome-link" to={`/users/${this.props.data.currentUser.username}`}>{this.props.data.currentUser.username}</Link></h3>
                <div className="header-link" onClick={this.logout}>Logout</div>
            </div>
          : 
