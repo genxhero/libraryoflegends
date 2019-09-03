@@ -17,6 +17,10 @@ const UserSchema = new Schema(
       type: String,
       required: true
     },
+    bio: {
+      type: String,
+      required: false
+    },
     characters: [
       {
         type: Schema.Types.ObjectId,
@@ -67,5 +71,5 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
   });
 };
 
-
+//require('mongoose').model('User').schema.add({firstName: String, lastName: String, bio: String, avatarUrl: String});
 module.exports = mongoose.model("user", UserSchema);

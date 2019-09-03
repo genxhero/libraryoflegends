@@ -5,6 +5,7 @@ export default gql`
       user(username: $username){
         id
         username
+        bio
         characters {
             id
             firstName
