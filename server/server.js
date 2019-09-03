@@ -10,10 +10,17 @@ const db = require('../config/keys').mongoURI;
 const secretOrKey = require('../config/keys').secretOrPrivateKey;
 const MongoStore = require('connect-mongo')(session);
 const passportConfig = require('./services/auth');
-const cors = require('cors')
+const cors = require('cors');
+const { execute, subscribe } =require('graphql');
+const {createServer} = require('http');
+const { SubscriptionServer } = require('subscriptions-transport-ws');
+const { PubSub } = require('graphql-subscriptions');
+
 require('../config/passport');
 
 const app = express();
+const PORT = process.env.PORT || 8000
+//
 
 mongoose.Promise = global.Promise;
 mongoose.connect(db);
@@ -48,5 +55,19 @@ const webpackMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config.js');
 app.use(webpackMiddleware(webpack(webpackConfig)));
+
+const pubsub = new PubSub();
+const server = createServer(app);
+
+server.listen(PORT, () => {
+    new SubscriptionServer({
+      execute,
+      subscribe,
+      schema,
+    }, {
+      server: server,
+      path: '/subscriptions',
+    });
+});
 
 module.exports = app;
