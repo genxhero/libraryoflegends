@@ -11,8 +11,8 @@ This app uses GraphQL, React, and Express.  Images are stored on Amazon S3.
 
 ## TODOS
 
-### Edit Character
-Change age, bio, image, and name mostly.
+### Graphical Glitches
+* Some times the session buttons overflow out of the browser's purview[ as though it were being overscanned.]
 
 ### Level Up Character
 * When first implemented will only be able to increase ability scores
