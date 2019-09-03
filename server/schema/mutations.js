@@ -66,7 +66,8 @@ const mutation = new GraphQLObjectType({
             args: {
                 username: { type: GraphQLString },
                 email: { type: GraphQLString },
-                password: {type: GraphQLString }
+                password: {type: GraphQLString },
+                bio: {type: GraphQLString}
             },
             resolve(parentValue, {email, username, password}, req) {
                 return AuthService.signup({email, password, username, req})
@@ -145,6 +146,7 @@ const mutation = new GraphQLObjectType({
                 id: { type: new GraphQLNonNull(GraphQLString) },
                 username: { type: GraphQLString },
                 email: { type: GraphQLString },
+                bio: {type: GraphQLString}
             },
             resolve(parentValue, args) {
                 return axios.patch(`http://localhost:3000/users/${args.id}`, args)

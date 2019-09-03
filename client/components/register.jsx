@@ -36,7 +36,8 @@ class Register extends Component {
             variables: {
                 email: this.state.email,
                 username: this.state.username,
-                password: this.state.password
+                password: this.state.password,
+                bio: ""
                 },
             refetchQueries: [{ query }]
           }).then( res => {
@@ -103,8 +104,8 @@ class Register extends Component {
 }
 
 const mutation = gql`
-mutation SignupMutation($email: String!, $password: String!, $username: String!) {
-  addUser(email: $email, password: $password, username: $username) {
+mutation SignupMutation($email: String!, $password: String!, $username: String!, $bio: String) {
+  addUser(email: $email, password: $password, username: $username, bio: $bio) {
     id
     username
     email
