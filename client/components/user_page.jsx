@@ -18,6 +18,7 @@ class UserPage extends Component {
          return ( 
              <div className="user-characters">
                 <h2 className="user-subtitle">Characters</h2>
+                
                   <div className="chars-spread"> 
                             {this.props.data.user.characters.map(
                                 char => {
@@ -53,9 +54,13 @@ class UserPage extends Component {
       if (!this.props.data.user || this.props.data.loading) {
           return <h1>Loading...</h1>
       }
+      const user = this.props.data.user
       return (
           <div className="user-profile-page">
-            <h1 className="user-profile-title">{this.props.data.user.username}'s Profile Page</h1>
+            <h1 className="user-profile-title">{user.username}'s Profile Page</h1>
+            <div className="user-page-top">
+                    <img src={user.image ? `${user.image}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"}></img>
+                </div>
               {this.charlist()}     
           </div>
       );
