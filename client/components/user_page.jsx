@@ -57,10 +57,30 @@ class UserPage extends Component {
       const user = this.props.data.user
       return (
           <div className="user-profile-page">
-            <h1 className="user-profile-title">{user.username}'s Profile Page</h1>
             <div className="user-page-top">
-                    <img src={user.image ? `${user.image}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"}></img>
+                <div className="user-thumb-container"> 
+                    <img src={user.avatar ? `${user.avatar}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"} />
                 </div>
+                <h1 className="user-profile-title">{user.username}'s Profile Page</h1>
+            </div>
+            <div className="user-about">
+                <div style={{"display":"flex"}}>
+                    <div className="user-fieldnames"> 
+                        <span className="user-vital-fieldname">First Name:</span>
+                        <span className="user-vital-fieldname">Last Name:</span> 
+
+                    </div>
+                    <div  className="user-data"> 
+                         <span className="user-vital"> <span className="be-capitalized">Placeholder</span></span>
+                         <span className="user-vital"> <span className="be-capitalized">von Workinprogress III</span></span>
+
+                    </div>
+                </div>
+                
+                
+                <h4>About Me</h4>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+            </div>
               {this.charlist()}     
           </div>
       );

@@ -1162,8 +1162,24 @@ label {
 .user-profile-title {
   padding: inherit;
   text-align: center;
+  width: 100%;
+}
+
+.user-page-top {
+  display: flex;
+  height: 10rem;
   box-shadow: 1px 1px 1px 1px;
   background: burlywood;
+  align-items: center;
+  padding: 1rem;
+}
+
+.user-thumb-container {
+  height: 10rem;
+}
+
+.user-thumb-container > img {
+  height: 100%;
 }
 
 html, body {
