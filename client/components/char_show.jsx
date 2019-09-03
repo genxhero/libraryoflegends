@@ -8,6 +8,7 @@ import {hashHistory} from 'react-router';
 import $ from 'jquery';
 import EditBio from './edit_bio';
 import EditPersonal from './edit_personal';
+import {Link} from 'react-router';
 
 class CharShow extends Component {
 
@@ -130,7 +131,7 @@ render() {
                 </div>
 
                 <div className="char-show-data" style={{ "display": "flex", "flex-direction": "column", "justify-content": "flex-start" }}>
-                    <span className="char-vital">{char.user.username} </span>
+                    <span className="char-vital"><Link to={`/users/${char.user.username}`}>{char.user.username}</Link> </span>
                     <span className="be-capitalized char-vital">{char.class}</span>
                     <span className="char-vital">{char.level}</span>
                 </div>
