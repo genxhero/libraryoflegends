@@ -29,7 +29,7 @@ class UserPage extends Component {
                                     <div>{char.firstName} {char.lastName}</div>
                                     <div>{char.level}{numberSuffix(char.level)} level {char.class}</div>
                                 
-                                    <img className="char-thumb" src="http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg" />
+                                    <img className="char-thumb" src={char.image} />
                                     <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
                                     </div>
                                 );
