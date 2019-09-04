@@ -568,7 +568,7 @@ p {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
 }
@@ -611,6 +611,7 @@ p {
   height: 100%;
   width: 22%;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .header-buffer {
