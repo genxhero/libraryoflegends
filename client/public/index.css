@@ -568,7 +568,7 @@ p {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     box-sizing: border-box;
 }
@@ -1157,6 +1157,7 @@ label {
   height: auto;
   min-height: 34rem;
   padding: 2rem;
+  background: url("../../images/old-paper.jpg");
 }
 
 .user-profile-title {
