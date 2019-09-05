@@ -24,7 +24,7 @@ class ImagePane extends Component {
 
     handleFileChange(e) {
         const file = e.target.files[0];
-        if (file.size > 500000) {
+        if (file.size > 1000000) {
           this.setState({fileTooBig: true, image: null, photoURL: null})
           return false;
        }
