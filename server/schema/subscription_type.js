@@ -20,6 +20,7 @@ const SubscriptionType = new GraphQLObjectType({
             type: CharType,
             args: {repoFullName: {type: GraphQLString}},
             resolve: (payload) => {
+              console.log("payload = ", payload)
                 return {
                   customData: payload,
                 };

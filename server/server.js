@@ -56,18 +56,18 @@ const webpack = require('webpack');
 const webpackConfig = require('../webpack.config.js');
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
-const pubsub = new PubSub();
-const server = createServer(app);
+// const pubsub = new PubSub();
+// const server = createServer(app);
 
-server.listen(PORT, () => {
-    new SubscriptionServer({
-      execute,
-      subscribe,
-      schema,
-    }, {
-      server: server,
-      path: '/subscriptions',
-    });
-});
+// server.listen(PORT, () => {
+//     new SubscriptionServer({
+//       execute,
+//       subscribe,
+//       schema,
+//     }, {
+//       server: server,
+//       path: '/subscriptions',
+//     });
+// });
 
 module.exports = app;
