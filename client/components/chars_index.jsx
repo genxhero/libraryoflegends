@@ -37,6 +37,7 @@ class CharsIndex extends Component {
      });
    }
 
+
   render() {
     if (this.props.data.loading || !this.props.data.characters){
       return (<div>
