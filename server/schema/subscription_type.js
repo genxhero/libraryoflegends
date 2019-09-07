@@ -18,7 +18,7 @@ const SubscriptionType = new GraphQLObjectType({
     fields: () => ({ 
         charAdded: {
             type: CharType,
-            subscribe: () => pubsub.asyncIterator(charAdded),
+            subscribe: (_, __, {pubsub}) => pubsub.asyncIterator(charAdded),
             resolve: payload => {
               return payload
             }
