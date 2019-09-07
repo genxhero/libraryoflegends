@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 const charAdded = gql`
-subscription charAdded { 
-    char {
+subscription  { 
+    charAdded {
       firstName
       lastName
       class
