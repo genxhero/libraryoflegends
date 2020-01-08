@@ -1,4 +1,4 @@
-import './public/index.css';
+import './public/index.scss';
 import { split } from 'apollo-link'
 import { WebSocketLink } from 'apollo-link-ws'
 import { getMainDefinition } from 'apollo-utilities'
