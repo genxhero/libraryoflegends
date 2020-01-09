@@ -150,30 +150,6 @@ p {
 }
 
 
-.char-show {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  font-family: sans-serif;
-}
-
-.char-show-top {
-  display:flex;
-  flex-direction: row;
-  margin-top: 1rem;
-  padding: 1rem;
-  justify-content: center;
-}
-
-.char-vital {
-  display: flex;
-  flex-direction: row;
-  margin-left: 5px;
-}
-
-.char-vital-fieldname {
- font-weight: bold;
-}
 
 
 .char-thumb {
@@ -197,41 +173,6 @@ p {
   margin-bottom: 10px;
   border: 2px outset darkgray;
   z-index: 2000;
-}
-
-.char-vitals {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  box-sizing: border-box;
-  margin: 10px;
-  padding: 10px;
-  background: ivory;
-  border-radius: 3px;
-  box-shadow: 2px 2px 1px;
-  border: 1px solid black;
-  position: relative;
-}
-
-.char-image {
-  height: 20rem;
-  margin-top: 3rem;
-}
-
-.char-statline {
-    width: auto;
-    box-sizing: border-box;
-    margin: 10px;
-    padding: 10px;
-    background: ivory;
-    border-radius: 3px;
-    box-shadow: 2px 2px 1px;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Overpass Mono', monospace;
-    justify-content: center;
 }
 
 .select-wrapper {
