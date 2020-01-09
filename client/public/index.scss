@@ -93,53 +93,7 @@ p {
   font-family: sans-serif;
 }
 
-.char-bio-show {
-    background: ivory;
-    border-radius: 3px;
-    box-shadow: 2px 2px 1px;
-    border: 1px solid black;
-    padding: 20px;
-    margin: 10px;
-    text-align: left;
-    font-weight: bold;
-    font-size: 16px;
-    width: 60rem;
-    min-height: 10rem;
-}
 
-.char-bio-edit {
-  width: -webkit-fill-available;
-  padding: 1rem;
-}
-
-.char-submit {
-  padding: 20px;
- 
-    background: sienna;
-  color: white;
-    font-weight: bolder;
-    font-size: large;
-    width: fit-content;
-    box-shadow: 1px 1px 1px 1px black;
-    border-style: none;
-    border-radius: 5px;
-}
-
-.char-submit:hover {
-  cursor: pointer;
-     background: rgb(184, 77, 28);
-    color: white;
-  transition: all .2s;
-}
-
-.char-submit:focus{
-  outline: none;
-}
-
-.char-submit:active {
-  top: 5px;
-  border: none;
-}
 
 .class-description {
     margin: 5px;
