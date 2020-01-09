@@ -3,7 +3,8 @@
     top: 0;
     z-index: 9000;
     width: 100%;
-    background-image: url("../../images/woodbg.jpg");
+    background: rgba(112,92,21, .8);
+    // background-image: url("../../images/woodbg.jpg");
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -23,7 +24,7 @@
   
   .header-link {
     color: goldenrod;
-    text-shadow: 1px 1px 2px black, -4px 2px 2px black;
+    // text-shadow: 1px 1px 2px black, -4px 2px 2px black;
     font-weight: bolder;
     box-shadow: 1px 2px black;
     font-size: 24px;
@@ -43,7 +44,7 @@
     cursor: pointer;
     color: gold;
     transition: all .2s;
-    box-shadow: 0px -1px 23px 5px;
+    // box-shadow: 0px -1px 23px 5px;
   }
   .header-link:active {
     background: black;
