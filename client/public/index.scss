@@ -149,35 +149,6 @@ p {
   justify-content: center;
 }
 
-.char-form {
-   display: flex;
-   flex-direction: column;
-   padding: 10px;
-   justify-content: space-between;
-   align-items: center;
-   margin: 5px;
-   height: 80%; 
-   width: 100%;
-   height: auto;
-}
-
-.char-form-image {
-  font-family: fantasy;
-  font-weight: bold;
-  font-size: 16pt;
-  margin: .5rem;
-  padding: .5rem;
-}
-
-.char-form-col {
-  margin: .5rem;
-}
-
-.char-form-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 
 .char-show {
   display: flex;
