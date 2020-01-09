@@ -2,3 +2,89 @@
     width: -webkit-fill-available;
     padding: 1rem;
   }
+
+  .edit-multi-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* padding: .5rem; */
+  }
+  
+  .edit-multi-field > span {
+    position: relative;
+    right: .5rem;
+  }
+  
+  .edit-pane {
+    display: flex;
+    flex-direction: column;
+    background: beige;
+    padding: .5rem;
+    box-shadow: 2px 2px 2px 2px;
+    position: relative;
+    z-index: 400;
+  }
+  
+  .edit-pane > textarea {
+    border: none;
+    resize: none;
+  }
+  
+  .edit-pane-text-input {
+      padding: .5rem;
+      width: 6rem;
+  }
+  
+  .edit-btn-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .edit-btn {
+      width: fit-content;
+      background: rgb(129, 66, 36);
+      padding: .5rem;
+      border-radius: 4px;
+      color: gold;
+      font-weight: 600;
+      box-shadow: 1px 1px 1px 1px black;
+      border-style: hidden;
+      margin:.5rem;
+  }
+  
+  .edit-btn:hover {
+      background: sienna;
+      color: rgb(255, 228, 74);
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+  }
+  
+  .edit-btn-reverse {
+      width: fit-content;
+      padding: .5rem;
+      color: rgb(129, 66, 36);
+      border-radius: 4px;
+      background: gold;
+      font-weight: 600;
+      box-shadow: 1px 1px 1px 1px black;
+      border-style: hidden;
+      margin: .5rem;
+  }
+  
+  .edit-btn-reverse:hover {
+      background: rgb(255, 228, 74);
+      cursor: pointer;
+      color: sienna;
+      transition: all .2s ease-in-out;
+  }
+  
+  .edit-overlay {
+      position: absolute;
+      background: #0000006b;
+      width: -webkit-fill-available;
+      height: 60rem;    
+      z-index: 200;
+      top: 0;
+      left: 0;
+      transition: all .2s ease-in;
+  }
