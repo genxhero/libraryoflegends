@@ -1,0 +1,25 @@
+.background-description {
+    margin: 2px;
+    background: wheat;
+    box-shadow: 2px 2px 1px;
+    border-radius: 4px;
+}
+
+.background-description > p {
+  width: 30rem;
+  padding: .5rem;
+  text-align: justify;
+}
+
+.background-placeholder {
+  width: 30rem;
+  height: 15rem;
+  border: 1px dashed;
+  margin: 5px;
+  padding: 5px;
+  background: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
