@@ -1,112 +1,14 @@
 
 @import './stylesheets/header';
+@import './stylesheets/error';
+@import './stylesheets/buttons';
+@import './stylesheets/session';
+@import './stylesheets/edit';
+@import './stylesheets/create';
 
 
-.ancestry-choice{
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-}
 
-.nonhuman-selector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.nonhuman-selector > span {
-  font-size: small;
-  min-width: fit-content;
-}
-
-.ancestry-info {
-    margin: 5px;
-    padding: 5px;
-    background: wheat;
-    box-shadow: 2px 2px 1px;
-    border-radius: 4px;
-}
-
-.ancestry-placeholder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px dashed;
-  height: 18rem;
-  padding: 1rem;
-  width: 30rem;
-  margin-bottom: 2rem;
-}
-
-.auth-error-message {
-  background: ivory;
-  height: auto;
-  z-index: 9000;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 2rem;
-  border-radius: 3px;
-  font-size: large;
-  font-weight: bold;
-  align-items: initial;
-}
-
-.auth-error-message > button {
-    background: sienna;
-    border: 1px solid black;
-    padding: .5rem;
-    margin: .25rem;
-    box-shadow: 1px 1px 1px black;
-    font-weight: bold;
-    color: gold;
-}
-
-.auth-error-message > button:hover {
-    background: #602c13;
-    box-shadow: 1px 1px 1px black;
-    color: rgb(250, 221, 58);
-    transition: all .2s ease-in-out;
-    cursor: pointer;
-}
-
-.auth-error-modal {
-  position: absolute;
-  z-index: 8000;
-  background-color: rgba(0, 0, 0, 0.6); 
-  width: 100%;
-  height: 61rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column
-}
-
-.background-description {
-    margin: 2px;
-    background: wheat;
-    box-shadow: 2px 2px 1px;
-    border-radius: 4px;
-}
-
-.background-description > p {
-  width: 30rem;
-  padding: .5rem;
-  text-align: justify;
-}
-
-.background-placeholder {
-  width: 30rem;
-  height: 15rem;
-  border: 1px dashed;
-  margin: 5px;
-  padding: 5px;
-  background: wheat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 .be-capitalized {
   text-transform: capitalize;
