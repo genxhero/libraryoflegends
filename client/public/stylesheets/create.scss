@@ -62,3 +62,46 @@
   }
 
   
+  .char-field-long {
+    font-size: 24px;
+    font-family: cursive;
+    line-height: 24px;
+    padding: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    background: ivory;
+    box-shadow: 2px 2px 2px ;
+  }
+  
+  .char-field-short {
+    font-size: 24px;
+    font-family: sans-serif;
+    line-height: 24px;
+    padding: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    background: ivory;
+    box-shadow: 2px 2px 2px ;
+    width: 6rem;
+    text-align: center;
+  }
+  
+  .char-bio-input{
+      background: ivory;
+      border-radius: 3px;
+      box-shadow: 2px 2px 1px;
+      border: 1px solid black;
+      padding: 20px;
+      text-align: left;
+      font-weight: bold;
+      font-size: 16px;
+      width: 25rem;
+      resize: none;
+      min-height: 10rem;
+      max-height: 10rem;
+  }
+  
