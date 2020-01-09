@@ -29,8 +29,9 @@ class Header extends Component {
 
 
   render() {
+    const cool = this.props.data.currentUser.cool ? "cool" : "";
     return (
-      <div className="header">
+      <div className="header cool">
         <div className ="header-content">
                   <div className="header-buffer" />
          <div className="header-left"> 
