@@ -132,32 +132,6 @@ p {
   visibility: hidden;
 }
 
-.home-link {
-  text-decoration: none;
-  position: relative;
-}
-
-
-.link-button {
-    border-radius: 3px;
-    padding: 10px;
-    border: 1px solid black;
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    font-weight: bolder;
-    background: gold;
-}
-
-.link-button:hover{
-  background: rgb(252, 230, 148);
-  cursor: pointer;
-}
-
-.link-button:active {
-  background: black;
-  color: white;
-}
 
 .index-page {
   display: flex;
