@@ -42,3 +42,17 @@
     flex-direction: column
   }
   
+  .error-message {
+    position: absolute;
+    padding: .25rem;
+    color: #bb0000;
+    background:ivory;
+    border: 1px solid black;
+    width: fit-content;
+    /* right: 20rem; */
+    /* top: 1.75rem; */
+    margin-right: .25rem;
+    font-weight: 100;
+    border-radius: 4px;
+    box-shadow: 5px 7px 9px 2px black;
+  }

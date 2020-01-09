@@ -97,3 +97,30 @@
     background: black;
     color: white;
   }
+  .submit{
+    width: 120px;
+    height: 71px;
+    padding: 20px;
+    color: white;
+    background: sienna;
+    font-size: 24px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px black;
+    text-align: center;
+  }
+  
+  .submit:hover{
+    background: goldenrod;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  
+  .submit:focus{
+    background: black;
+  }
+  
+  .submit:disabled{
+    background: gray;
+    color: white;
+  }
+  
