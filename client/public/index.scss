@@ -71,28 +71,6 @@
   font-size: 18px;
 }
 
-.char-delete {
-    /* border: none;
-    padding: 1rem;
-    border-radius: 5px;
-    color: firebrick;
-    font-size: large;
-    font-weight: 800;
-    background-color: wheat;
-    box-shadow: 0px 6px 0px 0px sienna;
-    position:relative;
-    margin: .5rem; */
-    position: absolute;
-}
-
-.char-delete:active{
-   top: 6px;
-   box-shadow: none;
-}
-
-.char-delete:focus{
-  outline: none;
-}
 
 .char-snippet {
   border: 2px solid black;
