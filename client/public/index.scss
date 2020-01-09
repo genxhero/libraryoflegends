@@ -12,9 +12,6 @@
 
 
 
-
-
-
 .be-capitalized {
   text-transform: capitalize;
   /* margin-left: 3px; */
@@ -100,27 +97,6 @@ p {
   font-family: sans-serif;
 }
 
-
-
-.confirm-btn {
-    background: sienna;
-    color: gold;
-    border: none;
-    padding: 1rem;
-    margin: .5rem;
-    font-size: larger;
-    border-radius: 4px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    box-shadow: 1px 1px 1px 1px black;
-}
-
-.confirm-btn:hover {
-  cursor: pointer;
-  background: #723214;
-  color: #fed254;
-  transition: all .2s;
-}
 
 .confirmation-dialog{
   background-image: url("../../images/woodbg.jpg");
