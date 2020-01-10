@@ -52,8 +52,8 @@
   
 
   .confirm-btn {
-    background: sienna;
     color: gold;
+    background: sienna;
     border: none;
     padding: 1rem;
     margin: .5rem;
@@ -68,9 +68,12 @@
 
 .confirm-btn:hover {
   cursor: pointer;
-  background: #723214;
   color: #fed254;
   transition: all .2s;
+  background: #882b00 ;
+  &.cool{
+    background: #723214;
+  }
 }
 
 .home-link {
