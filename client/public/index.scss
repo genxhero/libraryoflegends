@@ -40,15 +40,7 @@
   font-family: sans-serif;
 }
 
-.chars-spread {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* background: burlywood; */
-  padding: 1rem;
-  width: 100%;
-}
+
 
 .content {
   width: 100%;
@@ -75,25 +67,6 @@
   font-size: 18px;
 }
 
-
-.char-snippet {
-  border: 2px solid black;
-  box-shadow: 2px 2px;
-  border-radius: 4px;
-  margin: 5px;
-  padding: 10px;
-  background: ivory;
-  display: grid;
-}
-
-.char-snippet-name {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.char-snippet-class {
-  font-style: italic;
-}
 
 p {
   font-family: sans-serif;
