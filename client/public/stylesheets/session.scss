@@ -1,0 +1,17 @@
+.session-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 112px);;
+ }
+ 
+ .session-form{
+   display: flex;
+   background-color: wheat;
+   flex-direction: column;
+   padding: 2rem;
+   box-shadow: 2px 2px black;
+   width: 25rem;
+   box-sizing: border-box;
+   justify-content: space-around;
+ }
