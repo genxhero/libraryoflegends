@@ -46,9 +46,11 @@
     padding: 10px;
     background: ivory;
     border-radius: 3px;
-    box-shadow: 2px 2px 1px;
-    border: 1px solid black;
     position: relative;
+    &.cool{
+      box-shadow: 2px 2px 1px;
+      border: 1px solid black;
+    }
   }
   
   .char-image {
@@ -63,11 +65,13 @@
       padding: 10px;
       background: ivory;
       border-radius: 3px;
-      box-shadow: 2px 2px 1px;
-      border: 1px solid black;
       display: flex;
       flex-direction: column;
       align-items: center;
       font-family: 'Overpass Mono', monospace;
       justify-content: center;
+      &.cool{
+        box-shadow: 2px 2px 1px;
+        border: 1px solid black;  
+      }
   }
