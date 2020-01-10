@@ -1,3 +1,17 @@
+
+ .auth-field {
+    padding: 5px;
+    margin: 5px;
+    font-size: 24px;
+    background-color: ivory;
+  }
+  
+  .form-footer {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+  }
+
 .session-page {
     display: flex;
     justify-content: center;
@@ -16,16 +30,4 @@
    justify-content: space-around;
  }
 
- .auth-field {
-    padding: 5px;
-    margin: 5px;
-    font-size: 24px;
-    background-color: ivory;
-  }
-  
-  .form-footer {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-  }
   
