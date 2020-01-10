@@ -111,10 +111,13 @@ p {
   flex-direction:column;
   margin-top: -2rem;
   padding: 2rem;
-  background: url("../../images/old-paper.jpg");
   background-position: center;
   background-size: contain;
   background-repeat: repeat-y;
+  background: antiquewhite;
+  &.cool {
+    background: url("../../images/old-paper.jpg");
+  }
 }
 
 .link-container {
