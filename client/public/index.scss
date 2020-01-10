@@ -182,7 +182,9 @@ label {
   height: auto;
   min-height: 34rem;
   padding: 2rem;
-  background: url("../../images/old-paper.jpg");
+  &.cool {
+    background: url("../../images/old-paper.jpg");
+  }
 }
 
 .user-profile-title {
@@ -212,10 +214,12 @@ html, body {
   margin:0;
   padding:0;
   height:100%;
-  background: url("../../images/old-paper.jpg");
   background-position: center;
   background-size: contain;
   background-repeat: repeat-y;
+  &.cool {
+    background: url("../../images/old-paper.jpg");
+  }
 }
 
 .dismiss-x{
