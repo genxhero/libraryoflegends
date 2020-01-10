@@ -40,7 +40,9 @@
     overflow: hidden;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 2px outset darkgray;
+    &.cool{
+        border: 2px outset darkgray;
+    }
     z-index: 2000;
   }
   
