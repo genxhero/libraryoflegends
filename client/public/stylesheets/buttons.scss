@@ -61,7 +61,9 @@
     border-radius: 4px;
     padding-left: 2rem;
     padding-right: 2rem;
-    box-shadow: 1px 1px 1px 1px black;
+    &.cool {
+      box-shadow: 1px 1px 1px 1px black;
+    }
 }
 
 .confirm-btn:hover {
@@ -86,8 +88,10 @@
     background: sienna;
     font-size: 24px;
     border-radius: 4px;
-    box-shadow: 2px 2px 2px black;
     text-align: center;
+    &.cool {
+      box-shadow: 2px 2px 2px black;
+    }
   }
   
   .submit:hover{
