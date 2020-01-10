@@ -125,28 +125,6 @@ p {
 
 
 
-.char-thumb {
-  position: absolute;
-  z-index: 1000;
-  left: 50%;
-  top: 50%;
-  height: 100%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
-}
-
-.char-thumb-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px outset darkgray;
-  z-index: 2000;
-}
 
 .select-wrapper {
   display: flex;
