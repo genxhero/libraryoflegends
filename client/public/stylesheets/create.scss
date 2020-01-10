@@ -147,6 +147,27 @@
    align-items: center;
  }
  
+ .image-placeholder {
+  height: 18rem;
+  width: 30rem;
+  margin: .5rem;
+  border: 1px dashed;
+  display: flex;
+  color: black;
+  background: wheat;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-preview {
+  height: 18rem;
+  margin-bottom: 1rem;
+}
+
+.image-preview > img {
+  height: inherit;
+}
+
  .personal-input {
     width: 100%;
     font-weight: 500;
