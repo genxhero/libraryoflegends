@@ -74,12 +74,15 @@ p {
 
 
 .confirmation-dialog{
-  background-image: url("../../images/woodbg.jpg");
   padding: 2rem;
   width: fit-content;
   color: gold;
+  background: burlywood;
   border-radius: 4px;
-  box-shadow: 2px 2px 2px 2px black;
+  &.cool {
+    box-shadow: 2px 2px 2px 2px black;
+    background-image: url("../../images/woodbg.jpg");
+  }
 }
 
 .confirmation-dialog > h1 {
@@ -127,8 +130,6 @@ p {
 
 
 
-
-
 .select-wrapper {
   display: flex;
   justify-content: center;
@@ -159,7 +160,10 @@ textarea:focus{
 }
 
 .pane-title {
+  &.cool{
     text-shadow: 1px 1px 1px ligh;
+  }
+
 }
 
 label {
@@ -181,7 +185,7 @@ label {
 }
 
 .user-profile-page {
-  background: sienna;
+  background: antiquewhite;
   height: auto;
   min-height: 34rem;
   padding: 2rem;
@@ -199,10 +203,13 @@ label {
 .user-page-top {
   display: flex;
   height: 10rem;
-  box-shadow: 1px 1px 1px 1px;
   background: burlywood;
   align-items: center;
   padding: 1rem;
+  &.cool{
+    box-shadow: 1px 1px 1px 1px;
+
+  }
 }
 
 .user-thumb-container {
