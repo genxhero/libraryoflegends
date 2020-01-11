@@ -4,6 +4,7 @@ import query from "../queries/getuser";
 import {hashHistory, Link} from 'react-router';
 import { numberSuffix } from '../helpers';
 import currentUser from "../queries/current_user";
+import CoolToggle from './cool_toggle';
 
 class UserPage extends Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class UserPage extends Component {
             <div className="user-page-top">
                 <div className="user-thumb-container"> 
                     <img src={user.avatar ? `${user.avatar}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"} />
+                    <CoolToggle cool={user.cool} id={user.id} />
                 </div>
                 <h1 className="user-profile-title">{user.username}'s Profile Page</h1>
             </div>
