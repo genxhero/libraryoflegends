@@ -56,8 +56,15 @@ UserSchema.statics.findChars = function (id) {
         .then(user => user.characters);
 }
 
-UserSchema.statics.toggleCool = (id) => {
+UserSchema.statics.toggleCool = async (id) => {
   const user = this.findById(id);
+  if (!user.cool || user.cool === false) {
+    user.cool = true;
+  } else {
+    user.cool = false
+  }
+  await user.save();
+  return user;
 }
 
 UserSchema.pre('save', function save(next) {
