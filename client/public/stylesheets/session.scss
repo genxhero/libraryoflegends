@@ -4,6 +4,7 @@
     margin: 5px;
     font-size: 24px;
     background-color: ivory;
+    border: none;
   }
   
   .form-footer {
@@ -24,10 +25,13 @@
    background-color: wheat;
    flex-direction: column;
    padding: 2rem;
-   box-shadow: 2px 2px black;
    width: 25rem;
    box-sizing: border-box;
    justify-content: space-around;
+   margin-top: 4rem;
+   &.cool {
+    box-shadow: 2px 2px black;
+   }
  }
 
   
