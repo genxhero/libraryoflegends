@@ -20,9 +20,11 @@
     flex-direction: column;
     background: beige;
     padding: .5rem;
-    box-shadow: 2px 2px 2px 2px;
     position: relative;
     z-index: 400;
+    &.cool {
+      box-shadow: 2px 2px 2px 2px;
+    }
   }
   
   .edit-pane > textarea {
@@ -68,9 +70,11 @@
       border-radius: 4px;
       background: gold;
       font-weight: 600;
-      box-shadow: 1px 1px 1px 1px black;
       border-style: hidden;
       margin: .5rem;
+      &.cool {
+        box-shadow: 1px 1px 1px 1px black;
+      }
   }
   
   .edit-btn-reverse:hover {
