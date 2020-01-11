@@ -56,6 +56,10 @@ UserSchema.statics.findChars = function (id) {
         .then(user => user.characters);
 }
 
+UserSchema.statics.toggleCool = (id) => {
+  const user = this.findById(id);
+}
+
 UserSchema.pre('save', function save(next) {
   const user = this;
   if (!user.isModified('password')) { return next(); }
