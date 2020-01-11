@@ -150,6 +150,8 @@ const mutation = new GraphQLObjectType({
                 bio: {type: GraphQLString}
             },
             resolve(parentValue, args) {
+                //This would appear to be a relic of "tutorial code"
+                //Should create a user static update function sooner than later
                 return axios.patch(`http://localhost:3000/users/${args.id}`, args)
                     .then(res => res.data);
             }
