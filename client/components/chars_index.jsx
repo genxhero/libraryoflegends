@@ -58,7 +58,7 @@ class CharsIndex extends Component {
           </div>
           <div className="link-container"> 
           {
-            user ? <Link to="/newchar" className="link-button">Create New Character</Link> :
+            user ? <Link to="/newchar" className="link-button newchar">Create New<br /> Character</Link> :
               <h2> <Link to="/login"k>Log In </Link>or<Link to="/register">Sign Up</Link> to Create a New Character!</h2>
           }
            
