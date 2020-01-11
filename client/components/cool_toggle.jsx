@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Mutation} from 'react-apollo';
 import Toggle from 'react-toggle'
-import toggleCool from '..mutations/toggleCool';
+import toggleCool from '../mutations/toggleCool';
 import currentUser from '../queries/current_user';
 
 /**
