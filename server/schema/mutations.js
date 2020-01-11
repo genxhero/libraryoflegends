@@ -7,7 +7,8 @@ const {
   GraphQLSchema,
   GraphQLNonNull,
   GraphQLInputObjectType,
-  GraphQLID
+  GraphQLID,
+  GraphQLBoolean
 } = graphql;
 const mongoose = require("mongoose");
 const User = mongoose.model('user');
@@ -151,6 +152,14 @@ const mutation = new GraphQLObjectType({
             resolve(parentValue, args) {
                 return axios.patch(`http://localhost:3000/users/${args.id}`, args)
                     .then(res => res.data);
+            }
+        },
+
+        toggleCool: {
+            type: UserType,
+            args: {id: {type: new GraphQLNonNull(GraphQLString)}},
+            resolve(parentValue, args) {
+                return User.toggleCool(args.id)
             }
         },
 
