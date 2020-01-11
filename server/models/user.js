@@ -21,6 +21,10 @@ const UserSchema = new Schema(
       type: String,
       required: false
     },
+    cool: {
+      type: Boolean,
+      required: false
+    },
     characters: [
       {
         type: Schema.Types.ObjectId,
