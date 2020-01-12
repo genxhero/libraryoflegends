@@ -39,13 +39,16 @@ class CharsIndex extends Component {
 
 
   render() {
+    console.log(this.props)
     if (this.props.data.loading || !this.props.data.characters){
       return (<div>
           <h1>Opening the Library.......</h1>
       </div>);
     }
+    debugger;
     const user = this.props.data.currentUser;
     const characters = this.props.data.characters;
+    debugger;
     return (    
       <div className="index-page"> 
        <div className="intro-content">
