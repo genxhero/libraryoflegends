@@ -41,6 +41,7 @@ class CharsIndex extends Component {
   render() {
     console.log(this.props)
     if (this.props.data.loading || !this.props.data.characters){
+      debugger;
       return (<div>
           <h1>Opening the Library.......</h1>
       </div>);

@@ -30,6 +30,7 @@ class Header extends Component {
 
   render() {
     let cool = "";
+    debugger;
     if (this.props.data.currentUser) {
       cool = this.props.data.currentUser.cool === true ? "cool" : "";
     }
