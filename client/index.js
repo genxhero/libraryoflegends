@@ -8,7 +8,10 @@ import { setContext } from 'apollo-link-context';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory, IndexRoute } from "react-router";
+// import { Router, Route, hashHistory, IndexRoute } from "react-router";
+import {IndexRoute} from "react-router";
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import CharsIndex from './components/chars_index';
