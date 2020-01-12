@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link, hashHistory} from 'react-router';
 import {graphql } from 'react-apollo';
-import * as compose from 'lodash.flowright';
+import compose from 'lodash.flowright';
 import AncestryPane from './ancestry_pane';
 import BackgroundPane from './background_pane';
 import ClassPane from './class_pane';
