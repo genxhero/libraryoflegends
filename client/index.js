@@ -79,10 +79,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
+//history={hashHistory} put this back into the router if need be 
 const Root = () => {
     return (
     <ApolloProvider client={client}>
-        <Router history={hashHistory}>
+        <Router >
           <Route path="/" component={App}>
             <IndexRoute component={CharsIndex} />
             <Route path="/newchar" component={CharCreate} />
