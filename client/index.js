@@ -9,7 +9,7 @@ import { setContext } from 'apollo-link-context';
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import { Router, Route, hashHistory, IndexRoute } from "react-router";
-import {IndexRoute} from "react-router";
+import {IndexRoute} from "react-router-dom";
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
@@ -86,7 +86,7 @@ const Root = () => {
     <ApolloProvider client={client}>
         <Router >
           <Route path="/" component={App}>
-            <Route path="" component={CharsIndex} />
+            <IndexRoute component={CharsIndex} />
             <Route path="/newchar" component={CharCreate} />
             <Route path="/characters/:id" component={CharShow}/>
             <Route path="/register" component={Register} />

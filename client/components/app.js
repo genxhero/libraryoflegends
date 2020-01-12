@@ -5,7 +5,7 @@ import currentUser from '../queries/current_user';
 
 const App = ( props ) => {
   debugger;
-  console.log(props.children)
+  console.log(props)
     return <div className="container">
          <Header />
          <div className="content"> 
