@@ -41,7 +41,7 @@ class CharsIndex extends Component {
   render() {
     if (this.props.data.loading || !this.props.data.characters){
       return (<div>
-          <h1>LOADING.......</h1>
+          <h1>Opening the Library.......</h1>
       </div>);
     }
     const user = this.props.data.currentUser;

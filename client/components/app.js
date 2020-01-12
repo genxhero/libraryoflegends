@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo';
 import currentUser from '../queries/current_user';
 
 const App = ( props ) => {
+  debugger;
     return <div className="container">
          <Header />
          <div className="content"> 
