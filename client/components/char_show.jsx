@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { graphql, compose} from "react-apollo";
+// import { graphql, compose} from "react-apollo";
+import {graphql} from 'react-apollo';
+import * as compose from 'lodash.flowright';
 import gql from 'graphql-tag';
 import query from "../queries/fetchchar";
 import index from "../queries/fetchchars";
