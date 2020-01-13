@@ -46,7 +46,6 @@ class CharsIndex extends Component {
           <h1>Opening the Library.......</h1>
       </div>);
     }
-    console.log(this.props)
     debugger;
     const user = this.props.data.currentUser;
     const characters = this.props.data.characters;

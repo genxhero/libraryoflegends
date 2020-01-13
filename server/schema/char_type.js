@@ -33,7 +33,6 @@ const CharType = new GraphQLObjectType({
             resolve(parentValue) {
                 return Char.findById(parentValue).populate('user')
                 .then(char => {
-                    console.log(char);
                      return char.user;
                 });
             }
