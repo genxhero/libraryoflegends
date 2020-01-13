@@ -41,7 +41,7 @@ class Register extends Component {
                 },
             refetchQueries: [{ query }]
           }).then( res => {
-            hashHistory.push('/')
+            this.props.history.push('/')
           })
           .catch(res => {
             this.setState({ errors: res.graphQLErrors})

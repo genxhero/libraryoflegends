@@ -41,8 +41,7 @@ class Login extends Component {
                 refetchQueries: [{ query }]
         }).then( res => {
           debugger;
-          console.log("history:", this.props.history)
-          hashHistory.push('/')
+          this.props.history.push('/')
         })
         .catch(res => {
           this.setState({ errors: res.graphQLErrors})
