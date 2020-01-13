@@ -10,17 +10,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { Router, Route, hashHistory, IndexRoute } from "react-router";
 import {IndexRoute} from "react-router-dom";
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import App from './components/app';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
-import CharsIndex from './components/chars_index';
-import CharCreate from './components/char_create';
-import CharShow from './components/char_show';
-import App from './components/app';
-import Register from './components/register';
-import Login from './components/login';
-import UserPage from './components/user_page';
+
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import CharsIndex from './components/chars_index';
+// import CharCreate from './components/char_create';
+// import CharShow from './components/char_show';
+// import Register from './components/register';
+// import Login from './components/login';
+// import UserPage from './components/user_page';
 
 
 //Old
@@ -80,22 +80,30 @@ const client = new ApolloClient({
 })
 
 //history={hashHistory} put this back into the router if need be 
+// const Root = () => {
+//   debugger;
+//     return (
+//     <ApolloProvider client={client}>
+//         <Router >
+//           <Route path="/" component={App}>
+//             <Route path="/" component={CharsIndex} />
+//             <Route path="/newchar" component={CharCreate} />
+//             <Route path="/characters/:id" component={CharShow}/>
+//             <Route path="/register" component={Register} />
+//             <Route path="/login" component={Login} />
+//             <Route path="/users/:username" component={UserPage} />
+//           </Route> 
+//         </Router>
+//       </ApolloProvider>);
+// };
+
 const Root = () => {
-  debugger;
-    return (
+  return (
     <ApolloProvider client={client}>
-        <Router >
-          <Route path="/" component={App}>
-            <IndexRoute component={CharsIndex} />
-            <Route path="/newchar" component={CharCreate} />
-            <Route path="/characters/:id" component={CharShow}/>
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <Route path="/users/:username" component={UserPage} />
-          </Route> 
-        </Router>
-      </ApolloProvider>);
-};
+      <App />
+  </ApolloProvider>
+  );
+}
 
 ReactDOM.render(
     <Root />,

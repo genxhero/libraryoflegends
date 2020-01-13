@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
-import {hashHistory} from 'react-router';
+// import {hashHistory} from 'react-router';
 import query from '../queries/current_user';
 import { isSequential, hasTooManyRepeats} from '../helpers';
 import ErrorsModal from './errors_modal';

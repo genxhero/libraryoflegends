@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { graphql } from "react-apollo";
 import query from "../queries/getuser";
-import {hashHistory, Link} from 'react-router';
+// import {hashHistory } from 'react-router';
+import {Link} from 'react-router-dom';
 import { numberSuffix } from '../helpers';
 import currentUser from "../queries/current_user";
 import CoolToggle from './cool_toggle';

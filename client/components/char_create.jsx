@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { hashHistory} from 'react-router';
+// import { hashHistory} from 'react-router';
 import {Link} from 'react-router-dom';
 import {graphql } from 'react-apollo';
 import compose from 'lodash.flowright';

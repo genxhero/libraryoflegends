@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import query from "../queries/fetchchar";
 import index from "../queries/fetchchars";
 import currentUser from "../queries/current_user";
-import {hashHistory} from 'react-router';
+// import {hashHistory} from 'react-router';
 import $ from 'jquery';
 import EditBio from './edit_bio';
 import EditPersonal from './edit_personal';
