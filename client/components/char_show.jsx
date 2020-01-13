@@ -46,7 +46,7 @@ class CharShow extends Component {
             variables: { id: id },
             refetchQueries: [{ query: index }]
         })
-        .then(hashHistory.push('/'));
+        .then(this.props.history.push('/'));
     }
     
     openConfirmationModal() {

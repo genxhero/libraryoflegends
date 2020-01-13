@@ -232,7 +232,7 @@ class CharCreate extends Component {
          refetchQueries: [{ query, currentUser }]
        }).then( res => {
            debugger;
-           hashHistory.push('/') 
+           this.props.history.push('/') 
        });
        //put catch down here later
     }
