@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import query from '../queries/current_user';
 import gql from 'graphql-tag';

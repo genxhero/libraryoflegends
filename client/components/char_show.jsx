@@ -10,7 +10,7 @@ import {hashHistory} from 'react-router';
 import $ from 'jquery';
 import EditBio from './edit_bio';
 import EditPersonal from './edit_personal';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 class CharShow extends Component {
 
