@@ -13,9 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "^7.0.0-beta.40",
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/preset-react": "^7.0.0-beta.40",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
     "ajax": "0.0.4",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "2.6.8",
