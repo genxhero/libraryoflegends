@@ -12,7 +12,6 @@ import UserPage from './user_page';
 
 const App = ( props ) => {
   debugger;
-  console.log(props.children)
     return <div className="container">
       <Router>
             <Header />
