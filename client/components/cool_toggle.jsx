@@ -15,7 +15,16 @@ const CoolToggle = (props) => {
     debugger;
     return (
         <div className="cool-switch">
-            <Mutation
+          
+        </div>
+    )
+
+}
+
+export default CoolToggle;
+
+/**
+ *   <Mutation
                 mutation={toggleCool}
                 refetchQueries={[{ query: currentUser }]}
             >
@@ -44,9 +53,4 @@ const CoolToggle = (props) => {
             </Mutation>
             <label htmlFor='cool-state'>Adjacent label tag</label>
 
-        </div>
-    )
-
-}
-
-export default CoolToggle;
+ */
