@@ -18,8 +18,8 @@ const CoolToggle = (props) => {
                 mutation={toggleCool}
                 refetchQueries={[{ query: currentUser }]}
             >
-                {(toggleCool, loading) =>
-                !loading? (
+                {(toggleCool, loading) => 
+                !loading ? (
                     <div>Loading</div>
                 ) : (
                 <Toggle
@@ -39,10 +39,7 @@ const CoolToggle = (props) => {
                         }
                     }
                  />
-
-                 ))
-                    )}
-               
+                 )}
             </Mutation>
             <label htmlFor='cool-state'>Adjacent label tag</label>
 
