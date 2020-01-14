@@ -35,9 +35,9 @@ const CoolToggle = (props) => {
                         }
                     }
                  />
-
-                <label htmlFor='cool-state'>Adjacent label tag</label>
             </Mutation>
+            <label htmlFor='cool-state'>Adjacent label tag</label>
+
         </div>
     )
 
