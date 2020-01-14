@@ -100,7 +100,6 @@ class UserPage extends Component {
 
 export default graphql(query, {
     options: props => {
-        console.log("Props of query: ", props)
         return {
         variables: {
             username: props.match.params.username

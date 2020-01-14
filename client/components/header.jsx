@@ -34,7 +34,6 @@ class Header extends Component {
     if (this.props.data.currentUser) {
       cool = this.props.data.currentUser.cool === true ? "cool" : "";
     }
-    console.log(this.props.data.currentUser);
     return (
       <div className={`header ${cool}`}>
         <div className ="header-content">
