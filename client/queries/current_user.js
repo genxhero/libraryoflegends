@@ -6,6 +6,7 @@ export default gql`
         id
         username
         email
+        cool
     }
 }
 
