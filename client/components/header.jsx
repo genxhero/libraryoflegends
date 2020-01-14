@@ -32,6 +32,7 @@ class Header extends Component {
     let cool = "";
     debugger;
     if (this.props.data.currentUser) {
+      console.log("Cool Header: ", this.props.data.currentUser.cool);
       cool = this.props.data.currentUser.cool === true ? "cool" : "";
     }
     return (
