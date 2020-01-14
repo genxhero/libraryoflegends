@@ -6,6 +6,7 @@ export default gql`
         id
         username
         bio
+        cool
         characters {
             id
             firstName

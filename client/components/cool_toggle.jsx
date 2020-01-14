@@ -10,6 +10,7 @@ import currentUser from '../queries/current_user';
  */
 const CoolToggle = (props) => {
     debugger;
+    console.log("Props.cool: ", props.cool)
     const [on, toggle] = useState(props.cool)
     return (
         <div className="cool-switch">
