@@ -56,8 +56,8 @@ UserSchema.statics.findChars = function (id) {
         .then(user => user.characters);
 }
 
-UserSchema.statics.toggleCool = async (id) => {
-  const user = await User.findById(id);
+UserSchema.statics.toggleCool = async function (id) {
+  const user = this.findById(id);
   if (!user.cool || user.cool === false) {
     user.cool = true;
   } else {
