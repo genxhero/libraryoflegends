@@ -53,12 +53,10 @@ class UserPage extends Component {
  }
   
   render() {
-    console.log(this.props.data)
     if (this.props.data.error) {
         return <div>GraphQL Error</div>
     }
       if (!this.props.data.user || this.props.data.loading) {
-          console.log("Loading")
           return <h1>Loading user home page...</h1>
       }
       const user = this.props.data.user
