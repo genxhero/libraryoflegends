@@ -37,15 +37,15 @@ class Header extends Component {
     }
     return (
       <div className={`header ${cool}`}>
-        <div className ="header-content">
+        <div className ={`header-content ${cool}`}>
                   <div className="header-buffer" />
          <div className="header-left"> 
            <Link className="home-link" to="/"> 
-              <h1 className="header-title"> 
-                <span className="stud-top-left"/> 
-                <span className="stud-top-right" />
-                <span className="stud-bottom-left"/> 
-                <span className="stud-bottom-right" />
+              <h1 className={`header-title ${cool}`}> 
+                <span className={`stud-top-left ${cool}`}/> 
+                <span className={`stud-top-right ${cool}`}/>
+                <span className={`stud-bottom-left ${cool}`}/> 
+                <span className={`stud-bottom-right ${cool}`} />
                 Library of Legends
               </h1>
             </Link>
