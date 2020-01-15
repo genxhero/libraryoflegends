@@ -18,7 +18,8 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-                   presets: ['@babel/preset-react', '@babel/env']
+                   presets: ['@babel/preset-react', '@babel/env'],
+                   plugins:['source-map-support']
            },
           },
         test: /\.jsx?$/,
