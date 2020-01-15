@@ -10,7 +10,9 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: ['.js', '.jsx', '*'],
+    use: ["source-map-loader"],
+    enforce: "pre"
     },
   module: {
     rules: [
