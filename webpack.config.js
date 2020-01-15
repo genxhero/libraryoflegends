@@ -7,6 +7,7 @@ module.exports = {
     path: "/",
     filename: "bundle.js"
   },
+  devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '*']
     },
@@ -16,7 +17,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-                   presets: ['@babel/preset-react']
+                   presets: ['@babel/preset-react', '@babel/env']
            },
           },
         test: /\.jsx?$/,
@@ -41,7 +42,6 @@ module.exports = {
          
     ]
   },
-  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: "client/index.html"

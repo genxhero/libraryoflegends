@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "json:server": "json-server --watch db.json",
-    "dev": "nodemon index.js",
+    "dev": "nodemon --inspect index.js",
     "devinspect": "nodemon --inspect index.js",
     "start": "nodemon index.js"
   },
@@ -73,11 +73,15 @@
     "react-scripts": "^3.3.0",
     "react-toggle": "^4.1.1",
     "sass": "^1.24.4",
+    "source-map-support": "^0.5.16",
     "style-loader": "^0.13.1",
     "subscriptions-transport-ws": "^0.9.16",
     "url-loader": "3.0.0",
     "validator": "^10.10.0",
-    "webpack": "4.41.5",
+    "webpack": "^4.41.5",
     "webpack-dev-middleware": "3.7.2"
+  },
+  "devDependencies": {
+    "babel-plugin-source-map-support": "^2.1.1"
   }
 }
