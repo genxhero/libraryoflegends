@@ -10,9 +10,7 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '*'],
-    use: ["source-map-loader"],
-    enforce: "pre"
+    extensions: ['.js', '.jsx', '*']
     },
   module: {
     rules: [
@@ -24,7 +22,7 @@ module.exports = {
            },
           },
         test: /\.jsx?$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         use: ["style-loader", "css-loader", "sass-loader"],
