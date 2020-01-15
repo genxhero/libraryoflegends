@@ -5,7 +5,8 @@ module.exports = {
   entry: ["babel-polyfill", "./client/index.js"],
   output: {
     path: "/",
-    filename: "bundle.js"
+    filename: "bundle.js",
+    sourceMapFilename: "[name].js.map"
   },
   devtool: 'source-map',
   resolve: {
