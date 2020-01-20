@@ -60,8 +60,7 @@ class UserPage extends Component {
           return <h1>Loading user home page...</h1>
       }
       const user = this.props.data.user
-      debugger;
-      console.log(user);
+
       return (
           <div className="user-profile-page">
             <div className="user-page-top">
