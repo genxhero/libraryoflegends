@@ -74,7 +74,6 @@ class UserPage extends Component {
                     <div className="user-fieldnames"> 
                         <span className="user-vital-fieldname">First Name:</span>
                         <span className="user-vital-fieldname">Last Name:</span> 
-
                     </div>
                     <div  className="user-data"> 
                          <span className="user-vital"> <span className="be-capitalized">Placeholder</span></span>

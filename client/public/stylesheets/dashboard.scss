@@ -1,10 +1,28 @@
+.user-about {
+
+}
+
 .user-characters {
     margin: .2rem;
     border: 1px solid;
     padding: 2rem;
     background: burlywood;
   }
+
+  .user-data {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-fieldnames {
+      display: flex;
+      flex-direction: column;
+  }
   
+  .user-options {
+   
+  }
+
   .user-profile-page {
     background: antiquewhite;
     height: auto;
@@ -41,4 +59,6 @@
     height: 100%;
   }
 
-  
+  .user-vital {
+
+  }
