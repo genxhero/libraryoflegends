@@ -11,7 +11,6 @@ import Login from './login';
 import UserPage from './user_page';
 
 const App = ( props ) => {
-  debugger;
     return <div className="container">
       <Router>
             <Header />
