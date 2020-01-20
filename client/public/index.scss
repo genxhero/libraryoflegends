@@ -55,9 +55,11 @@
 
 .cool-toggle {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: max-content;
+  color: sienna;
+  font-weight: 200;
 }
 
 #index-title  {

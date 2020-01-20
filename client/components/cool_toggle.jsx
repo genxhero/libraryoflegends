@@ -21,28 +21,29 @@ const CoolToggle = (props) => {
                 !loading ? (
                     <div>Loading</div>
                 ) : (
-                <label className="cool-toggle" htmlFor='cool-state'>Toggle Cool Mode
-                <Toggle
-                    id="cool-state"
-                    defaultChecked={on}
-                    icons={false}
-                    onChange={
-                        event => {
-                            event.preventDefault();
-                            toggleCool({
-                                variables: {
-                                    id: props.id
-                                }
-                            }).then(res => {
-                                const cool = res.data.toggleCool.cool;
-                                toggle(cool)
-                            }).catch(res => {
-                                console.log(res.error)
-                            })
+                <label className="cool-toggle" htmlFor='cool-state'> 
+                    <span>Cool Mode</span>
+                    <Toggle
+                        id="cool-state"
+                        defaultChecked={on}
+                        icons={false}
+                        onChange={
+                            event => {
+                                event.preventDefault();
+                                toggleCool({
+                                    variables: {
+                                        id: props.id
+                                    }
+                                }).then(res => {
+                                    const cool = res.data.toggleCool.cool;
+                                    toggle(cool)
+                                }).catch(res => {
+                                    console.log(res.error)
+                                })
+                            }
                         }
-                    }
-                 />
-                    </label>
+                    />
+                </label>
 
                  )}
             </Mutation>
