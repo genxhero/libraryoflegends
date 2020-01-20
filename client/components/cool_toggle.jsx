@@ -25,6 +25,7 @@ const CoolToggle = (props) => {
                 <Toggle
                     id="cool-state"
                     defaultChecked={on}
+                    icons={false}
                     onChange={
                         event => {
                             event.preventDefault();
