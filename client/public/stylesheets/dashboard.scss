@@ -1,5 +1,6 @@
 .user-about {
-
+    display: flex;
+    flex-direction: column;
 }
 
 .user-characters {
@@ -49,6 +50,11 @@
       box-shadow: 1px 1px 1px 1px;
   
     }
+  }
+
+  .user-page-middle {
+      display: flex;
+      justify-content: space-between;
   }
   
   .user-thumb-container {
