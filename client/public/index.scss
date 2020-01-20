@@ -14,6 +14,7 @@
 @import './stylesheets/background_pane';
 @import './stylesheets/freebie_pane';
 @import './stylesheets/react-toggle.css';
+@import './stylesheets/dashboard.scss';
 
 .be-capitalized {
   text-transform: capitalize;
@@ -187,48 +188,6 @@ label {
 
 
 
-.user-characters {
-  margin: .2rem;
-  border: 1px solid;
-  padding: 2rem;
-  background: burlywood;
-}
-
-.user-profile-page {
-  background: antiquewhite;
-  height: auto;
-  min-height: 34rem;
-  padding: 2rem;
-  &.cool {
-    background: url("../../images/old-paper.jpg");
-  }
-}
-
-.user-profile-title {
-  padding: inherit;
-  text-align: center;
-  width: 100%;
-}
-
-.user-page-top {
-  display: flex;
-  height: 10rem;
-  background: burlywood;
-  align-items: center;
-  padding: 1rem;
-  &.cool{
-    box-shadow: 1px 1px 1px 1px;
-
-  }
-}
-
-.user-thumb-container {
-  height: 10rem;
-}
-
-.user-thumb-container > img {
-  height: 100%;
-}
 
 html, body {
   margin:0;
