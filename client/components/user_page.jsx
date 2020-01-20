@@ -69,28 +69,32 @@ class UserPage extends Component {
                 </div>
                 <h1 className="user-profile-title">{user.username}'s Profile Page</h1>
             </div>
+
+          <div className="user-page-middle">
             <div className="user-about">
+                <h1 classNAme="user-profile-header">About Me</h1>
                 <div style={{"display":"flex"}}>
-                    <div className="user-fieldnames"> 
-                        <span className="user-vital-fieldname">First Name:</span>
-                        <span className="user-vital-fieldname">Last Name:</span> 
+                        <div className="user-fieldnames"> 
+                            <span className="user-vital-fieldname">First Name:</span>
+                            <span className="user-vital-fieldname">Last Name:</span> 
+                        </div>
+                        <div  className="user-data"> 
+                            <span className="user-vital"> <span className="be-capitalized">Placeholder</span></span>
+                            <span className="user-vital"> <span className="be-capitalized">von Workinprogress III</span></span>
+                        </div>
                     </div>
-                    <div  className="user-data"> 
-                         <span className="user-vital"> <span className="be-capitalized">Placeholder</span></span>
-                         <span className="user-vital"> <span className="be-capitalized">von Workinprogress III</span></span>
-
-                    </div>
-
-                    <div className="user-options"> 
-                    <h1>User Preferences</h1>
+                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>   
+                
+            </div>
+           
+                
+            <div className="user-options"> 
+                    <h1 className="user-profile-header">Options</h1>
                         <CoolToggle cool={user.cool} id={user.id} />
-                    </div>
                 </div>
                 
-                
-                <h4>About Me</h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
             </div>
+
               {this.charlist()}     
           </div>
       );
