@@ -15,7 +15,34 @@ const CoolToggle = (props) => {
     debugger;
     return (
         <div className="cool-switch">
-          
+           <Mutation
+                mutation={toggleCool}
+                refetchQueries={[{ query: currentUser }]}
+            >
+                {(toggleCool, loading) => 
+                !loading ? (
+                    <div>Loading</div>
+                ) : (
+                <Toggle
+                    id="cool-state"
+                    defaultChecked={on}
+                    onChange={
+                        event => {
+                            event.preventDefault();
+                            toggleCool({
+                                variables: {
+                                    id: this.props.id
+                                }
+                            }).then(res => {
+                                debugger;
+                                toggle(res.cool)
+                            })
+                        }
+                    }
+                 />
+                 )}
+            </Mutation>
+            <label htmlFor='cool-state'>Adjacent label tag</label>
         </div>
     )
 
