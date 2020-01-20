@@ -19,7 +19,7 @@ class UserPage extends Component {
     if (this.props.data.user.characters.length > 0) {
          return ( 
              <div className="user-characters">
-                <h2 className="user-subtitle">Characters</h2>
+                <h1 className="user-profile-header">Characters</h1>
                 
                   <div className="chars-spread"> 
                             {this.props.data.user.characters.map(
@@ -46,7 +46,7 @@ class UserPage extends Component {
      } else {
          return (
           <div className="chars-spread">
-           <h3>No Characters Yet</h3>
+           <h3 className="user-profile-header">No Characters Yet</h3>
          </div>
          );
      }
@@ -72,7 +72,7 @@ class UserPage extends Component {
 
           <div className="user-page-middle">
             <div className="user-about">
-                <h1 classNAme="user-profile-header">About Me</h1>
+                <h1 className="user-profile-header">About Me</h1>
                 <div style={{"display":"flex"}}>
                         <div className="user-fieldnames"> 
                             <span className="user-vital-fieldname">First Name:</span>
@@ -94,7 +94,7 @@ class UserPage extends Component {
                 </div>
                 
             </div>
-
+    
               {this.charlist()}     
           </div>
       );

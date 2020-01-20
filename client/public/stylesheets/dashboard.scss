@@ -1,6 +1,7 @@
 .user-about {
     display: flex;
     flex-direction: column;
+    width: 30vw;
 }
 
 .user-characters {
@@ -13,11 +14,16 @@
   .user-data {
     display: flex;
     flex-direction: column;
+    color: sienna;
+    margin: .5rem;
   }
 
   .user-fieldnames {
       display: flex;
       flex-direction: column;
+      color: sienna;
+      font-weight: bold;
+      margin: .5rem;
   }
   
   .user-options {
@@ -38,6 +44,13 @@
     padding: inherit;
     text-align: center;
     width: 100%;
+    color: sienna;
+  }
+
+  .user-profile-header {
+      text-align: center;
+      font-weight: 300;
+      color: sienna;
   }
   
   .user-page-top {
@@ -54,7 +67,9 @@
 
   .user-page-middle {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
+      background: #ffe2bc;
+      border-radius: 4px;
   }
   
   .user-thumb-container {
