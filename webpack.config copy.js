@@ -5,21 +5,30 @@ module.exports = {
   entry: ["babel-polyfill", "./client/index.js"],
   output: {
     path: "/",
-    filename: "bundle.js"
+    filename: "bundle.js",
+    sourceMapFilename: "[name].js.map"
   },
+  devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '*']
     },
   module: {
     rules: [
       {
-        use: "babel-loader",
+        use: {
+          loader: "babel-loader",
+          options: {
+                   presets: ['@babel/preset-react', '@babel/env'],
+                   plugins:['source-map-support']
+           },
+          },
         test: /\.jsx?$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
-        use: ["style-loader", "css-loader"],
-        test: /\.css$/
+        use: ["style-loader", "css-loader", "sass-loader"],
+        // test: /\.css$/
+        test: /\.s[ac]ss$/i,
       },
       {
         test: /\.(png|jpg|gif)$/i,
@@ -31,7 +40,8 @@ module.exports = {
             }
           }
         ]
-      }    
+      },
+         
     ]
   },
   plugins: [
