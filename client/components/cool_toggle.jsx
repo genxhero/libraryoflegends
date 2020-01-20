@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Mutation} from 'react-apollo';
-import Toggle from 'react-toggle'
+import Toggle from 'react-toggle';
 import toggleCool from '../mutations/toggleCool';
 import currentUser from '../queries/current_user';
 
@@ -21,6 +21,7 @@ const CoolToggle = (props) => {
                 !loading ? (
                     <div>Loading</div>
                 ) : (
+                <label htmlFor='cool-state'>Toggle Cool Mode
                 <Toggle
                     id="cool-state"
                     defaultChecked={on}
@@ -32,18 +33,18 @@ const CoolToggle = (props) => {
                                     id: props.id
                                 }
                             }).then(res => {
-                                debugger;
-                                toggle(res.cool)
+                                const cool = res.data.toggleCool.cool;
+                                toggle(cool)
                             }).catch(res => {
-                                debugger;
-                                console.log("Error!")
+                                console.log(res.error)
                             })
                         }
                     }
                  />
+                    </label>
+
                  )}
             </Mutation>
-            <label htmlFor='cool-state'>Adjacent label tag</label>
         </div>
     )
 
