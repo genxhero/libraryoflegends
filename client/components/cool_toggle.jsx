@@ -21,7 +21,7 @@ const CoolToggle = (props) => {
                 !loading ? (
                     <div>Loading</div>
                 ) : (
-                <label htmlFor='cool-state'>Toggle Cool Mode
+                <label className="cool-toggle" htmlFor='cool-state'>Toggle Cool Mode
                 <Toggle
                     id="cool-state"
                     defaultChecked={on}

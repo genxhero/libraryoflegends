@@ -66,7 +66,6 @@ class UserPage extends Component {
             <div className="user-page-top">
                 <div className="user-thumb-container"> 
                     <img src={user.avatar ? `${user.avatar}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"} />
-                    <CoolToggle cool={user.cool} id={user.id} />
                 </div>
                 <h1 className="user-profile-title">{user.username}'s Profile Page</h1>
             </div>
@@ -81,6 +80,11 @@ class UserPage extends Component {
                          <span className="user-vital"> <span className="be-capitalized">Placeholder</span></span>
                          <span className="user-vital"> <span className="be-capitalized">von Workinprogress III</span></span>
 
+                    </div>
+
+                    <div className="user-options"> 
+                    <h1>User Preferences</h1>
+                        <CoolToggle cool={user.cool} id={user.id} />
                     </div>
                 </div>
                 
