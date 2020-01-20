@@ -29,12 +29,13 @@ const CoolToggle = (props) => {
                             event.preventDefault();
                             toggleCool({
                                 variables: {
-                                    id: this.props.id
+                                    id: props.id
                                 }
                             }).then(res => {
                                 debugger;
                                 toggle(res.cool)
                             }).catch(res => {
+                                debugger;
                                 console.log("Error!")
                             })
                         }
