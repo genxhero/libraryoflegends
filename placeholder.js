@@ -4,3 +4,12 @@
 // "babel-preset-react": "^6.22.0"
 // "webpack": "4.41.5",
 // "webpack-dev-middleware": "3.7.2"}
+
+// {
+//     "presets": [
+//         "@babel/preset-env",
+//         "@babel/preset-react"
+//     ],
+//     "sourceMaps": true,
+//     "inputSourceMap": true
+// }
