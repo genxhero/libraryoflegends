@@ -13,6 +13,8 @@
  */
 
  import React from 'react';
+ import {Link} from 'react-router-dom';
+
 
  const CharCard = (props) => {
      const {char, timestamp, cool} = props;
@@ -47,3 +49,5 @@
         </div>
       );
  }
+
+ export default CharCard;
