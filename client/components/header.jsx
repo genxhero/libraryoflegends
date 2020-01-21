@@ -35,35 +35,47 @@ class Header extends Component {
     }
     return (
       <div className={`header ${cool}`}>
-        <div className ={`header-content ${cool}`}>
-                  <div className="header-buffer" />
-         <div className="header-left"> 
-           <Link className="home-link" to="/"> 
-              <h1 className={`header-title ${cool}`}> 
-                <span className={`stud-top-left ${cool}`}/> 
-                <span className={`stud-top-right ${cool}`}/>
-                <span className={`stud-bottom-left ${cool}`}/> 
+        <div className={`header-content ${cool}`}>
+          <div className="header-buffer" />
+          <div className="header-left">
+            <Link className="home-link" to="/">
+              <h1 className={`header-title ${cool}`}>
+                <span className={`stud-top-left ${cool}`} />
+                <span className={`stud-top-right ${cool}`} />
+                <span className={`stud-bottom-left ${cool}`} />
                 <span className={`stud-bottom-right ${cool}`} />
                 Library of Legends
               </h1>
             </Link>
-         </div>
-         {this.props.data.currentUser ? 
-          <div className="header-right" id="header-right">
-            <h3 className="custom-welcome">Welcome, <Link className="custom-welcome-link" to={`/users/${this.props.data.currentUser.username}`}>{this.props.data.currentUser.username}</Link></h3>
-               <div className="header-link" onClick={this.logout}>Logout</div>
-           </div>
-         : 
-           <div className="header-right" id="header-right">
-             <Link className="header-link" to="/register">Register</Link>
-             <Link className="header-link"to="/login">Login</Link>
-           </div>
-         }
+          </div>
+          {this.props.data.currentUser ? (
+            <div className="header-right" id="header-right">
+              <h3 className="custom-welcome">
+                Welcome,{" "}
+                <Link
+                  className="custom-welcome-link"
+                  to={`/users/${this.props.data.currentUser.username}`}
+                >
+                  {this.props.data.currentUser.username}
+                </Link>
+              </h3>
+              <div className={`header-link ${cool}`} onClick={this.logout}>
+                Logout
+              </div>
+            </div>
+          ) : (
+            <div className="header-right" id="header-right">
+              <Link className={`header-link ${cool}`} to="/register">
+                Register
+              </Link>
+              <Link className={`header-link ${cool}`} to="/login">
+                Login
+              </Link>
+            </div>
+          )}
         </div>
-
-          
       </div>
-    )
+    );
   }
 }
 
