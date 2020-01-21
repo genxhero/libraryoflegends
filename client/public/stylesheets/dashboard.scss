@@ -1,0 +1,85 @@
+.user-about {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+.user-characters {
+    margin: .2rem;
+    border: 1px solid;
+    padding: 2rem;
+    background: burlywood;
+  }
+
+  .user-data {
+    display: flex;
+    flex-direction: column;
+    color: sienna;
+    margin: .5rem;
+  }
+
+  .user-fieldnames {
+      display: flex;
+      flex-direction: column;
+      color: sienna;
+      font-weight: bold;
+      margin: .5rem;
+  }
+  
+  .user-options {
+   
+  }
+
+  .user-profile-page {
+    background: antiquewhite;
+    height: auto;
+    min-height: 34rem;
+    padding: 2rem;
+    &.cool {
+      background: url("../../images/old-paper.jpg");
+    }
+  }
+  
+  .user-profile-title {
+    padding: inherit;
+    text-align: center;
+    width: 100%;
+    color: sienna;
+  }
+
+  .user-profile-header {
+      text-align: center;
+      font-weight: 300;
+      color: sienna;
+  }
+  
+  .user-page-top {
+    display: flex;
+    height: 10rem;
+    background: burlywood;
+    align-items: center;
+    padding: 1rem;
+    &.cool{
+      box-shadow: 1px 1px 1px 1px;
+  
+    }
+  }
+
+  .user-page-middle {
+      display: flex;
+      justify-content: space-around;
+      background: #ffe2bc;
+      border-radius: 4px;
+  }
+  
+  .user-thumb-container {
+    height: 10rem;
+  }
+  
+  .user-thumb-container > img {
+    height: 100%;
+  }
+
+  .user-vital {
+
+  }

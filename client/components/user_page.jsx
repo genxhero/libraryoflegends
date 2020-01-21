@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { graphql } from "react-apollo";
 import query from "../queries/getuser";
-import {hashHistory, Link} from 'react-router';
+// import {hashHistory } from 'react-router';
+import {Link} from 'react-router-dom';
 import { numberSuffix } from '../helpers';
 import currentUser from "../queries/current_user";
+import CoolToggle from './cool_toggle';
 
 class UserPage extends Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class UserPage extends Component {
     if (this.props.data.user.characters.length > 0) {
          return ( 
              <div className="user-characters">
-                <h2 className="user-subtitle">Characters</h2>
+                <h1 className="user-profile-header">Characters</h1>
                 
                   <div className="chars-spread"> 
                             {this.props.data.user.characters.map(
@@ -44,17 +46,21 @@ class UserPage extends Component {
      } else {
          return (
           <div className="chars-spread">
-           <h3>No Characters Yet</h3>
+           <h3 className="user-profile-header">No Characters Yet</h3>
          </div>
          );
      }
  }
   
   render() {
+    if (this.props.data.error) {
+        return <div>GraphQL Error</div>
+    }
       if (!this.props.data.user || this.props.data.loading) {
-          return <h1>Loading...</h1>
+          return <h1>Loading user home page...</h1>
       }
       const user = this.props.data.user
+
       return (
           <div className="user-profile-page">
             <div className="user-page-top">
@@ -63,24 +69,32 @@ class UserPage extends Component {
                 </div>
                 <h1 className="user-profile-title">{user.username}'s Profile Page</h1>
             </div>
+
+          <div className="user-page-middle">
             <div className="user-about">
+                <h1 className="user-profile-header">About Me</h1>
                 <div style={{"display":"flex"}}>
-                    <div className="user-fieldnames"> 
-                        <span className="user-vital-fieldname">First Name:</span>
-                        <span className="user-vital-fieldname">Last Name:</span> 
-
+                        <div className="user-fieldnames"> 
+                            <span className="user-vital-fieldname">First Name:</span>
+                            <span className="user-vital-fieldname">Last Name:</span> 
+                        </div>
+                        <div  className="user-data"> 
+                            <span className="user-vital"> <span className="be-capitalized">Placeholder</span></span>
+                            <span className="user-vital"> <span className="be-capitalized">von Workinprogress III</span></span>
+                        </div>
                     </div>
-                    <div  className="user-data"> 
-                         <span className="user-vital"> <span className="be-capitalized">Placeholder</span></span>
-                         <span className="user-vital"> <span className="be-capitalized">von Workinprogress III</span></span>
-
-                    </div>
+                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>   
+                
+            </div>
+           
+                
+            <div className="user-options"> 
+                    <h1 className="user-profile-header">Options</h1>
+                        <CoolToggle cool={user.cool} id={user.id} />
                 </div>
                 
-                
-                <h4>About Me</h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
             </div>
+    
               {this.charlist()}     
           </div>
       );
@@ -92,7 +106,7 @@ export default graphql(query, {
     options: props => {
         return {
         variables: {
-            username: props.params.username
+            username: props.match.params.username
         }
         };
     }

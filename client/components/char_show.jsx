@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { graphql, compose} from "react-apollo";
+// import { graphql, compose} from "react-apollo";
+import {graphql} from 'react-apollo';
+import * as compose from 'lodash.flowright';
 import gql from 'graphql-tag';
 import query from "../queries/fetchchar";
 import index from "../queries/fetchchars";
 import currentUser from "../queries/current_user";
-import {hashHistory} from 'react-router';
+// import {hashHistory} from 'react-router';
 import $ from 'jquery';
 import EditBio from './edit_bio';
 import EditPersonal from './edit_personal';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 class CharShow extends Component {
 
@@ -44,7 +46,7 @@ class CharShow extends Component {
             variables: { id: id },
             refetchQueries: [{ query: index }]
         })
-        .then(hashHistory.push('/'));
+        .then(this.props.history.push('/'));
     }
     
     openConfirmationModal() {

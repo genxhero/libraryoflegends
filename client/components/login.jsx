@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
-import {hashHistory} from 'react-router';
+// import {hashHistory} from 'react-router';
 import query from '../queries/current_user';
 import ErrorsModal from './errors_modal';
 import $ from 'jquery';
@@ -40,7 +40,8 @@ class Login extends Component {
                 },
                 refetchQueries: [{ query }]
         }).then( res => {
-          hashHistory.push('/')
+          debugger;
+          this.props.history.push('/')
         })
         .catch(res => {
           this.setState({ errors: res.graphQLErrors})

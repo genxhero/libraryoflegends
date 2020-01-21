@@ -1,0 +1,40 @@
+.freebie-choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .freebie-choices > .pure-checkbox {
+    display: flex;
+    width: 10rem;
+  }
+  
+  .freebie-form > p {
+    font-weight: bold;
+  }
+  
+  .freebie-selector {
+      background-color: wheat;
+      border: 1px solid black;
+      box-shadow: 1px 1px black;
+      padding: .5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: -webkit-fill-available;
+      margin: 1rem;
+      font-size: 1rem;
+  }
+
+  .freebie-checkboxes {
+    display: flex;
+    flex-direction: column;
+  }
+   
+  .freebie-checkboxes > .pure-checkbox {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .compile-already {
+    background: red;
+  }

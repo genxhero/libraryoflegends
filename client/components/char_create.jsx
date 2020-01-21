@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import {Link, hashHistory} from 'react-router';
-import {graphql, compose} from 'react-apollo';
+// import { hashHistory} from 'react-router';
+import {Link} from 'react-router-dom';
+import {graphql } from 'react-apollo';
+import compose from 'lodash.flowright';
 import AncestryPane from './ancestry_pane';
 import BackgroundPane from './background_pane';
 import ClassPane from './class_pane';
@@ -228,7 +230,10 @@ class CharCreate extends Component {
              image: url
          },
          refetchQueries: [{ query, currentUser }]
-       }).then( hashHistory.push('/'));
+       }).then( res => {
+           debugger;
+           this.props.history.push('/') 
+       });
        //put catch down here later
     }
 

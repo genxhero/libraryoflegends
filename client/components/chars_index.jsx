@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
@@ -37,14 +37,16 @@ class CharsIndex extends Component {
      });
    }
 
+
   render() {
     if (this.props.data.loading || !this.props.data.characters){
       return (<div>
-          <h1>LOADING.......</h1>
+          <h1>Opening the Library.......</h1>
       </div>);
     }
     const user = this.props.data.currentUser;
     const characters = this.props.data.characters;
+
     return (    
       <div className="index-page"> 
        <div className="intro-content">
@@ -57,7 +59,7 @@ class CharsIndex extends Component {
           </div>
           <div className="link-container"> 
           {
-            user ? <Link to="/newchar" className="link-button">Create New Character</Link> :
+            user ? <Link to="/newchar" className="link-button newchar">Create New<br /> Character</Link> :
               <h2> <Link to="/login"k>Log In </Link>or<Link to="/register">Sign Up</Link> to Create a New Character!</h2>
           }
            

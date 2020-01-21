@@ -20,4 +20,4 @@ const InstructionsPane = (props) => {
    )
 }
 
-export default InstructionsPane
+export default InstructionsPane;

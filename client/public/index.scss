@@ -1,0 +1,222 @@
+
+@import './stylesheets/header';
+@import './stylesheets/error';
+@import './stylesheets/buttons';
+@import './stylesheets/session';
+@import './stylesheets/edit';
+@import './stylesheets/create';
+@import './stylesheets/decorations';
+@import './stylesheets/char_show';
+@import './stylesheets/char_card';
+@import './stylesheets/chars_index';
+@import './stylesheets/class_pane';
+@import './stylesheets/ancestry_pane';
+@import './stylesheets/background_pane';
+@import './stylesheets/freebie_pane';
+@import './stylesheets/react-toggle.css';
+@import './stylesheets/dashboard.scss';
+
+.be-capitalized {
+  text-transform: capitalize;
+  /* margin-left: 3px; */
+}
+
+.bg-selector {
+    background: wheat;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px;
+    padding: 4px;
+    margin: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.intro-content {
+  color: white;
+  text-shadow: 1px 2px black;
+}
+
+.intro-content > p {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+
+
+.content {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cool-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: max-content;
+  color: sienna;
+  font-weight: 200;
+}
+
+#index-title  {
+  color: black;
+  text-align: center;
+  text-shadow: none;
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+#index-paragraph {
+  color: black;
+  text-shadow: none;
+  text-align: center;
+  font-size: 18px;
+}
+
+
+p {
+  font-family: sans-serif;
+}
+
+
+.confirmation-dialog{
+  padding: 2rem;
+  width: fit-content;
+  color: gold;
+  background: #712f10;
+  border-radius: 4px;
+  &.cool {
+    box-shadow: 2px 2px 2px 2px black;
+    background-image: url("../../images/woodbg.jpg");
+  }
+}
+
+.confirmation-dialog > h1 {
+  text-align: center;
+}
+
+.confirmation-modal {
+    width: -webkit-fill-available;
+    height: 61rem;
+    position: absolute;
+    top: -10rem;
+    left: 0rem;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.623);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s;
+}
+
+
+.hidden{
+  visibility: hidden;
+}
+
+
+.index-page {
+  display: flex;
+  flex-direction:column;
+  margin-top: -2rem;
+  padding: 2rem;
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat-y;
+  background: antiquewhite;
+  &.cool {
+    background: url("../../images/old-paper.jpg");
+  }
+}
+
+.link-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.select-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+
+input:focus{
+  outline: none;
+}
+
+textarea:focus{
+  outline:none;
+}
+
+
+
+.label-content{
+  margin-right: 10px;
+  margin-right: 10px;
+  text-shadow: 2px 2px 0px, #EEDBC2;
+  font-family: sans-serif;
+  font-size: 22px;
+}
+
+.greenie{
+   color: forestgreen;
+}
+
+.pane-title {
+  &.cool{
+    text-shadow: 1px 1px 1px ligh;
+  }
+
+}
+
+label {
+  margin-right: 10px;
+  margin-right: 10px;
+  text-shadow: 1px 1px 1px aliceblue;
+  font-weight: bolder;
+  font-family: sans-serif;
+  font-size: 22px;
+}
+
+
+
+
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat-y;
+  &.cool {
+    background: url("../../images/old-paper.jpg");
+  }
+}
+
+.dismiss-x{
+    float: right;
+    margin-top:-30px;
+    margin-right:-30px;
+    cursor:pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #605F61;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;       
+}
+
+.dismiss-x:before {
+    content: "×";
+}

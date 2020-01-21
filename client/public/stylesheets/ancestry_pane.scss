@@ -1,0 +1,35 @@
+.ancestry-choice{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+  }
+  
+  .nonhuman-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nonhuman-selector > span {
+    font-size: small;
+    min-width: fit-content;
+  }
+  
+  .ancestry-info {
+      margin: 5px;
+      padding: 5px;
+      background: wheat;
+      box-shadow: 2px 2px 1px;
+      border-radius: 4px;
+  }
+  
+  .ancestry-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed;
+    height: 18rem;
+    padding: 1rem;
+    width: 30rem;
+    margin-bottom: 2rem;
+  }
