@@ -14,6 +14,7 @@
 
  import React from 'react';
  import {Link} from 'react-router-dom';
+ import { numberSuffix, capitalize } from "../helpers";
 
 
  const CharCard = (props) => {

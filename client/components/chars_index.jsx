@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
-import { numberSuffix, capitalize } from '../helpers';
 import CharCard from './char_card';
 
 class CharsIndex extends Component {
