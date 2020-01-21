@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo';
 import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
 import { numberSuffix, capitalize } from '../helpers';
+import CharCard from './char_card';
 
 class CharsIndex extends Component {
 
@@ -21,18 +22,7 @@ class CharsIndex extends Component {
      const timestamp = Date.now();
      return characters.map(char => {
        return (
-         <div className="char-snippet"
-          key={`${char.firstName}${timestamp}${char.lastName}${char.id}`} 
-          value={`${char.id}`}
-          >
-          <div className="char-snippet-name">{char.firstName} {char.lastName}</div>
-          <div className="char-snippet-class">{char.level}{numberSuffix(char.level)} level {capitalize(char.class)}</div>
-        
-           <div className="char-thumb-container">
-             <img className="char-thumb" src={char.image ? `${char.image}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"} />
-          </div>
-          <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
-         </div>
+           <CharCard char={char} cool={user.cool} timestamp={timestamp} />
        );
      });
    }
@@ -46,6 +36,7 @@ class CharsIndex extends Component {
     }
     const user = this.props.data.currentUser;
     const characters = this.props.data.characters;
+    const timestamp = Date.now();
 
     return (    
       <div className="index-page"> 
@@ -55,8 +46,8 @@ class CharsIndex extends Component {
           <h2 id="index-title">Names of Legend</h2>
           </div>   
         <div className="chars-spread">
-            {this.charList(characters)}
-          </div>
+             {characters.map(char => <CharCard char={char} cool={user.cool} timestamp={timestamp} /> ) }
+        </div>
           <div className="link-container"> 
           {
             user ? <Link to="/newchar" className="link-button newchar">Create New<br /> Character</Link> :
@@ -72,3 +63,17 @@ class CharsIndex extends Component {
 
 
 export default graphql(query)(CharsIndex);
+
+
+//  <div className="char-snippet"
+//           key={`${char.firstName}${timestamp}${char.lastName}${char.id}`} 
+//           value={`${char.id}`}
+//           >
+//           <div className="char-snippet-name">{char.firstName} {char.lastName}</div>
+//           <div className="char-snippet-class">{char.level}{numberSuffix(char.level)} level {capitalize(char.class)}</div>
+        
+//            <div className="char-thumb-container">
+//              <img className="char-thumb" src={char.image ? `${char.image}` : "http://www.clarkegroup.co.uk/wp-content/uploads/2014/10/placeholder-employee.jpg"} />
+//           </div>
+//           <Link to={`/characters/${char.id}`} className="link-button">VIEW PROFILE</Link>
+//          </div>
