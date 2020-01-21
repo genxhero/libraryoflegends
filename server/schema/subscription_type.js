@@ -1,8 +1,6 @@
 const graphql = require("graphql");
 const CharType =require("./char_type");
-const { PubSub } = require('apollo-server');
-
-const pubsub = new PubSub();
+// s
 
 const {
   GraphQLObjectType,
@@ -13,19 +11,17 @@ const {
   GraphQLNonNull
 } = graphql;
 
+const charAdded = "charAdded"
+
 const SubscriptionType = new GraphQLObjectType({ 
     name: "SubscriptionType",
     fields: () => ({ 
         charAdded: {
             type: CharType,
-            args: {repoFullName: {type: GraphQLString}},
-            resolve: (payload) => {
-              console.log("payload = ", payload)
-                return {
-                  customData: payload,
-                };
-              },
-            subscribe: () => pubsub.asyncIterator('charAdded')
+            subscribe: (_, __, {pubsub}) => pubsub.asyncIterator(charAdded),
+            resolve: payload => {
+              return payload
+            }
         }
     })
 })

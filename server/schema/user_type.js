@@ -5,7 +5,8 @@ const {
   GraphQLInt,
   GraphQLList,
   GraphQLSchema,
-  GraphQLNonNull
+  GraphQLNonNull,
+  GraphQLBoolean
 } = graphql;
 const CharType = require('./char_type');
 const mongoose = require("mongoose");
@@ -23,6 +24,7 @@ const UserType = new GraphQLObjectType({
         email: { type: GraphQLString },
         password: {type: GraphQLString},
         bio: {type: GraphQLString},
+        cool: {type: GraphQLBoolean},
         characters: {
             type: new GraphQLList(CharType),
             resolve(parentValue, args) {

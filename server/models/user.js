@@ -21,6 +21,10 @@ const UserSchema = new Schema(
       type: String,
       required: false
     },
+    cool: {
+      type: Boolean,
+      required: false
+    },
     characters: [
       {
         type: Schema.Types.ObjectId,
@@ -50,6 +54,17 @@ UserSchema.statics.findChars = function (id) {
     return this.findById(id)
         .populate('characters')
         .then(user => user.characters);
+}
+
+UserSchema.statics.toggleCool = async function (id) {
+  const user = await this.findById(id);
+  if (user.cool === null || user.cool === false) {
+    user.cool = true;
+  } else {
+    user.cool = false
+  }
+  await user.save();
+  return user;
 }
 
 UserSchema.pre('save', function save(next) {
