@@ -231,7 +231,7 @@ class CharCreate extends Component {
          },
          refetchQueries: [{ query, currentUser }]
        }).then( res => {
-           debugger;
+        //    debugger;
            this.props.history.push('/') 
        });
        //put catch down here later
