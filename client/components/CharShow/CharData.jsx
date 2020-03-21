@@ -16,3 +16,5 @@ const CharData = (props) => {
         </div>
     )
 }
+
+export default CharData;
