@@ -83,7 +83,7 @@ class CharShow extends Component {
 render() {
     const char = this.props.data.character;
     const currentUser = this.props.data.currentUser || {id: "nobody is logged in"};
-
+    debugger;
     if (!char){
         return <div>Loading...</div>
     }
