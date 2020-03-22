@@ -22,21 +22,21 @@
 
       return (
         <div
-          className={`char-snippet ${cool}`}
+          className={`char-snippet ${cool === true ? 'cool' : '' }`}
           key={`${char.firstName}${timestamp}${char.lastName}${char.id}`}
           value={`${char.id}`}
         >
-          <div className={`char-snippet-name ${cool}`}>
+          <div className={`char-snippet-name ${cool === true ? 'cool' : '' }`}>
             {char.firstName} {char.lastName}
           </div>
-          <div className={`char-snippet-class ${cool}`}>
+          <div className={`char-snippet-class ${cool === true ? 'cool' : '' }`}>
             {char.level}
             {numberSuffix(char.level)} level {capitalize(char.class)}
           </div>
 
-          <div className={`char-thumb-container ${cool}`}>
+          <div className={`char-thumb-container ${cool === true ? 'cool' : '' }`}>
             <img
-              className={`char-thumb ${cool}`}
+              className={`char-thumb ${cool === true ? 'cool' : '' }`}
               src={
                 char.image
                   ? `${char.image}`
@@ -44,7 +44,7 @@
               }
             />
           </div>
-          <Link to={`/characters/${char.id}`} className={`link-button ${cool}`}>
+          <Link to={`/characters/${char.id}`} className={`link-button ${cool === true ? 'cool' : '' }`}>
             VIEW PROFILE
           </Link>
         </div>
