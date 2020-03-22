@@ -17,14 +17,14 @@ class CharsIndex extends Component {
      })
   }
 
-   charList(characters){
-     const timestamp = Date.now();
-     return characters.map(char => {
-       return (
-           <CharCard char={char} cool={user.cool} timestamp={timestamp} />
-       );
-     });
-   }
+  //  charList(characters){
+  //    const timestamp = Date.now();
+  //    return characters.map(char => {
+  //      return (
+  //          <CharCard char={char} cool={cool} timestamp={timestamp} />
+  //      );
+  //    });
+  //  }
 
 
   render() {
@@ -34,6 +34,7 @@ class CharsIndex extends Component {
       </div>);
     }
     const user = this.props.data.currentUser;
+    const cool = user ? user.cool : false;
     const characters = this.props.data.characters;
     const timestamp = Date.now();
 
@@ -45,7 +46,7 @@ class CharsIndex extends Component {
           <h2 id="index-title">Names of Legend</h2>
           </div>   
         <div className="chars-spread">
-             {characters.map(char => <CharCard char={char} cool={user.cool} timestamp={timestamp} /> ) }
+             {characters.map(char => <CharCard char={char} cool={cool} timestamp={timestamp} key={`${char.firstName}${char.lastName}`} /> ) }
         </div>
           <div className="link-container"> 
           {
