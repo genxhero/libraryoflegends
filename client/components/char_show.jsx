@@ -5,7 +5,7 @@ import * as compose from 'lodash.flowright';
 import gql from 'graphql-tag';
 import query from "../queries/fetchchar";
 import index from "../queries/fetchchars";
-// import currentUser from "../queries/current_user";
+import currentUser from "../queries/current_user";
 // import {hashHistory} from 'react-router';
 import $ from 'jquery';
 import EditBio from './edit_bio';
@@ -81,9 +81,10 @@ class CharShow extends Component {
 
 
 render() {
+    console.log(this.props.data)
     const char = this.props.data.character;
     const currentUser = this.props.data.currentUser || {id: "nobody is logged in"};
-    debugger;
+    
     if (!char){
         return <div>Loading...</div>
     }
