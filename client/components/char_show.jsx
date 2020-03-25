@@ -31,9 +31,9 @@ class CharShow extends Component {
         this.finishEdit = this.finishEdit.bind(this);
     }
 
-    componentWillReceiveProps(newProps) {
-        this.setState(() => { return { bio: newProps.data.character.bio}})
-    }
+    // componentWillReceiveProps(newProps) {
+    //     this.setState(() => { return { bio: newProps.data.character.bio}})
+    // }
     /**
      * Sakujo is Japanese for delete. It's a Death Note reference. Deal with it.
      * @param {*} event 
@@ -83,12 +83,11 @@ class CharShow extends Component {
 render() {
     console.log(this.props.data)
     const char = this.props.data.character;
-    const currentUser = this.props.data.currentUser || {id: "nobody is logged in"};
     
     if (!char){
         return <div>Loading...</div>
     }
-
+    const currentUser = this.props.data.currentUser || { id: "nobody is logged in" };
     const creatorMatch = char.user.id === currentUser.id;
 
     return <div className="char-show">
