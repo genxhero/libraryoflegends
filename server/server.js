@@ -50,7 +50,7 @@ app.use(passport.session());
 
 app.use('/graphql', expressGraphQL({
     schema,
-    pubsub,
+    // pubsub,
     graphiql: true
 }));
 
