@@ -1,0 +1,8 @@
+/node_modules
+/config
+secret.js
+key.js
+newkey.js
+.env
+.DS_Store
+/sounds/.DS_Store
