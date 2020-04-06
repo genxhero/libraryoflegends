@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo';
 import query from '../queries/fetchchars';
 import currentUser from '../queries/current_user';
 import CharCard from './char_card';
+import Disclaimer from './Disclaimer';
 
 class CharsIndex extends Component {
 
@@ -40,6 +41,7 @@ class CharsIndex extends Component {
 
     return (    
       <div className="index-page"> 
+        <Disclaimer />
        <div className="intro-content">
           <h1 id="index-title">Welcome</h1>
           <p id="index-paragraph">You have entered the Library of Legends, where tales of great heroes lie.</p>
