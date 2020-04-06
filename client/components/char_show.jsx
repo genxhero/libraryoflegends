@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import { graphql, compose} from "react-apollo";
-import {graphql} from 'react-apollo';
+import {graphql, Query} from 'react-apollo';
 import * as compose from 'lodash.flowright';
 import gql from 'graphql-tag';
 import query from "../queries/fetchchar";
@@ -81,7 +81,7 @@ class CharShow extends Component {
 
 
 render() {
-    console.log(this.props.data)
+    console.log(this.props)
     const char = this.props.data.character;
     
     if (!char){
@@ -211,9 +211,10 @@ mutation DeleteChar($id: String!){
 export default graphql(mutation)(
     graphql(query, {
     options: props => {
+        console.log(props)
         return {
         variables: {
-            id: props.params.id
+            id: props.match.params.id
         }
         };
     }
