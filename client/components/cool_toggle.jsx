@@ -22,7 +22,7 @@ const CoolToggle = (props) => {
                     <div>Loading</div>
                 ) : (
                 <label className="cool-toggle" htmlFor='cool-state'> 
-                    <span>Cool Mode</span>
+                    <span style={{"margin":"1rem"}}>Cool Mode</span>
                     <Toggle
                         id="cool-state"
                         defaultChecked={on}
