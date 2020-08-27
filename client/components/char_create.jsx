@@ -191,7 +191,7 @@ class CharCreate extends Component {
             }
         }
         await axios.put(signedRequest, file, options)
-            .then(res => console.log(res)).catch(console.log("Aws failed to save, please check your bucket"));
+            .then(res => console.log(res)).catch(error => console.log(error));
     }
 
 
