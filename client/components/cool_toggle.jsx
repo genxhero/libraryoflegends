@@ -38,6 +38,7 @@ const CoolToggle = (props) => {
                                     const cool = res.data.toggleCool.cool;
                                     toggle(cool)
                                 }).catch(res => {
+                                    console.log("Error toggling cool mode")
                                 })
                             }
                         }
