@@ -23,9 +23,15 @@ require('../config/passport');
 const app = express();
 const PORT = process.env.PORT || 8000
 //
-
 mongoose.Promise = global.Promise;
-mongoose.connect(db);
+// mongoose.connect(db);
+mongoose.connect(db,
+  {
+    ssl: true,
+    useNewUrlParser: true
+  } 
+  
+  );
 mongoose.connection
     .once('open', () => console.log('Connected to Atlas instance.'))
     .on('error', error => console.log('Error connecting to Atlas:', error));
@@ -38,7 +44,7 @@ mongoose.connection
         store: new MongoStore({
           url: db,
           autoReconnect: true,
-          mongooseConnection: mongoose.connection
+          mongooseConnection: mongoose.connection,
         })
       }));
 
